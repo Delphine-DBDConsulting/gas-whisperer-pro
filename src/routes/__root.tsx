@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "CLM Industry — Mesure de gaz industriels par laser OPO" },
+      { name: "description", content: "CLM Industry identifie, mesure et surveille les émissions de gaz industriels sur votre site pour assurer la conformité VLEP/CMR et optimiser vos installations." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "CLM Industry — Mesure de gaz industriels par laser OPO" },
+      { property: "og:description", content: "CLM Industry identifie, mesure et surveille les émissions de gaz industriels sur votre site pour assurer la conformité VLEP/CMR et optimiser vos installations." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "CLM Industry — Mesure de gaz industriels par laser OPO" },
+      { name: "twitter:description", content: "CLM Industry identifie, mesure et surveille les émissions de gaz industriels sur votre site pour assurer la conformité VLEP/CMR et optimiser vos installations." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/480a78b3-0c80-4dae-b83d-0a908adf312c/id-preview-cfd74050--d34eef95-f5c0-461a-9753-586a54d67735.lovable.app-1782132140362.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/480a78b3-0c80-4dae-b83d-0a908adf312c/id-preview-cfd74050--d34eef95-f5c0-461a-9753-586a54d67735.lovable.app-1782132140362.png" },
     ],
     links: [
       {

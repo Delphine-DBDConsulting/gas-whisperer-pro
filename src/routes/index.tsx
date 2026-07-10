@@ -10,11 +10,11 @@ export const Route = createFileRoute("/")({
         content:
           "CLM Industry identifie, mesure et surveille les émissions de gaz industriels sur votre site pour assurer la conformité VLEP/CMR et optimiser vos installations.",
       },
-      { property: "og:title", content: "CLM Industry — Mesure de gaz industriels" },
+      { property: "og:title", content: "CLM Industry — Mesure de gaz industriels par laser OPO" },
       {
         property: "og:description",
         content:
-          "Campagnes de mesure de gaz par laser OPO. Identification de 500+ espèces gazeuses, précision au ppb, conformité VLEP/CMR.",
+          "CLM Industry identifie, mesure et surveille les émissions de gaz industriels sur votre site pour assurer la conformité VLEP/CMR et optimiser vos installations.",
       },
     ],
   }),
