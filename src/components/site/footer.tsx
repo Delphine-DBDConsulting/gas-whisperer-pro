@@ -4,7 +4,6 @@ import { Container } from "./container";
 import { COMPANY } from "@/lib/company";
 import logoAsset from "@/assets/clm-logo.svg.asset.json";
 
-
 export function SiteFooter() {
   return (
     <footer className="bg-[color:var(--footer)]">
