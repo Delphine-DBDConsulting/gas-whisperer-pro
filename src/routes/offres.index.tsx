@@ -73,9 +73,7 @@ function OffresIndex() {
             Décrivez-nous votre site et vos obligations : nous vous répondons sous 48 heures avec
             une recommandation argumentée.
           </p>
-          <Link to="/contact" className="cta-primary mt-8">
-            Prendre rendez-vous
-          </Link>
+          <BookingButton className="mt-8" />
         </div>
       </Container>
     </>
