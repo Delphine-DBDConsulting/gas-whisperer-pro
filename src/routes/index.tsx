@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
           name: "CLM Industry",
           legalName: "C.L.M.I. S.A.R.L.",
           description: DESCRIPTION,
-          email: "contact@clm-industry.fr",
+          email: "sales@clm-industry.fr",
           address: {
             "@type": "PostalAddress",
             streetAddress: "5 rue du Général Leclerc",
@@ -83,7 +83,7 @@ function Hero() {
           />
           <img
             src={xfi9}
-            alt="Analyseur XFi-9 — laser OPO pour la mesure de gaz industriels"
+            alt="Analyseur XFLR-9 — laser OPO pour la mesure de gaz industriels"
             width={1024}
             height={1024}
             className="relative w-full rounded-lg border border-border/60 shadow-2xl"
@@ -150,11 +150,11 @@ function Solution() {
         <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
             CLM Industry réalise des campagnes de mesure de gaz sur site industriel, en s'appuyant
-            sur un analyseur propriétaire unique en France : le XFi-9, basé sur la technologie OPO
+            sur un analyseur propriétaire unique en France : le XFLR-9, basé sur la technologie OPO
             Laser (Oscillateur Paramétrique Optique), issue de l'aérospatial.
           </p>
           <p>
-            Contrairement aux capteurs classiques, le XFi-9 lit l'empreinte infrarouge de chaque
+            Contrairement aux capteurs classiques, le XFLR-9 lit l'empreinte infrarouge de chaque
             molécule présente dans l'air. Il identifie et mesure simultanément jusqu'à 10 gaz
             différents en temps réel, parmi plus de 500 espèces gazeuses.
           </p>
