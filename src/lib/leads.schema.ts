@@ -31,8 +31,15 @@ export const contactRequestSchema = z.object({
 export type ContactRequestInput = z.infer<typeof contactRequestSchema>;
 
 export const brochureLeadSchema = z.object({
-  fullName: z.string().trim().min(2, "Please enter your name").max(100, "100 characters max"),
+  lastName: z.string().trim().min(2, "Please enter your name").max(100, "100 characters max"),
   company: z.string().trim().min(2, "Please enter your company").max(120, "120 characters max"),
+  phone: z
+    .string()
+    .trim()
+    .max(19, "19 characters max")
+    .regex(/^\d{6,19}$/, "Include the country code without + or 0 (e.g. 33612345678)")
+    .optional()
+    .or(z.literal("")),
   email: z
     .string()
     .trim()

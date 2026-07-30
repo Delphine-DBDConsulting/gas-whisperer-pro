@@ -86,7 +86,7 @@ export const submitBrochureLead = createServerFn({ method: "POST" })
 
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { error } = await supabaseAdmin.from("brochure_leads").insert({
-      full_name: data.fullName,
+      full_name: data.lastName,
       company: data.company,
       email: data.email,
       ip_address: clientIp(),
@@ -100,17 +100,22 @@ export const submitBrochureLead = createServerFn({ method: "POST" })
     const { notifyNewLead } = await import("./notify.server");
     await notifyNewLead({
       subject: `English brochure download — ${data.company}`,
-      lines: [`Name: ${data.fullName}`, `Company: ${data.company}`, `Email: ${data.email}`],
+      lines: [
+        `Name: ${data.lastName}`,
+        `Company: ${data.company}`,
+        `Phone: ${data.phone || "—"}`,
+        `Email: ${data.email}`,
+      ],
     });
 
     const { upsertBrevoContact } = await import("./brevo.server");
-    const { firstName, lastName } = splitName(data.fullName);
     await upsertBrevoContact({
       email: data.email,
       attributes: {
-        FIRSTNAME: firstName,
-        LASTNAME: lastName,
+        LASTNAME: data.lastName,
         SOCIETE: data.company,
+        TELEPHONE: data.phone || undefined,
+        SMS: data.phone || undefined,
         SOURCE: "brochure_en",
         LANGUE: "en",
       },

@@ -126,10 +126,10 @@ function BrochurePage() {
             </p>
 
             <label className="block text-sm font-medium text-foreground">
-              Full name *
-              <input type="text" name="fullName" required className={fieldClass} />
-              {errors.fullName ? (
-                <span className="mt-1 block text-xs text-destructive">{errors.fullName}</span>
+              Last Name *
+              <input type="text" name="lastName" required className={fieldClass} />
+              {errors.lastName ? (
+                <span className="mt-1 block text-xs text-destructive">{errors.lastName}</span>
               ) : null}
             </label>
             <label className="block text-sm font-medium text-foreground">
@@ -140,11 +140,30 @@ function BrochurePage() {
               ) : null}
             </label>
             <label className="block text-sm font-medium text-foreground">
+              Number
+              <input
+                type="tel"
+                name="phone"
+                inputMode="numeric"
+                placeholder="33612345678"
+                className={fieldClass}
+              />
+              <span className="mt-1 block text-xs text-muted-foreground">
+                6 to 19 digits, country code included, without + or 0 (e.g. 33612345678 for France).
+              </span>
+              {errors.phone ? (
+                <span className="mt-1 block text-xs text-destructive">{errors.phone}</span>
+              ) : null}
+            </label>
+            <label className="block text-sm font-medium text-foreground">
               Work email *
               <input type="email" name="email" required className={fieldClass} />
               {errors.email ? (
                 <span className="mt-1 block text-xs text-destructive">{errors.email}</span>
               ) : null}
+              <span className="mt-1 block text-xs text-muted-foreground">
+                Please provide your email address to sign up. Ex: abc@xyz.com
+              </span>
             </label>
 
             <input
