@@ -1,6 +1,6 @@
 ## Objectif
 
-Passer de la maquette (une seule page d'accueil avec ancres) à un site complet et fonctionnel : pages dédiées, formulaire de prise de rendez-vous relié à une base de données avec notification email, page de téléchargement de la brochure anglaise, et pages légales.
+Passer de la maquette (une seule page d'accueil avec ancres) à un site complet et fonctionnel : pages dédiées, intégration CRM **Brevo** pour les formulaires de contact et de prise de rendez-vous en ligne, page de téléchargement de la brochure anglaise, et pages légales.
 
 ## Arborescence cible
 
@@ -10,7 +10,8 @@ Passer de la maquette (une seule page d'accueil avec ancres) à un site complet 
 /offres/emissions-performance  Offre 2 — détail complet
 /technologie                   XFi-9, laser OPO, comparatif FID/PID, chiffres clés
 /references                    Clients, cas clients / ROI
-/contact                       Formulaire de prise de rendez-vous
+/contact                       Formulaire de contact + CTA vers rendez-vous
+/rendez-vous                   Prise de rendez-vous en ligne (widget Brevo Meetings)
 /en/brochure                   English brochure download page (cible du drapeau 🇬🇧)
 /mentions-legales
 /politique-de-confidentialite
@@ -21,7 +22,7 @@ Chaque page a ses propres `title`, `description`, `og:title`, `og:description`.
 ## Étape 1 — Structure et navigation partagée
 
 - Extraction de l'en-tête et du pied de page dans des composants réutilisés par toutes les pages (aujourd'hui ils sont codés en dur dans la page d'accueil).
-- Menu de navigation en liens de route réels (plus d'ancres `#`), avec état actif, menu mobile (burger) et bouton « Prendre rendez-vous » vers `/contact`.
+- Menu de navigation en liens de route réels (plus d'ancres `#`), avec état actif, menu mobile (burger) et bouton « Prendre rendez-vous » vers `/rendez-vous`.
 - Page 404 en français, aux couleurs Stratos.
 - L'accueil garde le hero, la section réglementaire et des blocs de synthèse renvoyant vers les pages dédiées.
 
@@ -32,22 +33,25 @@ Chaque page a ses propres `title`, `description`, `og:title`, `og:description`.
 - **Références** : logos clients + 2 à 3 cas clients avec le ROI chiffré.
 - Effets de survol cyan, largeur max 1200 px, paddings 80/48 px conservés partout.
 
-## Étape 3 — Formulaire de contact (Lovable Cloud)
+## Étape 3 — Intégration CRM Brevo (contact et rendez-vous)
 
-- Activation de Lovable Cloud (base de données intégrée).
-- Table `contact_requests` : nom, société, fonction, email, téléphone, site industriel, offre concernée, message, date. Sécurisée : insertion publique autorisée, lecture réservée aux administrateurs.
-- Formulaire `/contact` : validation Zod côté client **et** côté serveur, limites de longueur, anti-spam (honeypot + limitation par IP), message de confirmation.
-- **Email de notification** vers l'adresse CLM à chaque nouvelle demande, plus un accusé de réception automatique au prospect. Nécessite la configuration d'un domaine d'envoi appartenant à CLM (ex. `notify.clm-industry.fr`) — je vous guiderai à ce moment-là.
+- **Connexion Brevo** : lier le connecteur Brevo au projet. Dans Brevo, autoriser l'adresse IP sortante du **Lovable Connector Gateway** : `34.49.40.81`. Pour les tests depuis l'éditeur Lovable, autoriser aussi `34.22.168.241`.
+- **Formulaire `/contact`** : à chaque soumission, créer ou mettre à jour un contact Brevo avec les attributs suivants (mapping 1-for-1 avec les champs du formulaire) :
+  - `EMAIL`, `NOM` / `PRENOM`, `SOCIETE`, `FONCTION`, `TELEPHONE`, `SITE_INDUSTRIEL`, `OFFRE`, `MESSAGE`.
+- **Page `/rendez-vous`** : intégrer le widget de prise de rendez-vous en ligne **Brevo Meetings**. Les champs demandés au prospect (nom, email, société, téléphone) doivent correspondre aux champs du formulaire de contact. Si possible, le widget est pré-rempli avec les informations déjà saisies.
+- **Brochure anglaise `/en/brochure`** : créer un contact Brevo avec `EMAIL`, `NOM`, `SOCIETE`, `LANGUE = en`, `SOURCE = brochure_en`.
+- **Backup local** : conserver une copie de chaque soumission dans les tables `contact_requests` et `brochure_leads` de Lovable Cloud pour traçabilité et audit.
+- **Notifications** : envoyer un email interne à CLM à chaque nouveau contact/réception via Brevo (ou via Lovable Emails si le domaine d'envoi Brevo n'est pas encore configuré), plus un accusé de réception automatique au prospect.
 
 ## Étape 4 — Page brochure anglaise
 
 - `/en/brochure` : page en anglais présentant brièvement CLM Industry et proposant le téléchargement du PDF.
-- Téléchargement conditionné à un mini-formulaire (nom, email, société) enregistré dans la même base, afin de tracer les leads — ou en accès direct si vous préférez.
+- Téléchargement conditionné à un mini-formulaire (nom, email, société) enregistré dans Brevo, afin de tracer les leads — ou en accès direct si vous préférez.
 - Le drapeau 🇬🇧 de la navigation pointe vers cette page.
 
 ## Étape 5 — Pages légales
 
-- Mentions légales (éditeur C.L.M.I. S.A.R.L., SIRET, directeur de publication, hébergeur) et politique de confidentialité (données collectées par le formulaire, durée de conservation, droits RGPD, contact DPO).
+- Mentions légales (éditeur C.L.M.I. S.A.R.L., SIRET, directeur de publication, hébergeur) et politique de confidentialité (données collectées par les formulaires, durée de conservation, droits RGPD, traitement par Brevo, contact DPO).
 - Bandeau cookies uniquement si un outil de mesure d'audience est ajouté.
 
 ## Étape 6 — SEO et finitions
@@ -64,7 +68,14 @@ Je pose des contenus provisoires clairement marqués tant que je n'ai pas :
 3. 2 à 3 cas clients avec chiffres de ROI (même anonymisés : « site pétrochimique, 800 salariés »).
 4. Le PDF de la brochure anglaise.
 5. L'adresse email destinataire des demandes et le domaine d'envoi.
+6. **Le lien de rendez-vous Brevo Meetings** (URL du widget ou identifiant de la réunion) pour la page `/rendez-vous`.
 
 ## Détails techniques
 
-TanStack Start avec routage par fichiers (`src/routes/`), un fichier par page ; composants partagés dans `src/components/`. Formulaire traité par une server function avec validation Zod ; stockage Supabase géré par Lovable Cloud avec RLS (insertion anonyme, lecture admin uniquement) ; emails via l'infrastructure email intégrée (file d'attente + logs). Design system existant (`src/styles.css`) inchangé.
+- TanStack Start avec routage par fichiers (`src/routes/`), un fichier par page ; composants partagés dans `src/components/`.
+- Formulaires traités par des server functions avec validation Zod.
+- **Brevo** : connecteur `brevo` lié au projet via le Lovable Connector Gateway (`https://connector-gateway.lovable.dev/brevo`). Les appels utilisent `Authorization: Bearer ${LOVABLE_API_KEY}` et `X-Connection-Api-Key: ${BREVO_API_KEY}`.
+- Contacts Brevo créés via `POST /contacts` (ou `PUT /contacts/{email}` pour la mise à jour) avec les attributs listés ci-dessus.
+- Backup local dans Lovable Cloud (Supabase) : tables `contact_requests` et `brochure_leads` avec insertion publique et lecture réservée aux administrateurs.
+- Emails transactionnels via Brevo SMTP/API ou Lovable Emails en fallback si le domaine d'envoi CLM n'est pas encore configuré.
+- Design system existant (`src/styles.css`) inchangé.
