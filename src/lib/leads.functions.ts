@@ -11,6 +11,12 @@ function clientIp() {
   );
 }
 
+function splitName(fullName: string) {
+  const parts = fullName.trim().split(/\s+/);
+  const firstName = parts.shift() ?? fullName;
+  return { firstName, lastName: parts.join(" ") || firstName };
+}
+
 export const submitContactRequest = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => contactRequestSchema.parse(data))
   .handler(async ({ data }) => {
@@ -51,6 +57,25 @@ export const submitContactRequest = createServerFn({ method: "POST" })
       ],
     });
 
+    // Synchronisation CRM Brevo (non bloquante).
+    const { upsertBrevoContact } = await import("./brevo.server");
+    const { firstName, lastName } = splitName(data.fullName);
+    await upsertBrevoContact({
+      email: data.email,
+      attributes: {
+        PRENOM: firstName,
+        NOM: lastName,
+        SOCIETE: data.company,
+        FONCTION: data.jobTitle || undefined,
+        TELEPHONE: data.phone || undefined,
+        SITE_INDUSTRIEL: data.siteLocation || undefined,
+        OFFRE: data.offer,
+        MESSAGE: data.message,
+        SOURCE: "formulaire_contact",
+        LANGUE: "fr",
+      },
+    });
+
     return { ok: true as const };
   });
 
@@ -76,6 +101,19 @@ export const submitBrochureLead = createServerFn({ method: "POST" })
     await notifyNewLead({
       subject: `English brochure download — ${data.company}`,
       lines: [`Name: ${data.fullName}`, `Company: ${data.company}`, `Email: ${data.email}`],
+    });
+
+    const { upsertBrevoContact } = await import("./brevo.server");
+    const { firstName, lastName } = splitName(data.fullName);
+    await upsertBrevoContact({
+      email: data.email,
+      attributes: {
+        PRENOM: firstName,
+        NOM: lastName,
+        SOCIETE: data.company,
+        SOURCE: "brochure_en",
+        LANGUE: "en",
+      },
     });
 
     return { ok: true as const };
