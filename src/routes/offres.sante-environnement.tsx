@@ -64,6 +64,35 @@ export const Route = createFileRoute("/offres/sante-environnement")({
           a: "Plus de 500 espèces gazeuses, dont le benzène, le formaldéhyde, les fréons et la majorité des COV rencontrés en milieu industriel.",
         },
       ]}
+      caseStudies={[
+        {
+          sector: "Chimie de spécialités",
+          title: "Une VLEP benzène dépassée identifiée avant contrôle",
+          problem:
+            "Des capteurs PID signalaient une hausse de COV sans permettre d'en identifier l'origine, à quelques semaines d'un contrôle réglementaire.",
+          result:
+            "La campagne a isolé le benzène comme molécule responsable et localisé la fuite sur une ligne de transfert. Correction réalisée avant le contrôle.",
+          kpi: "Arrêt de poste évité",
+        },
+        {
+          sector: "Pharmacie",
+          title: "Cartographie d'exposition sur 12 postes de travail",
+          problem:
+            "Le service HSE devait documenter l'exposition réelle aux solvants pour son document unique et le CSE.",
+          result:
+            "Une cartographie molécule par molécule, poste par poste, a permis de prioriser trois zones de captage.",
+          kpi: "Plan d'action HSE argumenté",
+        },
+        {
+          sector: "Industrie pharmaceutique",
+          title: "Charbons actifs : cycle de remplacement optimisé",
+          problem:
+            "Une installation d'abattage des COV (mélange CMR et non CMR) imposait un remplacement des filtres toutes les trois semaines, sans donnée de saturation réelle.",
+          result:
+            "Une campagne de mesure amont/aval sur un mois a démontré qu'un remplacement mensuel suffisait pour ce procédé. Coût annuel ramené de 520 000 € à 390 000 €.",
+          kpi: "130 000 € d'économie par an",
+        },
+      ]}
     />
   ),
 });
