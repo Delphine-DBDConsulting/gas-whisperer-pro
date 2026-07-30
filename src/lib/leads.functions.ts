@@ -11,6 +11,12 @@ function clientIp() {
   );
 }
 
+function splitName(fullName: string) {
+  const parts = fullName.trim().split(/\s+/);
+  const firstName = parts.shift() ?? fullName;
+  return { firstName, lastName: parts.join(" ") || firstName };
+}
+
 export const submitContactRequest = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => contactRequestSchema.parse(data))
   .handler(async ({ data }) => {
