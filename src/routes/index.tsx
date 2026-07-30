@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import xfi9 from "@/assets/xfi9-analyzer.jpg";
+import { BookingButton } from "@/components/site/booking";
 import { Container } from "@/components/site/container";
 import { LogoMarquee } from "@/components/site/logo-marquee";
 
@@ -75,9 +76,7 @@ function Hero() {
             installations.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link to="/contact" className="cta-primary">
-              Prendre rendez-vous
-            </Link>
+            <BookingButton />
             <Link to="/offres" className="cta-outline">
               Découvrir nos offres
             </Link>
@@ -292,9 +291,7 @@ function FinalCta() {
           votre site, vos contraintes réglementaires et vos objectifs d'optimisation.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <a href="mailto:sales@clm-industry.fr" className="cta-primary">
-            Prendre rendez-vous
-          </a>
+          <BookingButton />
           <a href="mailto:sales@clm-industry.fr" className="cta-outline">
             Nous contacter
           </a>
