@@ -3,6 +3,8 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import { Container } from "./container";
+import logoAsset from "@/assets/clm-logo.svg.asset.json";
+
 
 const navLinks = [
   { to: "/offres", label: "Offres" },
@@ -17,9 +19,19 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur">
       <Container className="flex h-16 items-center justify-between gap-6">
-        <Link to="/" className="text-lg font-extrabold uppercase tracking-wider text-foreground">
-          CLM Industry
+        <Link to="/" className="flex items-center gap-2">
+          <img
+            src={logoAsset.url}
+            alt="CLM Industry"
+            width="40"
+            height="40"
+            className="h-8 w-auto md:h-9"
+          />
+          <span className="text-lg font-extrabold uppercase tracking-wider text-foreground">
+            CLM Industry
+          </span>
         </Link>
+
 
         <nav className="hidden items-center gap-7 lg:flex">
           {navLinks.map((l) => (
