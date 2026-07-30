@@ -12,6 +12,13 @@ export type OfferPageProps = {
   deliverables: string[];
   duration: string;
   faq: { q: string; a: string }[];
+  caseStudies?: {
+    sector: string;
+    title: string;
+    problem: string;
+    result: string;
+    kpi: string;
+  }[];
 };
 
 export function OfferPage({
@@ -23,6 +30,7 @@ export function OfferPage({
   deliverables,
   duration,
   faq,
+  caseStudies,
 }: OfferPageProps) {
   return (
     <>
@@ -93,6 +101,10 @@ export function OfferPage({
           </div>
         </div>
       </Container>
+
+      <section className="border-t-2 border-accent">
+        {null}
+      </section>
 
       <section className="border-t-2 border-accent">
         <Container className="py-16 text-center md:py-24">
