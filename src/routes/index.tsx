@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import xfi9 from "@/assets/xfi9-analyzer.jpg";
 import { Container } from "@/components/site/container";
+import { LogoMarquee } from "@/components/site/logo-marquee";
+
 
 const DESCRIPTION =
   "CLM Industry réalise des campagnes de mesure de gaz industriels sur site. Identification de 500+ espèces gazeuses, conformité VLEP/CMR garantie, rapport remis en fin de mission. Analyseur XFLR-9 technologie OPO Laser.";
@@ -52,10 +54,12 @@ function Index() {
       <Solution />
       <Offers />
       <References />
+      <LogoMarquee />
       <FinalCta />
     </>
   );
 }
+
 
 function Hero() {
   return (
