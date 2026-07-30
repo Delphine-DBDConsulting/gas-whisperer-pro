@@ -9,9 +9,23 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TechnologieRouteImport } from './routes/technologie'
+import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OffresIndexRouteImport } from './routes/offres.index'
+import { Route as OffresSanteEnvironnementRouteImport } from './routes/offres.sante-environnement'
+import { Route as OffresEmissionsPerformanceRouteImport } from './routes/offres.emissions-performance'
 
+const TechnologieRoute = TechnologieRouteImport.update({
+  id: '/technologie',
+  path: '/technologie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferencesRoute = ReferencesRouteImport.update({
+  id: '/references',
+  path: '/references',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -22,35 +36,96 @@ const OffresIndexRoute = OffresIndexRouteImport.update({
   path: '/offres/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OffresSanteEnvironnementRoute =
+  OffresSanteEnvironnementRouteImport.update({
+    id: '/offres/sante-environnement',
+    path: '/offres/sante-environnement',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const OffresEmissionsPerformanceRoute =
+  OffresEmissionsPerformanceRouteImport.update({
+    id: '/offres/emissions-performance',
+    path: '/offres/emissions-performance',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/references': typeof ReferencesRoute
+  '/technologie': typeof TechnologieRoute
+  '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
+  '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
   '/offres/': typeof OffresIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/references': typeof ReferencesRoute
+  '/technologie': typeof TechnologieRoute
+  '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
+  '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
   '/offres': typeof OffresIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/references': typeof ReferencesRoute
+  '/technologie': typeof TechnologieRoute
+  '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
+  '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
   '/offres/': typeof OffresIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/offres/'
+  fullPaths:
+    | '/'
+    | '/references'
+    | '/technologie'
+    | '/offres/emissions-performance'
+    | '/offres/sante-environnement'
+    | '/offres/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/offres'
-  id: '__root__' | '/' | '/offres/'
+  to:
+    | '/'
+    | '/references'
+    | '/technologie'
+    | '/offres/emissions-performance'
+    | '/offres/sante-environnement'
+    | '/offres'
+  id:
+    | '__root__'
+    | '/'
+    | '/references'
+    | '/technologie'
+    | '/offres/emissions-performance'
+    | '/offres/sante-environnement'
+    | '/offres/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ReferencesRoute: typeof ReferencesRoute
+  TechnologieRoute: typeof TechnologieRoute
+  OffresEmissionsPerformanceRoute: typeof OffresEmissionsPerformanceRoute
+  OffresSanteEnvironnementRoute: typeof OffresSanteEnvironnementRoute
   OffresIndexRoute: typeof OffresIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/technologie': {
+      id: '/technologie'
+      path: '/technologie'
+      fullPath: '/technologie'
+      preLoaderRoute: typeof TechnologieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/references': {
+      id: '/references'
+      path: '/references'
+      fullPath: '/references'
+      preLoaderRoute: typeof ReferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -65,11 +140,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OffresIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/offres/sante-environnement': {
+      id: '/offres/sante-environnement'
+      path: '/offres/sante-environnement'
+      fullPath: '/offres/sante-environnement'
+      preLoaderRoute: typeof OffresSanteEnvironnementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offres/emissions-performance': {
+      id: '/offres/emissions-performance'
+      path: '/offres/emissions-performance'
+      fullPath: '/offres/emissions-performance'
+      preLoaderRoute: typeof OffresEmissionsPerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ReferencesRoute: ReferencesRoute,
+  TechnologieRoute: TechnologieRoute,
+  OffresEmissionsPerformanceRoute: OffresEmissionsPerformanceRoute,
+  OffresSanteEnvironnementRoute: OffresSanteEnvironnementRoute,
   OffresIndexRoute: OffresIndexRoute,
 }
 export const routeTree = rootRouteImport
