@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import { BookingButton } from "@/components/site/booking";
 import { Container, PageHeader } from "@/components/site/container";
 
 const DESCRIPTION =

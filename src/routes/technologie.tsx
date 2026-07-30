@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import xfi9 from "@/assets/xfi9-analyzer.jpg";
+import { BookingButton } from "@/components/site/booking";
 import { Container, PageHeader } from "@/components/site/container";
 
 const DESCRIPTION =
