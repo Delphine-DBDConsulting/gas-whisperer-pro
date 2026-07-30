@@ -38,7 +38,7 @@ export function SiteFooter() {
               Technologie
             </Link>
             <Link to="/references" className="text-muted-foreground hover:text-accent">
-              Références
+              Cas clients
             </Link>
             <Link to="/contact" className="text-muted-foreground hover:text-accent">
               Contact
