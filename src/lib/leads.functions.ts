@@ -63,8 +63,8 @@ export const submitContactRequest = createServerFn({ method: "POST" })
     await upsertBrevoContact({
       email: data.email,
       attributes: {
-        PRENOM: firstName,
-        NOM: lastName,
+        FIRSTNAME: firstName,
+        LASTNAME: lastName,
         SOCIETE: data.company,
         FONCTION: data.jobTitle || undefined,
         TELEPHONE: data.phone || undefined,
@@ -108,8 +108,8 @@ export const submitBrochureLead = createServerFn({ method: "POST" })
     await upsertBrevoContact({
       email: data.email,
       attributes: {
-        PRENOM: firstName,
-        NOM: lastName,
+        FIRSTNAME: firstName,
+        LASTNAME: lastName,
         SOCIETE: data.company,
         SOURCE: "brochure_en",
         LANGUE: "en",
