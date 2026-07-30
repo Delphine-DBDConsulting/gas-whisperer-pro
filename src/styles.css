@@ -186,3 +186,13 @@
     box-shadow: 0 0 0 1px var(--color-accent), 0 10px 30px -12px color-mix(in oklab, var(--color-accent) 45%, transparent);
   }
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
