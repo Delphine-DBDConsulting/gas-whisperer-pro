@@ -39,9 +39,9 @@ export function SiteHeader() {
             to="/en/brochure"
             aria-label="English brochure"
             title="English brochure"
-            className="text-lg leading-none transition-opacity hover:opacity-80"
+            className="rounded border border-border px-2 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground transition-colors hover:border-accent hover:text-accent"
           >
-            🇬🇧
+            EN
           </Link>
           <Link to="/contact" className="cta-primary hidden sm:inline-flex">
             Prendre rendez-vous
