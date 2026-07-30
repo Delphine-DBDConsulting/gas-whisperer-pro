@@ -131,7 +131,7 @@ function Regulatory() {
               0,2 ppm
             </div>
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-              Valeur limite d'exposition au benzène — abaissée en avril 2024.{" "}
+              Valeur limite d'exposition au benzène, abaissée en avril 2024.{" "}
               <span className="text-foreground">Votre site est-il en conformité ?</span>
             </p>
           </div>
@@ -269,7 +269,7 @@ function References() {
           to="/references"
           className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
         >
-          Voir nos cas clients et le ROI <span aria-hidden>→</span>
+          Voir nos cas clients <span aria-hidden>→</span>
         </Link>
       </Container>
     </section>
@@ -288,12 +288,12 @@ function FinalCta() {
           votre site, vos contraintes réglementaires et vos objectifs d'optimisation.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Link to="/contact" className="cta-primary">
+          <a href="mailto:sales@clm-industry.fr" className="cta-primary">
             Prendre rendez-vous
-          </Link>
-          <Link to="/en/brochure" className="cta-outline">
-            Download the English brochure
-          </Link>
+          </a>
+          <a href="mailto:sales@clm-industry.fr" className="cta-outline">
+            Nous contacter
+          </a>
         </div>
       </Container>
     </section>
