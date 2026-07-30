@@ -102,9 +102,35 @@ export function OfferPage({
         </div>
       </Container>
 
-      <section className="border-t-2 border-accent">
-        {null}
-      </section>
+      {caseStudies && caseStudies.length > 0 ? (
+        <section className="border-y border-border/40 bg-[color:var(--footer)]">
+          <Container className="py-16 md:py-24">
+            <h2 className="text-2xl font-bold text-foreground md:text-3xl">Cas clients</h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              Des campagnes réelles, anonymisées à la demande des exploitants concernés.
+            </p>
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+              {caseStudies.map((c) => (
+                <article
+                  key={c.title}
+                  className="card-hover flex flex-col rounded-lg border border-border bg-card p-8"
+                >
+                  <div className="text-xs font-semibold uppercase tracking-widest text-accent">
+                    {c.sector}
+                  </div>
+                  <h3 className="mt-4 text-lg font-bold text-foreground">{c.title}</h3>
+                  <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{c.problem}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{c.result}</p>
+                  <div className="mt-auto pt-6 text-sm font-semibold text-accent">{c.kpi}</div>
+                </article>
+              ))}
+            </div>
+            <Link to="/references" className="cta-outline mt-10 inline-block">
+              Voir tous les cas clients
+            </Link>
+          </Container>
+        </section>
+      ) : null}
 
       <section className="border-t-2 border-accent">
         <Container className="py-16 text-center md:py-24">
