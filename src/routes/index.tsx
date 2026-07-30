@@ -14,6 +14,26 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "CLM Industry — Mesure de gaz industriels par laser OPO" },
       { property: "og:description", content: DESCRIPTION },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "CLM Industry",
+          legalName: "C.L.M.I. S.A.R.L.",
+          description: DESCRIPTION,
+          email: "contact@clm-industry.fr",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "5 rue du Général Leclerc",
+            postalCode: "78000",
+            addressLocality: "Versailles",
+            addressCountry: "FR",
+          },
+        }),
+      },
+    ],
   }),
   component: Index,
 });

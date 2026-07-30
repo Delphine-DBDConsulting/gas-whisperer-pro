@@ -11,10 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TechnologieRouteImport } from './routes/technologie'
 import { Route as ReferencesRouteImport } from './routes/references'
+import { Route as PolitiqueDeConfidentialiteRouteImport } from './routes/politique-de-confidentialite'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OffresIndexRouteImport } from './routes/offres.index'
 import { Route as OffresSanteEnvironnementRouteImport } from './routes/offres.sante-environnement'
 import { Route as OffresEmissionsPerformanceRouteImport } from './routes/offres.emissions-performance'
+import { Route as EnBrochureRouteImport } from './routes/en.brochure'
 
 const TechnologieRoute = TechnologieRouteImport.update({
   id: '/technologie',
@@ -24,6 +28,22 @@ const TechnologieRoute = TechnologieRouteImport.update({
 const ReferencesRoute = ReferencesRouteImport.update({
   id: '/references',
   path: '/references',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitiqueDeConfidentialiteRoute =
+  PolitiqueDeConfidentialiteRouteImport.update({
+    id: '/politique-de-confidentialite',
+    path: '/politique-de-confidentialite',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -48,19 +68,32 @@ const OffresEmissionsPerformanceRoute =
     path: '/offres/emissions-performance',
     getParentRoute: () => rootRouteImport,
   } as any)
+const EnBrochureRoute = EnBrochureRouteImport.update({
+  id: '/en/brochure',
+  path: '/en/brochure',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
   '/references': typeof ReferencesRoute
   '/technologie': typeof TechnologieRoute
+  '/en/brochure': typeof EnBrochureRoute
   '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
   '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
   '/offres/': typeof OffresIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
   '/references': typeof ReferencesRoute
   '/technologie': typeof TechnologieRoute
+  '/en/brochure': typeof EnBrochureRoute
   '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
   '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
   '/offres': typeof OffresIndexRoute
@@ -68,8 +101,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
   '/references': typeof ReferencesRoute
   '/technologie': typeof TechnologieRoute
+  '/en/brochure': typeof EnBrochureRoute
   '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
   '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
   '/offres/': typeof OffresIndexRoute
@@ -78,24 +115,36 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/contact'
+    | '/mentions-legales'
+    | '/politique-de-confidentialite'
     | '/references'
     | '/technologie'
+    | '/en/brochure'
     | '/offres/emissions-performance'
     | '/offres/sante-environnement'
     | '/offres/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/contact'
+    | '/mentions-legales'
+    | '/politique-de-confidentialite'
     | '/references'
     | '/technologie'
+    | '/en/brochure'
     | '/offres/emissions-performance'
     | '/offres/sante-environnement'
     | '/offres'
   id:
     | '__root__'
     | '/'
+    | '/contact'
+    | '/mentions-legales'
+    | '/politique-de-confidentialite'
     | '/references'
     | '/technologie'
+    | '/en/brochure'
     | '/offres/emissions-performance'
     | '/offres/sante-environnement'
     | '/offres/'
@@ -103,8 +152,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
+  PolitiqueDeConfidentialiteRoute: typeof PolitiqueDeConfidentialiteRoute
   ReferencesRoute: typeof ReferencesRoute
   TechnologieRoute: typeof TechnologieRoute
+  EnBrochureRoute: typeof EnBrochureRoute
   OffresEmissionsPerformanceRoute: typeof OffresEmissionsPerformanceRoute
   OffresSanteEnvironnementRoute: typeof OffresSanteEnvironnementRoute
   OffresIndexRoute: typeof OffresIndexRoute
@@ -124,6 +177,27 @@ declare module '@tanstack/react-router' {
       path: '/references'
       fullPath: '/references'
       preLoaderRoute: typeof ReferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politique-de-confidentialite': {
+      id: '/politique-de-confidentialite'
+      path: '/politique-de-confidentialite'
+      fullPath: '/politique-de-confidentialite'
+      preLoaderRoute: typeof PolitiqueDeConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -154,13 +228,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OffresEmissionsPerformanceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/brochure': {
+      id: '/en/brochure'
+      path: '/en/brochure'
+      fullPath: '/en/brochure'
+      preLoaderRoute: typeof EnBrochureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
+  PolitiqueDeConfidentialiteRoute: PolitiqueDeConfidentialiteRoute,
   ReferencesRoute: ReferencesRoute,
   TechnologieRoute: TechnologieRoute,
+  EnBrochureRoute: EnBrochureRoute,
   OffresEmissionsPerformanceRoute: OffresEmissionsPerformanceRoute,
   OffresSanteEnvironnementRoute: OffresSanteEnvironnementRoute,
   OffresIndexRoute: OffresIndexRoute,
