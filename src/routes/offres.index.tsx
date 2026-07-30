@@ -5,7 +5,7 @@ import { Container, PageHeader } from "@/components/site/container";
 const DESCRIPTION =
   "Deux offres de mesure de gaz industriels : campagne ponctuelle de conformité VLEP/CMR, ou monitoring continu des émissions pour optimiser vos installations.";
 
-export const Route = createFileRoute("/offres")({
+export const Route = createFileRoute("/offres/")({
   head: () => ({
     meta: [
       { title: "Nos offres de mesure de gaz industriels — CLM Industry" },
