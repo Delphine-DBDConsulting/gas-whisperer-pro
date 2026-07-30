@@ -2,17 +2,28 @@ import { Link } from "@tanstack/react-router";
 
 import { Container } from "./container";
 import { COMPANY } from "@/lib/company";
+import logoAsset from "@/assets/clm-logo.svg.asset.json";
 
 export function SiteFooter() {
   return (
     <footer className="bg-[color:var(--footer)]">
       <Container className="py-12">
         <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-1 text-sm text-muted-foreground">
-            <div className="text-base font-extrabold uppercase tracking-wider text-foreground">
-              CLM Industry
+          <div className="space-y-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <img
+                src={logoAsset.url}
+                alt="CLM Industry"
+                width="40"
+                height="40"
+                className="h-8 w-auto"
+              />
+              <span className="text-base font-extrabold uppercase tracking-wider text-foreground">
+                CLM Industry
+              </span>
             </div>
             <div>{COMPANY.legalName}</div>
+
             <div>{COMPANY.address}</div>
           </div>
           <nav className="flex flex-wrap items-start gap-x-6 gap-y-3 text-sm md:justify-center">
@@ -26,7 +37,7 @@ export function SiteFooter() {
               Technologie
             </Link>
             <Link to="/references" className="text-muted-foreground hover:text-accent">
-              Références
+              Cas clients
             </Link>
             <Link to="/contact" className="text-muted-foreground hover:text-accent">
               Contact
