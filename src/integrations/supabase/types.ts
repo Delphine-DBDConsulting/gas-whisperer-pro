@@ -14,7 +14,75 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      brochure_leads: {
+        Row: {
+          company: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          ip_address: string | null
+        }
+        Insert: {
+          company: string
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          ip_address?: string | null
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          ip_address?: string | null
+        }
+        Relationships: []
+      }
+      contact_requests: {
+        Row: {
+          company: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          ip_address: string | null
+          job_title: string | null
+          message: string
+          offer: string | null
+          phone: string | null
+          site_location: string | null
+        }
+        Insert: {
+          company: string
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          ip_address?: string | null
+          job_title?: string | null
+          message: string
+          offer?: string | null
+          phone?: string | null
+          site_location?: string | null
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          ip_address?: string | null
+          job_title?: string | null
+          message?: string
+          offer?: string | null
+          phone?: string | null
+          site_location?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
