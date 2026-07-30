@@ -4,16 +4,22 @@ import xfi9 from "@/assets/xfi9-analyzer.jpg";
 import { Container } from "@/components/site/container";
 
 const DESCRIPTION =
-  "CLM Industry identifie, mesure et surveille les émissions de gaz industriels sur votre site pour assurer la conformité VLEP/CMR et optimiser vos installations.";
+  "CLM Industry réalise des campagnes de mesure de gaz industriels sur site. Identification de 500+ espèces gazeuses, conformité VLEP/CMR garantie, rapport remis en fin de mission. Analyseur XFLR-9 technologie OPO Laser.";
+
+const TITLE = "Mesure de gaz industriels | Conformité VLEP et CMR | CLM Industry";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CLM Industry — Mesure de gaz industriels par laser OPO" },
+      { title: TITLE },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: "CLM Industry — Mesure de gaz industriels par laser OPO" },
+      { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://gas-whisperer-pro.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://gas-whisperer-pro.lovable.app/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -83,7 +89,7 @@ function Hero() {
           />
           <img
             src={xfi9}
-            alt="Analyseur XFLR-9 — laser OPO pour la mesure de gaz industriels"
+            alt="Analyseur XFLR-9 — technologie OPO Laser pour la mesure de gaz industriels"
             width={1024}
             height={1024}
             className="relative w-full rounded-lg border border-border/60 shadow-2xl"
