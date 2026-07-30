@@ -9,38 +9,197 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TechnologieRouteImport } from './routes/technologie'
+import { Route as ReferencesRouteImport } from './routes/references'
+import { Route as PolitiqueDeConfidentialiteRouteImport } from './routes/politique-de-confidentialite'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OffresIndexRouteImport } from './routes/offres.index'
+import { Route as OffresSanteEnvironnementRouteImport } from './routes/offres.sante-environnement'
+import { Route as OffresEmissionsPerformanceRouteImport } from './routes/offres.emissions-performance'
+import { Route as EnBrochureRouteImport } from './routes/en.brochure'
 
+const TechnologieRoute = TechnologieRouteImport.update({
+  id: '/technologie',
+  path: '/technologie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferencesRoute = ReferencesRouteImport.update({
+  id: '/references',
+  path: '/references',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitiqueDeConfidentialiteRoute =
+  PolitiqueDeConfidentialiteRouteImport.update({
+    id: '/politique-de-confidentialite',
+    path: '/politique-de-confidentialite',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OffresIndexRoute = OffresIndexRouteImport.update({
+  id: '/offres/',
+  path: '/offres/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OffresSanteEnvironnementRoute =
+  OffresSanteEnvironnementRouteImport.update({
+    id: '/offres/sante-environnement',
+    path: '/offres/sante-environnement',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const OffresEmissionsPerformanceRoute =
+  OffresEmissionsPerformanceRouteImport.update({
+    id: '/offres/emissions-performance',
+    path: '/offres/emissions-performance',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EnBrochureRoute = EnBrochureRouteImport.update({
+  id: '/en/brochure',
+  path: '/en/brochure',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
+  '/references': typeof ReferencesRoute
+  '/technologie': typeof TechnologieRoute
+  '/en/brochure': typeof EnBrochureRoute
+  '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
+  '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
+  '/offres/': typeof OffresIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
+  '/references': typeof ReferencesRoute
+  '/technologie': typeof TechnologieRoute
+  '/en/brochure': typeof EnBrochureRoute
+  '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
+  '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
+  '/offres': typeof OffresIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
+  '/references': typeof ReferencesRoute
+  '/technologie': typeof TechnologieRoute
+  '/en/brochure': typeof EnBrochureRoute
+  '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
+  '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
+  '/offres/': typeof OffresIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/mentions-legales'
+    | '/politique-de-confidentialite'
+    | '/references'
+    | '/technologie'
+    | '/en/brochure'
+    | '/offres/emissions-performance'
+    | '/offres/sante-environnement'
+    | '/offres/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/mentions-legales'
+    | '/politique-de-confidentialite'
+    | '/references'
+    | '/technologie'
+    | '/en/brochure'
+    | '/offres/emissions-performance'
+    | '/offres/sante-environnement'
+    | '/offres'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/mentions-legales'
+    | '/politique-de-confidentialite'
+    | '/references'
+    | '/technologie'
+    | '/en/brochure'
+    | '/offres/emissions-performance'
+    | '/offres/sante-environnement'
+    | '/offres/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
+  PolitiqueDeConfidentialiteRoute: typeof PolitiqueDeConfidentialiteRoute
+  ReferencesRoute: typeof ReferencesRoute
+  TechnologieRoute: typeof TechnologieRoute
+  EnBrochureRoute: typeof EnBrochureRoute
+  OffresEmissionsPerformanceRoute: typeof OffresEmissionsPerformanceRoute
+  OffresSanteEnvironnementRoute: typeof OffresSanteEnvironnementRoute
+  OffresIndexRoute: typeof OffresIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/technologie': {
+      id: '/technologie'
+      path: '/technologie'
+      fullPath: '/technologie'
+      preLoaderRoute: typeof TechnologieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/references': {
+      id: '/references'
+      path: '/references'
+      fullPath: '/references'
+      preLoaderRoute: typeof ReferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politique-de-confidentialite': {
+      id: '/politique-de-confidentialite'
+      path: '/politique-de-confidentialite'
+      fullPath: '/politique-de-confidentialite'
+      preLoaderRoute: typeof PolitiqueDeConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +207,49 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/offres/': {
+      id: '/offres/'
+      path: '/offres'
+      fullPath: '/offres/'
+      preLoaderRoute: typeof OffresIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offres/sante-environnement': {
+      id: '/offres/sante-environnement'
+      path: '/offres/sante-environnement'
+      fullPath: '/offres/sante-environnement'
+      preLoaderRoute: typeof OffresSanteEnvironnementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offres/emissions-performance': {
+      id: '/offres/emissions-performance'
+      path: '/offres/emissions-performance'
+      fullPath: '/offres/emissions-performance'
+      preLoaderRoute: typeof OffresEmissionsPerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/brochure': {
+      id: '/en/brochure'
+      path: '/en/brochure'
+      fullPath: '/en/brochure'
+      preLoaderRoute: typeof EnBrochureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
+  PolitiqueDeConfidentialiteRoute: PolitiqueDeConfidentialiteRoute,
+  ReferencesRoute: ReferencesRoute,
+  TechnologieRoute: TechnologieRoute,
+  EnBrochureRoute: EnBrochureRoute,
+  OffresEmissionsPerformanceRoute: OffresEmissionsPerformanceRoute,
+  OffresSanteEnvironnementRoute: OffresSanteEnvironnementRoute,
+  OffresIndexRoute: OffresIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
