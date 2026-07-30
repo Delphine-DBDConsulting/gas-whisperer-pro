@@ -3,6 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { toast } from "sonner";
 
+import brochureAsset from "@/assets/clm-industry-brochure-en.pdf.asset.json";
 import xfi9 from "@/assets/xfi9-analyzer.jpg";
 import { Container } from "@/components/site/container";
 import { COMPANY } from "@/lib/company";
@@ -27,8 +28,7 @@ export const Route = createFileRoute("/en/brochure")({
 const fieldClass =
   "mt-2 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-accent";
 
-// TODO client : déposer le PDF réel dans public/ et remplacer cette valeur.
-const BROCHURE_URL = "/clm-industry-brochure-en.pdf";
+const BROCHURE_URL = brochureAsset.url;
 
 function BrochurePage() {
   const send = useServerFn(submitBrochureLead);

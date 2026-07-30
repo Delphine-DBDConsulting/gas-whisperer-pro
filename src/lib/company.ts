@@ -1,16 +1,14 @@
 // Coordonnées et informations légales de CLM Industry.
-// TODO client : remplacer le téléphone, le SIRET, le RCS, le capital,
-// le directeur de publication et l'adresse exacte par les valeurs réelles.
+// Aucun téléphone n'est affiché sur le site (choix client).
 export const COMPANY = {
   name: "CLM Industry",
   legalName: "C.L.M.I. S.A.R.L.",
   address: "5 rue du Général Leclerc, 78000 Versailles",
   email: "sales@clm-industry.fr",
-  phone: "+33 (0)1 00 00 00 00",
-  siret: "À compléter",
-  rcs: "À compléter",
-  capital: "À compléter",
-  vat: "À compléter",
-  publicationDirector: "À compléter",
-  host: "Lovable — hébergement du site",
+  siret: "542 019 641 00050",
+  publicationDirector: "Isabelle Georges des Aulnois (Demesy)",
+  host: "Lovable Cloud",
 } as const;
+
+// Prise de rendez-vous Brevo Meetings.
+export const BOOKING_URL = "https://meet.brevo.com/delphine-boudaud/borderless";

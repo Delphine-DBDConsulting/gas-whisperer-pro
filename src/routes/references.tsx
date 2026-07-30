@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import { BookingButton } from "@/components/site/booking";
 import { Container, PageHeader } from "@/components/site/container";
 
 const DESCRIPTION =
@@ -17,8 +18,6 @@ export const Route = createFileRoute("/references")({
   component: References,
 });
 
-// TODO client : remplacer ces cas anonymisés par les références réelles
-// (nom du client, chiffres validés, logos autorisés).
 const cases = [
   {
     sector: "Chimie de spécialités",
@@ -46,6 +45,24 @@ const cases = [
     result:
       "Une cartographie molécule par molécule, poste par poste, a permis de prioriser trois zones de captage.",
     kpi: "Plan d'action HSE argumenté",
+  },
+  {
+    sector: "Industrie pharmaceutique",
+    title: "Charbons actifs : cycle de remplacement optimisé",
+    problem:
+      "Une installation d'abattage des COV (mélange CMR et non CMR) imposait un remplacement des filtres toutes les trois semaines, sans donnée de saturation réelle.",
+    result:
+      "Une campagne de mesure amont/aval sur un mois a démontré qu'un remplacement mensuel suffisait pour ce procédé. Coût annuel ramené de 520 000 € à 390 000 € (30 000 € par remplacement).",
+    kpi: "130 000 € d'économie par an",
+  },
+  {
+    sector: "Industrie chimique",
+    title: "RTO : consommation de gaz naturel réduite de 25 %",
+    problem:
+      "L'oxydateur thermique régénératif fonctionnait en permanence au maximum, à 50 m³/h de gaz naturel, faute de mesure du besoin réel.",
+    result:
+      "Trois semaines de mesure amont/aval ont montré que la consommation du brûleur pouvait être abaissée de 10 % à 50 % selon les périodes d'activité : 438 000 m³/an et 657 000 € avant campagne, 328 500 m³/an et 492 750 € après.",
+    kpi: "164 250 € d'économie par an — 292 tonnes de CO₂ évitées",
   },
 ];
 
@@ -115,9 +132,7 @@ function References() {
             Votre site présente-t-il le même profil de risque ?
           </h2>
           <div className="mt-9 flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="cta-primary">
-              Prendre rendez-vous
-            </Link>
+            <BookingButton />
             <Link to="/offres" className="cta-outline">
               Découvrir nos offres
             </Link>

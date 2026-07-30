@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import { BookingButton } from "@/components/site/booking";
 import { Container, PageHeader } from "@/components/site/container";
 
 const DESCRIPTION =
@@ -73,9 +74,7 @@ function OffresIndex() {
             Décrivez-nous votre site et vos obligations : nous vous répondons sous 48 heures avec
             une recommandation argumentée.
           </p>
-          <Link to="/contact" className="cta-primary mt-8">
-            Prendre rendez-vous
-          </Link>
+          <BookingButton className="mt-8" />
         </div>
       </Container>
     </>

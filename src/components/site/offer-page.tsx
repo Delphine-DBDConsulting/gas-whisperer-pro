@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
+import { BookingButton } from "./booking";
 import { Container, PageHeader } from "./container";
 
 export type OfferPageProps = {
@@ -40,9 +41,7 @@ export function OfferPage({
               Durée de la mission
             </div>
             <div className="mt-3 text-2xl font-extrabold text-foreground">{duration}</div>
-            <Link to="/contact" className="cta-primary mt-8 w-full">
-              Prendre rendez-vous
-            </Link>
+            <BookingButton className="mt-8 w-full" />
           </aside>
         </div>
       </Container>
@@ -105,9 +104,7 @@ export function OfferPage({
             vous sous 48 heures avec une proposition de campagne.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="cta-primary">
-              Prendre rendez-vous
-            </Link>
+            <BookingButton />
             <Link to="/technologie" className="cta-outline">
               Voir la technologie
             </Link>

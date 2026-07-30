@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import xfi9 from "@/assets/xfi9-analyzer.jpg";
+import { BookingButton } from "@/components/site/booking";
 import { Container, PageHeader } from "@/components/site/container";
 
 const DESCRIPTION =
@@ -143,9 +144,7 @@ function Technologie() {
             Voir ce que le XFLR-9 détecte sur votre site
           </h2>
           <div className="mt-9 flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="cta-primary">
-              Prendre rendez-vous
-            </Link>
+            <BookingButton />
             <Link to="/offres" className="cta-outline">
               Découvrir nos offres
             </Link>

@@ -30,13 +30,9 @@ function MentionsLegales() {
             <p className="mt-3">
               {COMPANY.legalName} — {COMPANY.address}
               <br />
-              Email : {COMPANY.email} — Téléphone : {COMPANY.phone}
+              Email : {COMPANY.email}
               <br />
-              Capital social : {COMPANY.capital}
-              <br />
-              SIRET : {COMPANY.siret} — RCS : {COMPANY.rcs}
-              <br />
-              TVA intracommunautaire : {COMPANY.vat}
+              SIRET : {COMPANY.siret}
             </p>
           </section>
           <section>
