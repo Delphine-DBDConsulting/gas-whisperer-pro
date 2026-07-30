@@ -7,7 +7,7 @@ import { Container } from "./container";
 const navLinks = [
   { to: "/offres", label: "Offres" },
   { to: "/technologie", label: "Technologie" },
-  { to: "/references", label: "Références" },
+  { to: "/references", label: "Cas clients" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
