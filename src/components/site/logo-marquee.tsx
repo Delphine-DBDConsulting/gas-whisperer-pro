@@ -26,7 +26,7 @@ export function LogoMarquee() {
       </Container>
 
       <div className="group relative overflow-hidden">
-        <div className="animate-marquee flex w-max items-center gap-8 hover:[animation-play-state:paused]">
+        <div className="animate-marquee flex w-max items-center gap-8 [animation-play-state:paused] hover:[animation-play-state:running]">
           {[...logos, ...logos].map((logo, i) => (
             <div
               key={`${logo.name}-${i}`}
