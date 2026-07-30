@@ -4,16 +4,22 @@ import xfi9 from "@/assets/xfi9-analyzer.jpg";
 import { Container } from "@/components/site/container";
 
 const DESCRIPTION =
-  "CLM Industry identifie, mesure et surveille les émissions de gaz industriels sur votre site pour assurer la conformité VLEP/CMR et optimiser vos installations.";
+  "CLM Industry réalise des campagnes de mesure de gaz industriels sur site. Identification de 500+ espèces gazeuses, conformité VLEP/CMR garantie, rapport remis en fin de mission. Analyseur XFLR-9 technologie OPO Laser.";
+
+const TITLE = "Mesure de gaz industriels | Conformité VLEP et CMR | CLM Industry";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CLM Industry — Mesure de gaz industriels par laser OPO" },
+      { title: TITLE },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: "CLM Industry — Mesure de gaz industriels par laser OPO" },
+      { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://gas-whisperer-pro.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://gas-whisperer-pro.lovable.app/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -23,7 +29,7 @@ export const Route = createFileRoute("/")({
           name: "CLM Industry",
           legalName: "C.L.M.I. S.A.R.L.",
           description: DESCRIPTION,
-          email: "contact@clm-industry.fr",
+          email: "sales@clm-industry.fr",
           address: {
             "@type": "PostalAddress",
             streetAddress: "5 rue du Général Leclerc",
@@ -83,7 +89,7 @@ function Hero() {
           />
           <img
             src={xfi9}
-            alt="Analyseur XFi-9 — laser OPO pour la mesure de gaz industriels"
+            alt="Analyseur XFLR-9 — technologie OPO Laser pour la mesure de gaz industriels"
             width={1024}
             height={1024}
             className="relative w-full rounded-lg border border-border/60 shadow-2xl"
@@ -125,7 +131,7 @@ function Regulatory() {
               0,2 ppm
             </div>
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-              Valeur limite d'exposition au benzène — abaissée en avril 2024.{" "}
+              Valeur limite d'exposition au benzène, abaissée en avril 2024.{" "}
               <span className="text-foreground">Votre site est-il en conformité ?</span>
             </p>
           </div>
@@ -150,11 +156,11 @@ function Solution() {
         <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
             CLM Industry réalise des campagnes de mesure de gaz sur site industriel, en s'appuyant
-            sur un analyseur propriétaire unique en France : le XFi-9, basé sur la technologie OPO
+            sur un analyseur propriétaire unique en France : le XFLR-9, basé sur la technologie OPO
             Laser (Oscillateur Paramétrique Optique), issue de l'aérospatial.
           </p>
           <p>
-            Contrairement aux capteurs classiques, le XFi-9 lit l'empreinte infrarouge de chaque
+            Contrairement aux capteurs classiques, le XFLR-9 lit l'empreinte infrarouge de chaque
             molécule présente dans l'air. Il identifie et mesure simultanément jusqu'à 10 gaz
             différents en temps réel, parmi plus de 500 espèces gazeuses.
           </p>
@@ -263,7 +269,7 @@ function References() {
           to="/references"
           className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
         >
-          Voir nos cas clients et le ROI <span aria-hidden>→</span>
+          Voir nos cas clients <span aria-hidden>→</span>
         </Link>
       </Container>
     </section>
@@ -282,12 +288,12 @@ function FinalCta() {
           votre site, vos contraintes réglementaires et vos objectifs d'optimisation.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Link to="/contact" className="cta-primary">
+          <a href="mailto:sales@clm-industry.fr" className="cta-primary">
             Prendre rendez-vous
-          </Link>
-          <Link to="/en/brochure" className="cta-outline">
-            Download the English brochure
-          </Link>
+          </a>
+          <a href="mailto:sales@clm-industry.fr" className="cta-outline">
+            Nous contacter
+          </a>
         </div>
       </Container>
     </section>

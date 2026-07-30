@@ -42,7 +42,6 @@ export function SiteFooter() {
             >
               {COMPANY.email}
             </a>
-            <div>{COMPANY.phone}</div>
           </div>
         </div>
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground md:flex-row md:items-center">

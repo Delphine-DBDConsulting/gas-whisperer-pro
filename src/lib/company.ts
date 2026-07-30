@@ -5,7 +5,7 @@ export const COMPANY = {
   name: "CLM Industry",
   legalName: "C.L.M.I. S.A.R.L.",
   address: "5 rue du Général Leclerc, 78000 Versailles",
-  email: "contact@clm-industry.fr",
+  email: "sales@clm-industry.fr",
   phone: "+33 (0)1 00 00 00 00",
   siret: "À compléter",
   rcs: "À compléter",
