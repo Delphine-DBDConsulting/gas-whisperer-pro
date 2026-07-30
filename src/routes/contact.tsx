@@ -3,6 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { toast } from "sonner";
 
+import { BookingEmbed } from "@/components/site/booking";
 import { Container, PageHeader } from "@/components/site/container";
 import { COMPANY } from "@/lib/company";
 import { submitContactRequest } from "@/lib/leads.functions";
@@ -161,7 +162,6 @@ function ContactPage() {
             >
               {COMPANY.email}
             </a>
-            <div className="mt-1">{COMPANY.phone}</div>
             <div className="mt-6">{COMPANY.legalName}</div>
             <div>{COMPANY.address}</div>
           </div>
@@ -173,6 +173,21 @@ function ContactPage() {
           </div>
         </aside>
       </Container>
+
+      <section className="border-t border-border/40 bg-[color:var(--footer)]">
+        <Container className="py-16 md:py-24">
+          <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+            Réserver directement un créneau
+          </h2>
+          <p className="mt-4 max-w-2xl text-base text-muted-foreground">
+            Choisissez un horaire d'échange avec un expert CLM Industry : nous faisons le point sur
+            vos procédés, vos obligations VLEP/CMR et la campagne de mesure adaptée.
+          </p>
+          <div className="mt-10">
+            <BookingEmbed />
+          </div>
+        </Container>
+      </section>
     </>
   );
 }
