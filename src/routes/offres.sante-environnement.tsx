@@ -23,7 +23,7 @@ export const Route = createFileRoute("/offres/sante-environnement")({
       context={[
         "Le Code du travail impose à tout employeur d'évaluer l'exposition de ses salariés aux agents chimiques dangereux. Pour les substances CMR, un contrôle est obligatoire au moins une fois par an, et le dépassement d'une VLEP contraignante entraîne l'arrêt immédiat des postes concernés.",
         "Les capteurs FID et PID vous indiquent qu'il y a « quelque chose » dans l'air, sans dire quelle molécule. Impossible, dans ces conditions, de distinguer un solvant inoffensif d'un benzène à 0,2 ppm.",
-        "Notre analyseur XFLR-9 lit l'empreinte infrarouge de chaque molécule et identifie jusqu'à 10 gaz simultanément, parmi plus de 500 espèces, jusqu'au niveau du ppb.",
+        "Notre analyseur XFi-9 lit l'empreinte infrarouge de chaque molécule et identifie jusqu'à 10 gaz simultanément, parmi plus de 500 espèces, jusqu'au niveau du ppb.",
       ]}
       steps={[
         {

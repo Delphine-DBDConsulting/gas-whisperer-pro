@@ -4,14 +4,14 @@ import xfi9 from "@/assets/xfi9-analyzer.jpg";
 import { Container, PageHeader } from "@/components/site/container";
 
 const DESCRIPTION =
-  "Le XFLR-9 de CLM Industry utilise la technologie OPO Laser issue de l'aérospatial : identification de plus de 500 gaz au ppb, sans consommable, en moins d'une heure.";
+  "Le XFi-9 de CLM Industry utilise la technologie OPO Laser issue de l'aérospatial : identification de plus de 500 gaz au ppb, sans consommable, en moins d'une heure.";
 
 export const Route = createFileRoute("/technologie")({
   head: () => ({
     meta: [
-      { title: "Technologie OPO Laser & analyseur XFLR-9 — CLM Industry" },
+      { title: "Technologie OPO Laser & analyseur XFi-9 — CLM Industry" },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: "Technologie OPO Laser & analyseur XFLR-9" },
+      { property: "og:title", content: "Technologie OPO Laser & analyseur XFi-9" },
       { property: "og:description", content: DESCRIPTION },
     ],
   }),
@@ -39,7 +39,7 @@ function Technologie() {
       <PageHeader
         eyebrow="Notre technologie"
         title="La mesure de gaz industriels à la résolution spectrale"
-        intro="Le XFLR-9 lit l'empreinte infrarouge de chaque molécule présente dans l'air. Là où un capteur classique détecte une présence, il identifie une substance."
+        intro="Le XFi-9 lit l'empreinte infrarouge de chaque molécule présente dans l'air. Là où un capteur classique détecte une présence, il identifie une substance."
       />
 
       <Container className="grid items-center gap-12 py-16 md:py-24 lg:grid-cols-2">
@@ -54,7 +54,7 @@ function Technologie() {
             lit.
           </p>
           <p>
-            Le XFLR-9, analyseur propriétaire unique en France, exploite cette technologie pour
+            Le XFi-9, analyseur propriétaire unique en France, exploite cette technologie pour
             identifier et quantifier simultanément jusqu'à 10 gaz différents en temps réel, parmi
             plus de 500 espèces gazeuses, jusqu'au niveau du ppb.
           </p>
@@ -65,7 +65,7 @@ function Technologie() {
         </div>
         <img
           src={xfi9}
-          alt="Analyseur XFLR-9 — laser OPO pour la mesure de gaz industriels"
+          alt="Analyseur XFi-9 — laser OPO pour la mesure de gaz industriels"
           width={1024}
           height={1024}
           loading="lazy"
@@ -106,7 +106,7 @@ function Technologie() {
                     Capteurs classiques FID/PID
                   </th>
                   <th scope="col" className="px-5 py-4 font-semibold">
-                    XFLR-9 — CLM Industry
+                    CLM Industry OPO Laser
                   </th>
                 </tr>
               </thead>
@@ -140,7 +140,7 @@ function Technologie() {
       <section className="border-t-2 border-accent">
         <Container className="py-16 text-center md:py-24">
           <h2 className="mx-auto max-w-3xl text-2xl font-bold text-foreground md:text-3xl">
-            Voir ce que le XFLR-9 détecte sur votre site
+            Voir ce que le XFi-9 détecte sur votre site
           </h2>
           <div className="mt-9 flex flex-wrap justify-center gap-4">
             <Link to="/contact" className="cta-primary">

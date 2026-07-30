@@ -78,7 +78,7 @@ function BrochurePage() {
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
           CLM Industry identifies, measures and monitors industrial gas emissions on your site.
-          Our proprietary XFLR-9 analyser reads the infrared fingerprint of each molecule, covering
+          Our proprietary XFi-9 analyser reads the infrared fingerprint of each molecule, covering
           500+ gas species down to ppb level.
         </p>
         <ul className="mt-8 space-y-3 text-base text-muted-foreground">
@@ -98,7 +98,7 @@ function BrochurePage() {
         </ul>
         <img
           src={xfi9}
-          alt="XFLR-9 analyser — OPO laser industrial gas measurement"
+          alt="XFi-9 analyser — OPO laser industrial gas measurement"
           width={1024}
           height={1024}
           loading="lazy"
