@@ -64,7 +64,6 @@ function Index() {
       <Solution />
       <Solutions />
       <Applications />
-      <References />
       <LogoMarquee />
       <FinalCta />
     </>
@@ -447,8 +446,14 @@ function Applications() {
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
           Le XFLR-9 identifie et mesure les émissions gazeuses dans l'ensemble des environnements
-          industriels émetteurs de COV et de NOx.
+          industriels émetteurs de COV et de NOx, en France et en Europe.
         </p>
+        <Link
+          to="/references"
+          className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
+        >
+          Voir nos cas clients <span aria-hidden>→</span>
+        </Link>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {applications.map(({ Icon, title, desc }) => (
             <article
@@ -467,43 +472,6 @@ function Applications() {
   );
 }
 
-function References() {
-  const sectors = [
-    "Chimie & pétrochimie",
-    "Pharmacie & cosmétique",
-    "Traitement de surface",
-    "Agroalimentaire",
-  ];
-  return (
-    <section className="border-b border-border/40">
-      <Container className="py-20 md:py-28">
-        <h2 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">
-          Des secteurs où chaque molécule compte
-        </h2>
-        <p className="mt-4 max-w-2xl text-base text-muted-foreground">
-          CLM Industry intervient sur des sites industriels soumis à des obligations VLEP et CMR
-          strictes, en France et en Europe.
-        </p>
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {sectors.map((name) => (
-            <div
-              key={name}
-              className="card-hover flex h-24 items-center justify-center rounded-lg border border-border bg-card px-4 text-center text-sm font-semibold uppercase tracking-wider text-foreground"
-            >
-              {name}
-            </div>
-          ))}
-        </div>
-        <Link
-          to="/references"
-          className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
-        >
-          Voir nos cas clients <span aria-hidden>→</span>
-        </Link>
-      </Container>
-    </section>
-  );
-}
 
 function FinalCta() {
   return (
