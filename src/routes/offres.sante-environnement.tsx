@@ -8,15 +8,15 @@ const DESCRIPTION =
 export const Route = createFileRoute("/offres/sante-environnement")({
   head: () => ({
     meta: [
-      { title: "Offre Santé & Environnement — Conformité VLEP | CLM Industry" },
+      { title: "Solution Santé & Environnement — Conformité VLEP | CLM Industry" },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: "Offre Santé & Environnement — Conformité VLEP" },
+      { property: "og:title", content: "Solution Santé & Environnement — Conformité VLEP" },
       { property: "og:description", content: DESCRIPTION },
     ],
   }),
   component: () => (
     <OfferPage
-      eyebrow="Offre 1"
+      eyebrow="Solution 1"
       title="Santé & Environnement : savoir précisément ce que respirent vos équipes"
       intro="Une campagne de mesure ponctuelle qui identifie les molécules réellement présentes dans l'air de vos ateliers et documente votre conformité VLEP et CMR."
       duration="1 à 5 jours sur site"

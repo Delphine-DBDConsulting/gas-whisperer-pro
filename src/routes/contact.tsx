@@ -104,7 +104,7 @@ function ContactPage() {
               />
 
               <label className="sm:col-span-2 block text-sm font-medium text-foreground">
-                Offre concernée *
+                Solution concernée *
                 <select name="offer" defaultValue="indecis" className={fieldClass} required>
                   {OFFER_OPTIONS.map((o) => (
                     <option key={o.value} value={o.value}>
