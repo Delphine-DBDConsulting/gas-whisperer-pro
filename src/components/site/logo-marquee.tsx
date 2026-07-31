@@ -3,8 +3,12 @@ import { Container } from "@/components/site/container";
 import airLiquide from "@/assets/logos/air-liquide.svg.asset.json";
 import arkema from "@/assets/logos/arkema.png.asset.json";
 import basf from "@/assets/logos/basf.webp.asset.json";
+import elkem from "@/assets/logos/elkem.webp.asset.json";
 import engie from "@/assets/logos/engie.png.asset.json";
+import euroapi from "@/assets/logos/euroapi.svg.asset.json";
 import sanofi from "@/assets/logos/sanofi.png.asset.json";
+import servier from "@/assets/logos/servier.webp.asset.json";
+import speichim from "@/assets/logos/speichim.png.asset.json";
 import totalEnergies from "@/assets/logos/totalenergies.svg.asset.json";
 
 const logos = [
@@ -14,6 +18,10 @@ const logos = [
   { name: "BASF", src: basf.url },
   { name: "Sanofi", src: sanofi.url },
   { name: "Engie", src: engie.url },
+  { name: "Servier", src: servier.url },
+  { name: "EUROAPI", src: euroapi.url },
+  { name: "Elkem", src: elkem.url },
+  { name: "Speichim Processing", src: speichim.url },
 ];
 
 export function LogoMarquee() {
