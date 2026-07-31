@@ -35,7 +35,7 @@ function Privacy() {
             <h2 className="text-xl font-bold text-foreground">Données collectées</h2>
             <p className="mt-3">
               Via le formulaire de contact : nom, société, fonction, email professionnel, téléphone,
-              site industriel concerné, offre concernée et contenu du message. Via le formulaire de
+              site industriel concerné, solution concernée et contenu du message. Via le formulaire de
               téléchargement de la brochure : nom, société et email professionnel. L'adresse IP de
               l'envoi est conservée à des fins de lutte contre les envois automatisés.
             </p>

@@ -8,15 +8,15 @@ const DESCRIPTION =
 export const Route = createFileRoute("/offres/emissions-performance")({
   head: () => ({
     meta: [
-      { title: "Offre Émissions & Performance — Monitoring continu | CLM Industry" },
+      { title: "Solution Émissions & Performance — Monitoring continu | CLM Industry" },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: "Offre Émissions & Performance — Monitoring continu" },
+      { property: "og:title", content: "Solution Émissions & Performance — Monitoring continu" },
       { property: "og:description", content: DESCRIPTION },
     ],
   }),
   component: () => (
     <OfferPage
-      eyebrow="Offre 2"
+      eyebrow="Solution 2"
       title="Émissions & Performance : piloter vos émissions dans la durée"
       intro="Un monitoring continu de vos rejets sur 1 à 2 mois, pour mesurer l'efficacité réelle de vos systèmes d'abattage et optimiser vos cycles de production."
       duration="1 à 2 mois de monitoring"
@@ -60,8 +60,8 @@ export const Route = createFileRoute("/offres/emissions-performance")({
           a: "Le ROI provient principalement de l'optimisation du dimensionnement et de la maintenance des systèmes d'abattage, et de la réduction des consommations associées.",
         },
         {
-          q: "Peut-on enchaîner avec l'offre Santé & Environnement ?",
-          a: "Oui, les deux offres sont complémentaires : l'une documente l'exposition des personnes, l'autre la performance des installations.",
+          q: "Peut-on enchaîner avec la solution Santé & Environnement ?",
+          a: "Oui, les deux solutions sont complémentaires : l'une documente l'exposition des personnes, l'autre la performance des installations.",
         },
       ]}
     />

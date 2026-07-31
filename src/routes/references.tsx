@@ -134,7 +134,7 @@ function References() {
           <div className="mt-9 flex flex-wrap justify-center gap-4">
             <BookingButton />
             <Link to="/offres" className="cta-outline">
-              Découvrir nos offres
+              Nos solutions de mesure
             </Link>
           </div>
         </Container>

@@ -31,7 +31,7 @@ export function SiteFooter() {
               Accueil
             </Link>
             <Link to="/offres" className="text-muted-foreground hover:text-accent">
-              Offres
+              Solutions
             </Link>
             <Link to="/technologie" className="text-muted-foreground hover:text-accent">
               Technologie
