@@ -13,6 +13,12 @@ const navLinks = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
+const solutionLinks = [
+  { to: "/sante-environnement", label: "Santé & Environnement" },
+  { to: "/offres/emissions-performance", label: "Émissions & Performance" },
+  { to: "/offres", label: "Toutes les solutions" },
+] as const;
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
@@ -34,7 +40,32 @@ export function SiteHeader() {
 
 
         <nav className="hidden items-center gap-7 lg:flex">
-          {navLinks.map((l) => (
+          {navLinks.map((l) =>
+            l.label === "Solutions" ? (
+              <div key={l.to} className="group relative">
+                <Link
+                  to={l.to}
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
+                  activeProps={{ className: "text-accent" }}
+                >
+                  {l.label}
+                </Link>
+                <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <div className="rounded-lg border border-border bg-card p-2 shadow-xl">
+                    {solutionLinks.map((s) => (
+                      <Link
+                        key={s.to}
+                        to={s.to}
+                        className="block rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/10 hover:text-accent"
+                        activeProps={{ className: "text-accent" }}
+                      >
+                        {s.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
             <Link
               key={l.to}
               to={l.to}
@@ -43,7 +74,8 @@ export function SiteHeader() {
             >
               {l.label}
             </Link>
-          ))}
+            ),
+          )}
         </nav>
 
         <div className="flex items-center gap-4">
@@ -74,8 +106,8 @@ export function SiteHeader() {
         <div className="border-t border-border/60 bg-background lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {navLinks.map((l) => (
+              <div key={l.to}>
               <Link
-                key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
                 className="rounded-md px-2 py-3 text-base font-medium text-muted-foreground transition-colors hover:text-accent"
@@ -83,6 +115,20 @@ export function SiteHeader() {
               >
                 {l.label}
               </Link>
+              {l.label === "Solutions"
+                ? solutionLinks.slice(0, 2).map((s) => (
+                    <Link
+                      key={s.to}
+                      to={s.to}
+                      onClick={() => setOpen(false)}
+                      className="block rounded-md px-5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
+                      activeProps={{ className: "text-accent" }}
+                    >
+                      {s.label}
+                    </Link>
+                  ))
+                : null}
+              </div>
             ))}
             <Link
               to="/contact"
