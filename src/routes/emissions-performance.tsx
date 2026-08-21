@@ -338,33 +338,22 @@ function EmissionsPerformancePage() {
 
       {/* LE CONTEXTE */}
       <Container className="py-16 md:py-24">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-start">
-          <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
-            <h2 className="text-2xl font-bold text-foreground md:text-3xl">Vos systèmes d'abattage sont-ils réellement efficaces ?</h2>
-            <p>
-              Un système d'abattage des COV n'a de valeur que par son rendement réel, en conditions
-              d'exploitation. Une mesure ponctuelle ne dit rien des pics liés aux changements de
-              série, aux démarrages ou aux dérives d'un média filtrant.
-            </p>
-            <p>
-              En mesurant simultanément en amont et en aval de vos équipements, nous quantifions
-              l'efficacité d'abattage molécule par molécule, lorsque des solutions plus classiques
-              mesurent en carbone organique total, sans distinction.
-            </p>
-            <p>
-              Les données produites alimentent directement vos déclarations environnementales, votre
-              dossier ICPE et vos arbitrages d'investissement.
-            </p>
-          </div>
-          <aside className="rounded-lg border-2 border-accent bg-card p-8">
-            <div className="text-xs font-semibold uppercase tracking-widest text-accent">
-              Durée de la mission
-            </div>
-            <div className="mt-3 text-2xl font-extrabold text-foreground">
-              1 à 2 mois de monitoring
-            </div>
-            <BookingButton className="mt-8 w-full" />
-          </aside>
+        <div className="max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
+          <h2 className="text-2xl font-bold text-foreground md:text-3xl">Vos systèmes d'abattage sont-ils réellement efficaces ?</h2>
+          <p>
+            Un système d'abattage des COV n'a de valeur que par son rendement réel, en conditions
+            d'exploitation. Une mesure ponctuelle ne dit rien des pics liés aux changements de
+            série, aux démarrages ou aux dérives d'un média filtrant.
+          </p>
+          <p>
+            En mesurant simultanément en amont et en aval de vos équipements, nous quantifions
+            l'efficacité d'abattage molécule par molécule, lorsque des solutions plus classiques
+            mesurent en carbone organique total, sans distinction.
+          </p>
+          <p>
+            Les données produites alimentent directement vos déclarations environnementales, votre
+            dossier ICPE et vos arbitrages d'investissement.
+          </p>
         </div>
       </Container>
 
