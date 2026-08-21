@@ -63,7 +63,7 @@ function OffresIndex() {
         </div>
         <div className="mt-14 rounded-lg border border-border bg-card p-8 text-center">
           <h2 className="text-xl font-bold text-foreground">
-            Vous ne savez pas quelle solution correspond à votre besoin ?
+            Vous vous interrogez sur la solution qui correspond à votre besoin ?
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             Décrivez-nous votre site et vos obligations : nous vous répondons sous 48 heures avec
