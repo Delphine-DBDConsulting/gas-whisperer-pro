@@ -275,7 +275,7 @@ function Solution() {
           CLM Industry : la mesure de gaz industriels à la résolution spectrale
         </h2>
         <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
-          <p>
+          <p className="text-foreground">
             CLM Industry réalise des campagnes de mesure de gaz sur site industriel, en s'appuyant
             sur un analyseur propriétaire unique en France : le XFLR-9, basé sur la technologie OPO
             Laser (Oscillateur Paramétrique Optique), issue de l'aérospatial.
