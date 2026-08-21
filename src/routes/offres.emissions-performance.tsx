@@ -22,7 +22,7 @@ export const Route = createFileRoute("/offres/emissions-performance")({
       duration="1 à 2 mois de monitoring"
       context={[
         "Un système d'abattage n'a de valeur que par son rendement réel, en conditions d'exploitation. Une mesure ponctuelle ne dit rien des pics liés aux changements de série, aux démarrages ou aux dérives d'un média filtrant.",
-        "En mesurant simultanément en amont et en aval de vos équipements, nous quantifions l'efficacité d'abattage molécule par molécule, et non en carbone organique total.",
+        "En mesurant simultanément en amont et en aval de vos équipements, nous quantifions l'efficacité d'abattage molécule par molécule, lorsque des solutions plus classiques mesurent en carbone organique total, sans distinction.\u00a0",
         "Les données produites alimentent directement vos déclarations environnementales, votre dossier ICPE et vos arbitrages d'investissement.",
       ]}
       steps={[
