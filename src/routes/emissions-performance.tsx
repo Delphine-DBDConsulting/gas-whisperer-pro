@@ -390,12 +390,6 @@ function EmissionsPerformancePage() {
               réellement efficaces ? Sans mesure précise en amont et en aval, impossible de le
               confirmer avec certitude.
             </p>
-            <p>
-              Le XFLR-9 se déploie simultanément sur les deux points de mesure pour quantifier
-              l'efficacité réelle de votre système, molécule par molécule. Les données produites
-              permettent d'ajuster la fréquence de maintenance, d'optimiser la consommation
-              énergétique, et de constituer un dossier de conformité opposable en cas de contrôle.
-            </p>
           </div>
           <div className="mt-10 flex max-w-3xl gap-4 rounded-lg border-l-4 border-accent bg-accent/10 p-6">
             <AlertTriangle className="mt-0.5 h-6 w-6 shrink-0 text-accent" aria-hidden />
