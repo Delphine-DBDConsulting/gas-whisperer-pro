@@ -18,7 +18,7 @@ export const Route = createFileRoute("/offres/emissions-performance")({
     <OfferPage
       eyebrow="Solution 2"
       title="Émissions & Performance : piloter vos émissions dans la durée"
-      intro="Un monitoring continu de vos rejets sur 1 à 2 mois, pour mesurer l'efficacité réelle de vos systèmes d'abattage et optimiser vos cycles de production."
+      intro="Un monitoring continu de vos rejets, pour mesurer l'efficacité réelle de vos systèmes d'abattage et optimiser vos cycles de production."
       duration="1 à 2 mois de monitoring"
       context={[
         "Un système d'abattage n'a de valeur que par son rendement réel, en conditions d'exploitation. Une mesure ponctuelle ne dit rien des pics liés aux changements de série, aux démarrages ou aux dérives d'un média filtrant.",
