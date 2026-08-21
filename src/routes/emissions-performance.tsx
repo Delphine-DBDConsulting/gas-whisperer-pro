@@ -357,48 +357,6 @@ function EmissionsPerformancePage() {
         </div>
       </Container>
 
-      {/* LE PROBLÈME */}
-      <section className="border-y border-border/40 bg-[color:var(--footer)]">
-        <Container className="py-16 md:py-24">
-          <h2 className="text-2xl font-bold text-foreground md:text-3xl">
-            Vos systèmes d'abattage sont-ils réellement efficaces ?
-          </h2>
-          <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
-            <p>
-              Vos installations d'abattage des{" "}
-              <a
-                href={COV_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-accent underline underline-offset-4"
-              >
-                COV
-              </a>{" "}
-              — filtres à charbon actif, oxydateurs thermiques régénératifs (RTO), oxydateurs
-              catalytiques, biofiltres, scrubbers ou systèmes de condensation — sont-elles
-              réellement efficaces ? Sans mesure précise en amont et en aval, impossible de le
-              confirmer avec certitude.
-            </p>
-            <div className="flex gap-4 rounded-lg border-l-4 border-accent bg-accent/10 p-6">
-              <AlertTriangle className="mt-0.5 h-6 w-6 shrink-0 text-accent" aria-hidden />
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                Sans mesure amont/aval, un système d'abattage peut sembler fonctionnel tout en
-                laissant passer des substances Cancérogènes, Mutagènes et Reprotoxiques (CMR) au-dessus
-                des{" "}
-                <a
-                  href={VLEP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-accent underline underline-offset-4"
-                >
-                  Valeurs Limites d'Exposition Professionnelle
-                </a>{" "}
-                (VLEP).
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
 
       {/* LA SOLUTION */}
       <Container className="py-16 md:py-24">
