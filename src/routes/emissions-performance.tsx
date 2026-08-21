@@ -423,6 +423,12 @@ function EmissionsPerformancePage() {
             sur une durée de 1 à 2 mois selon vos cycles de production.
           </p>
           <p>
+            Le XFLR-9 se déploie simultanément sur les deux points de mesure pour quantifier
+            l'efficacité réelle de votre système, molécule par molécule. Les données produites
+            permettent d'ajuster la fréquence de maintenance, d'optimiser la consommation
+            énergétique, et de constituer un dossier de conformité opposable en cas de contrôle.
+          </p>
+          <p>
             Grâce à sa technologie OPO Laser et son identification ad nihilo de plus de 500 espèces
             gazeuses, le XFLR-9 différencie instantanément chaque molécule présente dans le flux —
             des COV aux NOx — sans spectre de référence préalable. Une capacité unique qui permet de
