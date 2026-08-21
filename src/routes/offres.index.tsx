@@ -20,14 +20,12 @@ export const Route = createFileRoute("/offres/")({
 
 const offers = [
   {
-    tag: "Solution 1",
     title: "Santé & Environnement",
     subtitle: "Pour connaître précisément ce que respirent vos équipes",
     text: "Campagne de mesure ponctuelle — identification exhaustive des gaz présents sur votre site à un instant T, rapport de conformité VLEP remis en fin de mission.",
     to: "/offres/sante-environnement",
   },
   {
-    tag: "Solution 2",
     title: "Émissions & Performance",
     subtitle: "Pour piloter vos émissions dans la durée et optimiser vos installations",
     text: "Monitoring continu sur 1 à 2 mois — mesures amont/aval de vos systèmes d'abattage, reporting régulier, données exploitables pour vos cycles de production.",
@@ -51,10 +49,7 @@ function OffresIndex() {
               className="card-hover relative overflow-hidden rounded-lg border border-border bg-card p-8"
             >
               <span className="absolute inset-x-0 top-0 h-1 bg-accent" />
-              <div className="text-xs font-semibold uppercase tracking-widest text-accent">
-                {o.tag}
-              </div>
-              <h2 className="mt-4 text-2xl font-bold text-foreground">{o.title}</h2>
+              <h2 className="text-2xl font-bold text-foreground">{o.title}</h2>
               <p className="mt-2 italic text-muted-foreground">{o.subtitle}</p>
               <p className="mt-6 text-base leading-relaxed text-muted-foreground">{o.text}</p>
               <Link
