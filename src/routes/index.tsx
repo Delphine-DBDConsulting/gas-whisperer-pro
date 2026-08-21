@@ -328,14 +328,12 @@ function Solution() {
 function Solutions() {
   const solutions = [
     {
-      tag: "Solution 1",
       title: "Santé & Environnement",
       subtitle: "Pour connaître précisément ce que respirent vos équipes",
       text: "Campagne de mesure ponctuelle — identification exhaustive des gaz présents sur votre site, rapport de conformité VLEP remis en fin de mission.",
       to: "/offres/sante-environnement" as const,
     },
     {
-      tag: "Solution 2",
       title: "Émissions & Performance",
       subtitle: "Pour piloter vos émissions dans la durée et optimiser vos installations",
       text: "Monitoring continu sur 1 à 2 mois — mesures amont/aval de vos systèmes d'abattage, reporting régulier, données pour piloter vos cycles de production.",
@@ -355,9 +353,6 @@ function Solutions() {
               className="card-hover relative overflow-hidden rounded-lg border border-border bg-card p-8"
             >
               <span className="absolute inset-x-0 top-0 h-[3px] bg-accent" />
-              <span className="inline-flex rounded-full bg-accent/15 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
-                {o.tag}
-              </span>
               <h3 className="mt-4 text-2xl font-bold text-foreground">{o.title}</h3>
               <p className="mt-2 italic text-muted-foreground">{o.subtitle}</p>
               <hr className="my-6 border-border" />
