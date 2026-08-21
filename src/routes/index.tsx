@@ -252,7 +252,7 @@ function Solution() {
   const bullets = [
     [
       "Sécurité et santé sur site",
-      "grâce à l'identification ad nihilo de plus de 500 espèces gazeuses (des COV aux NOx), le XFLR-9 permet de mener un véritable travail d'enquête sur votre site pour détecter et caractériser des gaz inconnus, y compris des substances potentiellement Cancérogènes, Mutagènes et Reprotoxiques (CMR) que les capteurs classiques seraient incapables d'identifier.",
+      "grâce à l'identification ad nihilo de plus de 500 espèces gazeuses (des COV aux NOx), le XFLR-9 permet de mener un véritable travail d'enquête sur votre site pour détecter et caractériser des gaz inconnus, et substances (CMR) que les capteurs classiques seraient incapables d'identifier.",
     ],
     [
       "Conformité réglementaire",
