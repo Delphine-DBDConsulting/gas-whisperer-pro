@@ -340,9 +340,9 @@ function EmissionsPerformancePage() {
       <Container className="py-16 md:py-24">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-start">
           <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
-            <h2 className="text-2xl font-bold text-foreground md:text-3xl">Le contexte</h2>
+            <h2 className="text-2xl font-bold text-foreground md:text-3xl">Vos systèmes d'abattage sont-ils réellement efficaces ?</h2>
             <p>
-              Un système d'abattage n'a de valeur que par son rendement réel, en conditions
+              Un système d'abattage des COV n'a de valeur que par son rendement réel, en conditions
               d'exploitation. Une mesure ponctuelle ne dit rien des pics liés aux changements de
               série, aux démarrages ou aux dérives d'un média filtrant.
             </p>
