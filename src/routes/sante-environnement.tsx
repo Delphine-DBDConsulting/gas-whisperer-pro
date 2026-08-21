@@ -48,7 +48,7 @@ const steps = [
   {
     icon: FileCheck2,
     title: "Remise du rapport",
-    text: "Document de conformité complet, exploitable lors d'un audit interne ou présentable en cas de contrôle par la DRIETS (Direction Régionale Interdépartementale de l'Économie, de l'Emploi, du Travail et des Solidarités) en Île-de-France, la DREETS (Direction Régionale de l'Économie, de l'Emploi, du Travail et des Solidarités) dans les autres régions, le médecin du travail, le COFRAC (Comité Français d'Accréditation) ou le CSE (Comité Social et Économique).",
+    text: "Document de conformité complet, exploitable lors d'un audit interne ou présentable en cas de contrôle par la DRIETS, la DREETS, le médecin du travail, le COFRAC ou encore le CSE.",
   },
 ];
 
