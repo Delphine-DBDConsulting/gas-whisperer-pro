@@ -14,6 +14,7 @@ import { Route as SanteEnvironnementRouteImport } from './routes/sante-environne
 import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as PolitiqueDeConfidentialiteRouteImport } from './routes/politique-de-confidentialite'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as EmissionsPerformanceRouteImport } from './routes/emissions-performance'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OffresIndexRouteImport } from './routes/offres.index'
@@ -45,6 +46,11 @@ const PolitiqueDeConfidentialiteRoute =
 const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
   id: '/mentions-legales',
   path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmissionsPerformanceRoute = EmissionsPerformanceRouteImport.update({
+  id: '/emissions-performance',
+  path: '/emissions-performance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -83,6 +89,7 @@ const EnBrochureRoute = EnBrochureRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/emissions-performance': typeof EmissionsPerformanceRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
   '/references': typeof ReferencesRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/emissions-performance': typeof EmissionsPerformanceRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
   '/references': typeof ReferencesRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/emissions-performance': typeof EmissionsPerformanceRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
   '/references': typeof ReferencesRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/contact'
+    | '/emissions-performance'
     | '/mentions-legales'
     | '/politique-de-confidentialite'
     | '/references'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contact'
+    | '/emissions-performance'
     | '/mentions-legales'
     | '/politique-de-confidentialite'
     | '/references'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/contact'
+    | '/emissions-performance'
     | '/mentions-legales'
     | '/politique-de-confidentialite'
     | '/references'
@@ -165,6 +177,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
+  EmissionsPerformanceRoute: typeof EmissionsPerformanceRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   PolitiqueDeConfidentialiteRoute: typeof PolitiqueDeConfidentialiteRoute
   ReferencesRoute: typeof ReferencesRoute
@@ -211,6 +224,13 @@ declare module '@tanstack/react-router' {
       path: '/mentions-legales'
       fullPath: '/mentions-legales'
       preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/emissions-performance': {
+      id: '/emissions-performance'
+      path: '/emissions-performance'
+      fullPath: '/emissions-performance'
+      preLoaderRoute: typeof EmissionsPerformanceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -261,6 +281,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
+  EmissionsPerformanceRoute: EmissionsPerformanceRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
   PolitiqueDeConfidentialiteRoute: PolitiqueDeConfidentialiteRoute,
   ReferencesRoute: ReferencesRoute,

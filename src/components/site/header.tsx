@@ -15,7 +15,7 @@ const navLinks = [
 
 const solutionLinks = [
   { to: "/sante-environnement", label: "Santé & Environnement" },
-  { to: "/offres/emissions-performance", label: "Émissions & Performance" },
+  { to: "/emissions-performance", label: "Émissions & Performance" },
 ] as const;
 
 export function SiteHeader() {
