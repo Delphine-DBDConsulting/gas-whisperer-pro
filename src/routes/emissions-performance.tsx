@@ -390,23 +390,23 @@ function EmissionsPerformancePage() {
               réellement efficaces ? Sans mesure précise en amont et en aval, impossible de le
               confirmer avec certitude.
             </p>
-          </div>
-          <div className="mt-10 flex max-w-3xl gap-4 rounded-lg border-l-4 border-accent bg-accent/10 p-6">
-            <AlertTriangle className="mt-0.5 h-6 w-6 shrink-0 text-accent" aria-hidden />
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Sans mesure amont/aval, un système d'abattage peut sembler fonctionnel tout en
-              laissant passer des substances Cancérogènes, Mutagènes et Reprotoxiques (CMR) au-dessus
-              des{" "}
-              <a
-                href={VLEP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-accent underline underline-offset-4"
-              >
-                Valeurs Limites d'Exposition Professionnelle
-              </a>{" "}
-              (VLEP).
-            </p>
+            <div className="flex gap-4 rounded-lg border-l-4 border-accent bg-accent/10 p-6">
+              <AlertTriangle className="mt-0.5 h-6 w-6 shrink-0 text-accent" aria-hidden />
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Sans mesure amont/aval, un système d'abattage peut sembler fonctionnel tout en
+                laissant passer des substances Cancérogènes, Mutagènes et Reprotoxiques (CMR) au-dessus
+                des{" "}
+                <a
+                  href={VLEP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-accent underline underline-offset-4"
+                >
+                  Valeurs Limites d'Exposition Professionnelle
+                </a>{" "}
+                (VLEP).
+              </p>
+            </div>
           </div>
         </Container>
       </section>
