@@ -443,12 +443,6 @@ function Applications() {
           Le XFLR-9 identifie et mesure les émissions gazeuses dans l'ensemble des environnements
           industriels émetteurs de COV et de NOx, en France et en Europe.
         </p>
-        <Link
-          to="/references"
-          className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
-        >
-          Voir nos cas clients <span aria-hidden>→</span>
-        </Link>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {applications.map(({ Icon, title, desc }) => (
             <article
@@ -462,6 +456,12 @@ function Applications() {
             </article>
           ))}
         </div>
+        <Link
+          to="/references"
+          className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
+        >
+          Voir nos cas clients <span aria-hidden>→</span>
+        </Link>
       </Container>
     </section>
   );
