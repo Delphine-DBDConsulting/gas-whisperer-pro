@@ -431,7 +431,45 @@ function NotreTechnologie() {
         </Container>
       </section>
 
-      {/* Section 6 — Secteurs d'application */}
+      {/* Section 6 — La flotte */}
+      <Container className="py-16 md:py-24">
+        <h2 className="text-2xl font-bold text-foreground md:text-3xl">La flotte CLM Industry</h2>
+        <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">
+          CLM Industry dispose d'une flotte de 4 analyseurs XFLR-9, maintenus en état optimal de
+          fonctionnement et disponibles pour des déploiements simultanés sur plusieurs sites. Chaque
+          appareil est régulièrement étalonné et vérifié pour garantir la fiabilité et la
+          traçabilité des mesures produites.
+        </p>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {fleetCards.map((c) => (
+            <div key={c.title} className="card-hover rounded-xl border border-border bg-card p-8">
+              <c.icon className="h-7 w-7 text-accent" aria-hidden="true" />
+              <h3 className="mt-4 text-base font-semibold text-foreground">{c.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 rounded-lg border border-accent/40 bg-[color:var(--footer)] p-8 text-center">
+          <div className="mx-auto inline-block rounded-lg bg-white p-4">
+            <img
+              src={frenchFabLogo.url}
+              alt="La French Fab — Le label de la French Industry"
+              width={200}
+              height={100}
+              loading="lazy"
+              className="h-20 w-auto"
+            />
+          </div>
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">
+            CLM Industry est membre La French Fab depuis 2025 — le label du Ministère de l'Économie
+            qui distingue les industriels français engagés dans l'excellence et l'innovation
+            manufacturière.
+          </p>
+        </div>
+      </Container>
+
+      {/* Section 7 — Secteurs d'application */}
       <Container className="py-16 md:py-24">
         <h2 className="max-w-3xl text-2xl font-bold text-foreground md:text-3xl">
           Nos secteurs d'application
