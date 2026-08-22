@@ -4,7 +4,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 import brochureAsset from "@/assets/clm-industry-brochure-en.pdf.asset.json";
-import xfi9 from "@/assets/xfi9-analyzer.jpg";
+import xflr9 from "@/assets/xflr9-analyzer.png.asset.json";
 import { BookingButton } from "@/components/site/booking";
 import { Container } from "@/components/site/container";
 import { COMPANY } from "@/lib/company";
@@ -104,10 +104,10 @@ function BrochurePage() {
           <BookingButton className="mt-3">Book a call</BookingButton>
         </div>
         <img
-          src={xfi9}
+          src={xflr9.url}
           alt="XFLR-9 analyser — OPO laser industrial gas measurement"
-          width={1024}
-          height={1024}
+          width={1148}
+          height={794}
           loading="lazy"
           className="mt-10 w-full rounded-lg border border-border/60"
         />
