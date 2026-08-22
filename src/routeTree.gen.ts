@@ -20,9 +20,11 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CasClientsRouteImport } from './routes/cas-clients'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OffresIndexRouteImport } from './routes/offres.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as OffresSanteEnvironnementRouteImport } from './routes/offres.sante-environnement'
 import { Route as OffresEmissionsPerformanceRouteImport } from './routes/offres.emissions-performance'
 import { Route as EnBrochureRouteImport } from './routes/en.brochure'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const TechnologieRoute = TechnologieRouteImport.update({
   id: '/technologie',
@@ -80,6 +82,11 @@ const OffresIndexRoute = OffresIndexRouteImport.update({
   path: '/offres/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OffresSanteEnvironnementRoute =
   OffresSanteEnvironnementRouteImport.update({
     id: '/offres/sante-environnement',
@@ -97,6 +104,11 @@ const EnBrochureRoute = EnBrochureRouteImport.update({
   path: '/en/brochure',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -109,9 +121,11 @@ export interface FileRoutesByFullPath {
   '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
   '/technologie': typeof TechnologieRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/en/brochure': typeof EnBrochureRoute
   '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
   '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
+  '/blog/': typeof BlogIndexRoute
   '/offres/': typeof OffresIndexRoute
 }
 export interface FileRoutesByTo {
@@ -125,9 +139,11 @@ export interface FileRoutesByTo {
   '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
   '/technologie': typeof TechnologieRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/en/brochure': typeof EnBrochureRoute
   '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
   '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
+  '/blog': typeof BlogIndexRoute
   '/offres': typeof OffresIndexRoute
 }
 export interface FileRoutesById {
@@ -142,9 +158,11 @@ export interface FileRoutesById {
   '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
   '/technologie': typeof TechnologieRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/en/brochure': typeof EnBrochureRoute
   '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
   '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
+  '/blog/': typeof BlogIndexRoute
   '/offres/': typeof OffresIndexRoute
 }
 export interface FileRouteTypes {
@@ -160,9 +178,11 @@ export interface FileRouteTypes {
     | '/references'
     | '/sante-environnement'
     | '/technologie'
+    | '/blog/$slug'
     | '/en/brochure'
     | '/offres/emissions-performance'
     | '/offres/sante-environnement'
+    | '/blog/'
     | '/offres/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -176,9 +196,11 @@ export interface FileRouteTypes {
     | '/references'
     | '/sante-environnement'
     | '/technologie'
+    | '/blog/$slug'
     | '/en/brochure'
     | '/offres/emissions-performance'
     | '/offres/sante-environnement'
+    | '/blog'
     | '/offres'
   id:
     | '__root__'
@@ -192,9 +214,11 @@ export interface FileRouteTypes {
     | '/references'
     | '/sante-environnement'
     | '/technologie'
+    | '/blog/$slug'
     | '/en/brochure'
     | '/offres/emissions-performance'
     | '/offres/sante-environnement'
+    | '/blog/'
     | '/offres/'
   fileRoutesById: FileRoutesById
 }
@@ -209,9 +233,11 @@ export interface RootRouteChildren {
   ReferencesRoute: typeof ReferencesRoute
   SanteEnvironnementRoute: typeof SanteEnvironnementRoute
   TechnologieRoute: typeof TechnologieRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   EnBrochureRoute: typeof EnBrochureRoute
   OffresEmissionsPerformanceRoute: typeof OffresEmissionsPerformanceRoute
   OffresSanteEnvironnementRoute: typeof OffresSanteEnvironnementRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   OffresIndexRoute: typeof OffresIndexRoute
 }
 
@@ -294,6 +320,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OffresIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/offres/sante-environnement': {
       id: '/offres/sante-environnement'
       path: '/offres/sante-environnement'
@@ -315,6 +348,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnBrochureRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -329,9 +369,11 @@ const rootRouteChildren: RootRouteChildren = {
   ReferencesRoute: ReferencesRoute,
   SanteEnvironnementRoute: SanteEnvironnementRoute,
   TechnologieRoute: TechnologieRoute,
+  BlogSlugRoute: BlogSlugRoute,
   EnBrochureRoute: EnBrochureRoute,
   OffresEmissionsPerformanceRoute: OffresEmissionsPerformanceRoute,
   OffresSanteEnvironnementRoute: OffresSanteEnvironnementRoute,
+  BlogIndexRoute: BlogIndexRoute,
   OffresIndexRoute: OffresIndexRoute,
 }
 export const routeTree = rootRouteImport

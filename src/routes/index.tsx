@@ -14,6 +14,7 @@ import xflr9 from "@/assets/xflr9-analyzer.png.asset.json";
 import { BookingButton } from "@/components/site/booking";
 import { Container } from "@/components/site/container";
 import { LogoMarquee } from "@/components/site/logo-marquee";
+import { posts } from "@/lib/blog";
 
 const DESCRIPTION =
   "CLM Industry réalise des campagnes de mesure de gaz industriels sur site. Identification ad nihilo de 500+ espèces gazeuses, conformité VLEP/CMR, optimisation des systèmes d'abattage. Analyseur XFLR-9 technologie OPO Laser.";
@@ -64,6 +65,7 @@ function Index() {
       <Solution />
       <Solutions />
       <Applications />
+      <BlogTeaser />
       <LogoMarquee />
       <FinalCta />
     </>
@@ -481,6 +483,60 @@ function FinalCta() {
         </p>
         <div className="mt-10 flex justify-center">
           <BookingButton />
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function BlogTeaser() {
+  return (
+    <section className="border-b border-border/40">
+      <Container className="py-20 md:py-28">
+        <h2 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">
+          Derniers articles
+        </h2>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          Réglementation, technologie, retours terrain — les sujets qui comptent pour les
+          responsables HSE et les industriels.
+        </p>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {posts.slice(0, 3).map((post) => (
+            <article
+              key={post.slug}
+              className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent hover:shadow-xl"
+            >
+              <span className="absolute inset-x-0 top-0 h-[2px] bg-accent opacity-0 transition-opacity group-hover:opacity-100" />
+              <span className="w-fit rounded-full bg-accent/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent">
+                {post.category}
+              </span>
+              <h3 className="mt-4 text-base font-bold leading-snug text-foreground">{post.title}</h3>
+              <p className="mt-2 text-xs text-muted-foreground">{post.date}</p>
+              <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
+                {post.excerpt}
+              </p>
+              <div className="mt-auto pt-5">
+                <Link
+                  to="/blog/$slug"
+                  params={{ slug: post.slug }}
+                  className="text-sm font-semibold text-accent transition-colors hover:text-foreground"
+                >
+                  Lire l'article <span aria-hidden>→</span>
+                </Link>
+                <div className="mt-5 border-t border-border/60" />
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
+          >
+            Voir tous les articles <span aria-hidden>→</span>
+          </Link>
         </div>
       </Container>
     </section>
