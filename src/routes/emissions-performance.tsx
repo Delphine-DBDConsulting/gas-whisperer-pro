@@ -435,14 +435,6 @@ function UpstreamDownstreamDiagram() {
   );
 }
 
-const receipt = [
-  "Les courbes de concentration mesurées en amont et en aval de votre système sur toute la durée de la campagne",
-  "Le taux d'efficacité réel de votre installation d'abattage, molécule par molécule",
-  "L'identification de toutes les espèces gazeuses présentes, y compris les composés détectés ad nihilo",
-  "Les recommandations d'optimisation : fréquence de maintenance, ajustement de puissance, plan d'action corrective",
-  "Un document opposable présentable en cas de contrôle réglementaire (DRIETS, DREETS, inspection des installations classées, CSE)",
-];
-
 function EmissionsPerformancePage() {
   return (
     <>
