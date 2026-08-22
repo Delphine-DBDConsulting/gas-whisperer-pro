@@ -13,6 +13,7 @@ import { Route as TechnologieRouteImport } from './routes/technologie'
 import { Route as SanteEnvironnementRouteImport } from './routes/sante-environnement'
 import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as PolitiqueDeConfidentialiteRouteImport } from './routes/politique-de-confidentialite'
+import { Route as NotreTechnologieRouteImport } from './routes/notre-technologie'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as EmissionsPerformanceRouteImport } from './routes/emissions-performance'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -43,6 +44,11 @@ const PolitiqueDeConfidentialiteRoute =
     path: '/politique-de-confidentialite',
     getParentRoute: () => rootRouteImport,
   } as any)
+const NotreTechnologieRoute = NotreTechnologieRouteImport.update({
+  id: '/notre-technologie',
+  path: '/notre-technologie',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
   id: '/mentions-legales',
   path: '/mentions-legales',
@@ -91,6 +97,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/notre-technologie': typeof NotreTechnologieRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
   '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
@@ -105,6 +112,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/notre-technologie': typeof NotreTechnologieRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
   '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
@@ -120,6 +128,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/notre-technologie': typeof NotreTechnologieRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
   '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
@@ -136,6 +145,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/emissions-performance'
     | '/mentions-legales'
+    | '/notre-technologie'
     | '/politique-de-confidentialite'
     | '/references'
     | '/sante-environnement'
@@ -150,6 +160,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/emissions-performance'
     | '/mentions-legales'
+    | '/notre-technologie'
     | '/politique-de-confidentialite'
     | '/references'
     | '/sante-environnement'
@@ -164,6 +175,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/emissions-performance'
     | '/mentions-legales'
+    | '/notre-technologie'
     | '/politique-de-confidentialite'
     | '/references'
     | '/sante-environnement'
@@ -179,6 +191,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   EmissionsPerformanceRoute: typeof EmissionsPerformanceRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
+  NotreTechnologieRoute: typeof NotreTechnologieRoute
   PolitiqueDeConfidentialiteRoute: typeof PolitiqueDeConfidentialiteRoute
   ReferencesRoute: typeof ReferencesRoute
   SanteEnvironnementRoute: typeof SanteEnvironnementRoute
@@ -217,6 +230,13 @@ declare module '@tanstack/react-router' {
       path: '/politique-de-confidentialite'
       fullPath: '/politique-de-confidentialite'
       preLoaderRoute: typeof PolitiqueDeConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notre-technologie': {
+      id: '/notre-technologie'
+      path: '/notre-technologie'
+      fullPath: '/notre-technologie'
+      preLoaderRoute: typeof NotreTechnologieRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mentions-legales': {
@@ -283,6 +303,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   EmissionsPerformanceRoute: EmissionsPerformanceRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
+  NotreTechnologieRoute: NotreTechnologieRoute,
   PolitiqueDeConfidentialiteRoute: PolitiqueDeConfidentialiteRoute,
   ReferencesRoute: ReferencesRoute,
   SanteEnvironnementRoute: SanteEnvironnementRoute,
