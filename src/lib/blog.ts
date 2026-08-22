@@ -9,7 +9,9 @@ export type BlogBlock =
   | { type: "h2"; text: string }
   | { type: "h3"; text: string }
   | { type: "p"; text: string }
-  | { type: "ul"; items: string[] };
+  | { type: "ul"; items: string[] }
+  | { type: "callout"; title: string; text: string; tone?: "accent" | "warning" }
+  | { type: "table"; headers: string[]; rows: string[][] };
 
 export type BlogPost = {
   slug: string;
@@ -20,7 +22,14 @@ export type BlogPost = {
   excerpt: string;
   tags: string[];
   body: BlogBlock[];
+  /** Slugs affichés dans « À lire aussi » (par défaut : les 3 premiers autres articles). */
+  related?: string[];
+  /** CTA de la sidebar. */
+  sidebarCta?: { title: string; text: string };
+  /** Bloc CTA de bas d'article. */
+  footerCta?: { text: string; linkLabel: string; linkTo: string };
 };
+
 
 export const BLOG_CATEGORIES: BlogCategory[] = [
   "Réglementation",
