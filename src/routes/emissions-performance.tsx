@@ -87,11 +87,12 @@ const steps = [
 ];
 
 const deliverables = [
-  "Courbes d'émission continues, par molécule, sur toute la durée de la campagne.",
-  "Rendement d'abattage réel de chaque équipement, amont/aval.",
-  "Identification des pics d'émission et corrélation avec les événements de production.",
+  "Courbes de concentration mesurées en amont et en aval de votre système, par molécule, sur toute la durée de la campagne.",
+  "Taux d'efficacité réel de votre installation d'abattage, molécule par molécule.",
+  "Identification des pics d'émission, corrélation avec les événements de production et de toutes les espèces gazeuses présentes, y compris les composés détectés ad nihilo.",
   "Reporting intermédiaire régulier pendant la campagne.",
-  "Plan d'optimisation : réglages process, dimensionnement et maintenance des systèmes de traitement.",
+  "Recommandations d'optimisation : fréquence de maintenance, ajustement de puissance, plan d'action corrective et réglages process.",
+  "Document opposable présentable en cas de contrôle réglementaire (DRIETS, DREETS, inspection ICPE, CSE).",
 ];
 
 const faq = [
