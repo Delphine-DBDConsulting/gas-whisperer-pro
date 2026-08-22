@@ -4,7 +4,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 import brochureAsset from "@/assets/clm-industry-brochure-en.pdf.asset.json";
-import xfi9 from "@/assets/xfi9-analyzer.jpg";
+import xflr9 from "@/assets/xflr9-analyzer.png.asset.json";
 import { BookingButton } from "@/components/site/booking";
 import { Container } from "@/components/site/container";
 import { COMPANY } from "@/lib/company";
