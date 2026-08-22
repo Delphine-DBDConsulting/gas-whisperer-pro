@@ -323,7 +323,7 @@ function EmissionsPerformancePage() {
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
             CLM Industry met en place une solution de surveillance continue pour mesurer vos
-            émissions de COV sur 1 à 2 mois. Le monitoring couplé d'un système d'alertes et
+            émissions de COV sur 1 à 2 mois. Le monitoring, couplé avec un système d'alertes et
             accessible à distance, permet de mesurer l'efficacité de vos systèmes d'abattage en
             temps réel, et d'optimiser les cycles de production.
           </p>
