@@ -318,7 +318,7 @@ function NotreTechnologie() {
         </h2>
         <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">
           Développé sur 13 années de R&amp;D, le XFLR-9 est un analyseur de gaz propriétaire unique
-          en France. Conçu pour les environnements industriels difficiles, il combine la précision
+          en France. Conçu pour les environnements industriels complexes, il combine la précision
           de la spectroscopie laser infrarouge avec la robustesse d'un système rack mobile
           déployable en moins d'une heure.
         </p>
