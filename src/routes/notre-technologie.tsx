@@ -450,22 +450,24 @@ function NotreTechnologie() {
           ))}
         </div>
 
-        <div className="mt-10 rounded-lg border border-accent/40 bg-[color:var(--footer)] p-8 text-center">
-          <div className="mx-auto inline-block rounded-lg bg-white p-4">
-            <img
-              src={frenchFabLogo.url}
-              alt="La French Fab — Le label de la French Industry"
-              width={200}
-              height={100}
-              loading="lazy"
-              className="h-20 w-auto"
-            />
+        <div className="mt-10 rounded-lg border border-accent/40 bg-[color:var(--footer)] p-8">
+          <div className="flex flex-col items-center gap-6 md:flex-row md:items-start">
+            <div className="shrink-0 rounded-lg bg-white p-4">
+              <img
+                src={frenchFabLogo.url}
+                alt="La French Fab — Le label de la French Industry"
+                width={200}
+                height={100}
+                loading="lazy"
+                className="h-20 w-auto"
+              />
+            </div>
+            <p className="max-w-3xl text-center text-base leading-relaxed text-muted-foreground md:text-left">
+              CLM Industry est membre La French Fab depuis 2025 — le label du Ministère de l'Économie
+              qui distingue les industriels français engagés dans l'excellence et l'innovation
+              manufacturière.
+            </p>
           </div>
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">
-            CLM Industry est membre La French Fab depuis 2025 — le label du Ministère de l'Économie
-            qui distingue les industriels français engagés dans l'excellence et l'innovation
-            manufacturière.
-          </p>
         </div>
       </Container>
 
