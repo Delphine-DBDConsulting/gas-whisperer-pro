@@ -469,55 +469,51 @@ function EmissionsPerformancePage() {
         </Container>
       </section>
 
-      {/* LE CONTEXTE */}
-      <Container className="py-16 md:py-24">
-        <div className="max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
-          <h2 className="text-2xl font-bold text-foreground md:text-3xl">Vos systèmes d'abattage sont-ils réellement efficaces ?</h2>
-          <p>
-            Un système d'abattage des COV n'a de valeur que par son rendement réel, en conditions
-            d'exploitation. Une mesure ponctuelle ne dit rien des pics liés aux changements de
-            série, aux démarrages ou aux dérives d'un média filtrant.
-          </p>
-          <p>
-            En mesurant simultanément en amont et en aval de vos équipements, nous quantifions
-            l'efficacité d'abattage molécule par molécule, lorsque des solutions plus classiques
-            mesurent en carbone organique total, sans distinction.
-          </p>
-          <p>
-            Les données produites alimentent directement vos déclarations environnementales, votre
-            dossier ICPE et vos arbitrages d'investissement.
-          </p>
-        </div>
-      </Container>
-
-
-      {/* LA SOLUTION */}
+            {/* PROBLÈME + SOLUTION + TECHNOLOGIE */}
       <Container className="py-16 md:py-24">
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">
-          La mesure amont/aval par CLM Industry
+          Vos systèmes d'abattage sont-ils réellement efficaces ?
         </h2>
         <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
-            CLM Industry déploie deux analyseurs XFLR-9 simultanément — l'un en amont, l'autre en
-            aval de votre système d'abattage — pour quantifier l'efficacité réelle de votre système, molécule par molécule. Les mesures sont réalisées en temps réel, en continu,
-            sur une durée de 1 à 2 mois selon vos cycles de production.
+            Un système d'abattage des COV n'a de valeur que par son rendement réel, en conditions
+            d'exploitation. Une mesure ponctuelle ne dit rien des pics liés aux changements de
+            série, aux démarrages ou aux dérives d'un média filtrant. CLM Industry déploie deux
+            analyseurs XFLR-9 simultanément — l'un en amont, l'autre en aval de votre installation
+            — pour quantifier l'efficacité d'abattage molécule par molécule, là où les solutions
+            classiques mesurent uniquement le carbone organique total, sans distinction.
+          </p>
+          <p>
+            Grâce à la technologie OPO Laser et son identification ad nihilo de plus de 500 espèces
+            gazeuses, le XFLR-9 différencie instantanément chaque molécule présente dans le flux —
+            des COV aux NOx — sans spectre de référence préalable. Les mesures sont réalisées en
+            temps réel, en continu, sur une durée de 1 à 2 mois selon vos cycles de production.
           </p>
           <p>
             Les données produites permettent d'ajuster la fréquence de maintenance, d'optimiser la
-            consommation énergétique, et de constituer un dossier de conformité opposable en cas de
-            contrôle.
-          </p>
-          <p>
-            Grâce à sa technologie OPO Laser et son identification ad nihilo de plus de 500 espèces
-            gazeuses, le XFLR-9 différencie instantanément chaque molécule présente dans le flux —
-            des COV aux NOx — sans spectre de référence préalable. Une capacité unique qui permet de
-            détecter des composés inconnus que les instruments classiques ne peuvent pas identifier.
+            consommation énergétique, et d'alimenter directement vos déclarations environnementales,
+            votre dossier ICPE et vos arbitrages d'investissement. Un dossier de conformité
+            opposable, disponible à tout moment en cas de contrôle réglementaire.
           </p>
         </div>
         <UpstreamDownstreamDiagram />
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          <article className="card-hover rounded-xl border border-border bg-card p-6 text-center">
+            <div className="text-3xl font-bold text-accent">500+</div>
+            <p className="mt-2 text-sm text-muted-foreground">espèces gazeuses identifiables</p>
+          </article>
+          <article className="card-hover rounded-xl border border-border bg-card p-6 text-center">
+            <div className="text-3xl font-bold text-accent">Temps réel</div>
+            <p className="mt-2 text-sm text-muted-foreground">mesure continue amont/aval</p>
+          </article>
+          <article className="card-hover rounded-xl border border-border bg-card p-6 text-center">
+            <div className="text-3xl font-bold text-accent">1 à 2 mois</div>
+            <p className="mt-2 text-sm text-muted-foreground">durée de campagne type</p>
+          </article>
+        </div>
       </Container>
 
-      {/* SYSTÈMES D'ABATTAGE */}
+{/* SYSTÈMES D'ABATTAGE */}
       <section className="border-y border-border/40 bg-[color:var(--footer)]">
         <Container className="py-16 md:py-24">
           <h2 className="text-2xl font-bold text-foreground md:text-3xl">
