@@ -457,7 +457,7 @@ function Applications() {
           ))}
         </div>
         <Link
-          to="/references"
+          to="/cas-clients"
           className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
         >
           Voir nos cas clients <span aria-hidden>→</span>

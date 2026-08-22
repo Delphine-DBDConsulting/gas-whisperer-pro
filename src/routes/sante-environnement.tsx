@@ -494,7 +494,7 @@ function SanteEnvironnementPage() {
               </article>
             ))}
           </div>
-          <Link to="/references" className="cta-outline mt-10 inline-block">
+          <Link to="/cas-clients" className="cta-outline mt-10 inline-block">
             Voir tous les cas clients
           </Link>
         </Container>

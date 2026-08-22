@@ -546,7 +546,7 @@ function NotreTechnologie() {
             </article>
           </div>
           <div className="mt-10 text-center">
-            <Link to="/references" className="text-sm font-semibold text-accent hover:underline">
+            <Link to="/cas-clients" className="text-sm font-semibold text-accent hover:underline">
               Voir tous nos cas clients →
             </Link>
           </div>

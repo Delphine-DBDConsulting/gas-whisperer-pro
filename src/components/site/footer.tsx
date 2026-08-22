@@ -36,7 +36,7 @@ export function SiteFooter() {
             <Link to="/technologie" className="text-muted-foreground hover:text-accent">
               Technologie
             </Link>
-            <Link to="/references" className="text-muted-foreground hover:text-accent">
+            <Link to="/cas-clients" className="text-muted-foreground hover:text-accent">
               Cas clients
             </Link>
             <Link to="/contact" className="text-muted-foreground hover:text-accent">
