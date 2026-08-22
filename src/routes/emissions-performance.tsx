@@ -79,7 +79,7 @@ const steps = [
   {
     icon: Wifi,
     title: "Monitoring continu",
-    text: "Mesures en temps réel, surveillance à distance via cloud, débriefing quotidien. Les données sont accessibles en continu depuis nos équipes.",
+    text: "Mesures et alertes en temps réel, surveillance à distance via cloud, débriefing quotidien. Les données sont accessibles en continu depuis nos équipes.",
   },
   {
     icon: FileCheck2,
