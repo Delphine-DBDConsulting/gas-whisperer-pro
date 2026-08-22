@@ -87,11 +87,12 @@ const steps = [
 ];
 
 const deliverables = [
-  "Courbes d'émission continues, par molécule, sur toute la durée de la campagne.",
-  "Rendement d'abattage réel de chaque équipement, amont/aval.",
-  "Identification des pics d'émission et corrélation avec les événements de production.",
+  "Courbes de concentration mesurées en amont et en aval de votre système, par molécule, sur toute la durée de la campagne.",
+  "Taux d'efficacité réel de votre installation d'abattage, molécule par molécule.",
+  "Identification des pics d'émission, corrélation avec les événements de production et de toutes les espèces gazeuses présentes, y compris les composés détectés ad nihilo.",
   "Reporting intermédiaire régulier pendant la campagne.",
-  "Plan d'optimisation : réglages process, dimensionnement et maintenance des systèmes de traitement.",
+  "Recommandations d'optimisation : fréquence de maintenance, ajustement de puissance, plan d'action corrective et réglages process.",
+  "Document opposable présentable en cas de contrôle réglementaire (DRIETS, DREETS, inspection ICPE, CSE).",
 ];
 
 const faq = [
@@ -435,14 +436,6 @@ function UpstreamDownstreamDiagram() {
   );
 }
 
-const receipt = [
-  "Les courbes de concentration mesurées en amont et en aval de votre système sur toute la durée de la campagne",
-  "Le taux d'efficacité réel de votre installation d'abattage, molécule par molécule",
-  "L'identification de toutes les espèces gazeuses présentes, y compris les composés détectés ad nihilo",
-  "Les recommandations d'optimisation : fréquence de maintenance, ajustement de puissance, plan d'action corrective",
-  "Un document opposable présentable en cas de contrôle réglementaire (DRIETS, DREETS, inspection des installations classées, CSE)",
-];
-
 function EmissionsPerformancePage() {
   return (
     <>
@@ -614,6 +607,21 @@ function EmissionsPerformancePage() {
                   <span>{d}</span>
                 </li>
               ))}
+              <li className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden />
+                <span>
+                  La comparaison des concentrations mesurées aux{" "}
+                  <a
+                    href={VLEP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-accent underline underline-offset-4"
+                  >
+                    Valeurs Limites d'Exposition Professionnelle
+                  </a>{" "}
+                  (VLEP) en vigueur
+                </span>
+              </li>
             </ul>
           </div>
           <div>
@@ -630,99 +638,63 @@ function EmissionsPerformancePage() {
             </div>
           </div>
         </div>
-      </Container>
 
-      {/* CE QUE VOUS RECEVEZ */}
-      <section className="border-y border-border/40 bg-[color:var(--footer)]">
-        <Container className="py-16 md:py-24">
-          <h2 className="text-2xl font-bold text-foreground md:text-3xl">
-            Ce que vous recevez à l'issue de la campagne
-          </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            À l'issue de chaque campagne Émissions &amp; Performance, CLM Industry remet un rapport
-            d'expertise complet incluant :
-          </p>
-          <ul className="mt-8 grid gap-4 lg:grid-cols-2">
-            {receipt.map((d) => (
-              <li key={d.slice(0, 30)} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden />
-                <span>{d}</span>
-              </li>
-            ))}
-            <li className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden />
-              <span>
-                La comparaison des concentrations mesurées aux{" "}
-                <a
-                  href={VLEP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-accent underline underline-offset-4"
-                >
-                  Valeurs Limites d'Exposition Professionnelle
-                </a>{" "}
-                (VLEP) en vigueur
-              </span>
-            </li>
-          </ul>
-
-          <div className="mt-14 rounded-lg border border-border bg-card p-6 md:p-8">
-            <h3 className="text-lg font-bold text-foreground">
-              Exemple de mesure simultanée multi-espèces
-            </h3>
-            <div className="mt-4 flex flex-wrap gap-5 text-xs text-muted-foreground">
-              {SERIES.map((s) => (
-                <span key={s.name} className="flex items-center gap-2">
-                  <span
-                    className="inline-block h-2.5 w-2.5"
-                    style={{ backgroundColor: s.color }}
-                    aria-hidden
-                  />
-                  {s.name} (VLEP {s.vlep.toString().replace(".", ",")} ppm)
-                </span>
-              ))}
-              <span className="flex items-center gap-2">
+        <div className="mt-16 rounded-lg border border-border bg-card p-6 md:p-8">
+          <h3 className="text-lg font-bold text-foreground">
+            Exemple de mesure simultanée multi-espèces
+          </h3>
+          <div className="mt-4 flex flex-wrap gap-5 text-xs text-muted-foreground">
+            {SERIES.map((s) => (
+              <span key={s.name} className="flex items-center gap-2">
                 <span
-                  className="h-0.5 w-6"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(90deg,#9aa4b2 0 6px,transparent 6px 10px)",
-                  }}
+                  className="inline-block h-2.5 w-2.5"
+                  style={{ backgroundColor: s.color }}
                   aria-hidden
                 />
-                VLEP respective
+                {s.name} (VLEP {s.vlep.toString().replace(".", ",")} ppm)
               </span>
-            </div>
-            <div className="mt-4 overflow-x-auto">
-              <MultiSpeciesChart />
-            </div>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                ["Benzène", "⚠ Dépassement pts 3-4", true],
-                ["Formaldéhyde", "⚠ Dépassement pts 3-5", true],
-                ["Toluène", "✓ Conforme", false],
-                ["Acétone", "✓ Conforme", false],
-              ].map(([name, label, danger]) => (
-                <div
-                  key={name as string}
-                  className={`rounded-md border px-5 py-4 text-sm ${
-                    danger
-                      ? "border-[#d03b3b]/40 bg-[#d03b3b]/10"
-                      : "border-accent/40 bg-accent/10"
-                  }`}
-                >
-                  <div className="font-semibold text-foreground">{name}</div>
-                  <div className="mt-1 text-muted-foreground">{label}</div>
-                </div>
-              ))}
-            </div>
-            <p className="mt-5 text-center text-[11px] text-muted-foreground">
-              Exemple illustratif — Mesure simultanée de 4 espèces gazeuses — 8 points de
-              prélèvement — Site industriel anonymisé
-            </p>
+            ))}
+            <span className="flex items-center gap-2">
+              <span
+                className="h-0.5 w-6"
+                style={{
+                  backgroundImage:
+                    "repeating-linear-gradient(90deg,#9aa4b2 0 6px,transparent 6px 10px)",
+                }}
+                aria-hidden
+              />
+              VLEP respective
+            </span>
           </div>
-        </Container>
-      </section>
+          <div className="mt-4 overflow-x-auto">
+            <MultiSpeciesChart />
+          </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["Benzène", "⚠ Dépassement pts 3-4", true],
+              ["Formaldéhyde", "⚠ Dépassement pts 3-5", true],
+              ["Toluène", "✓ Conforme", false],
+              ["Acétone", "✓ Conforme", false],
+            ].map(([name, label, danger]) => (
+              <div
+                key={name as string}
+                className={`rounded-md border px-5 py-4 text-sm ${
+                  danger
+                    ? "border-[#d03b3b]/40 bg-[#d03b3b]/10"
+                    : "border-accent/40 bg-accent/10"
+                }`}
+              >
+                <div className="font-semibold text-foreground">{name}</div>
+                <div className="mt-1 text-muted-foreground">{label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-center text-[11px] text-muted-foreground">
+            Exemple illustratif — Mesure simultanée de 4 espèces gazeuses — 8 points de
+            prélèvement — Site industriel anonymisé
+          </p>
+        </div>
+      </Container>
 
       {/* CAS CLIENTS */}
       <Container className="py-16 md:py-24">
