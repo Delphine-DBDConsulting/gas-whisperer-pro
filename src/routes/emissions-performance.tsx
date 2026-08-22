@@ -512,9 +512,7 @@ function EmissionsPerformancePage() {
             Quelle que soit la technologie installée sur votre site, le XFLR-9 mesure simultanément
             les émissions à l'entrée et à la sortie de vos{" "}
             <a
-              href={ADEME_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/blog/systemes-abattage-cov-guide-complet"
               className="font-medium text-accent underline underline-offset-4"
             >
               systèmes d'abattage
