@@ -429,16 +429,6 @@ function UpstreamDownstreamDiagram() {
         <text x="497" y="268" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="700" fill="#27500A">Rapport</text>
         <text x="497" y="284" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#3B6D11">d'expertise</text>
 
-        {/* Légende */}
-        <rect x="20" y="255" width="10" height="10" rx="2" fill="#E6F1FB" stroke="#185FA5" strokeWidth="0.8" />
-        <text x="34" y="265" fontFamily="Arial, sans-serif" fontSize="10" fill="#4A5568">Analyseur XFLR-9</text>
-        <rect x="130" y="255" width="10" height="10" rx="2" fill="#E1F5EE" stroke="#0F6E56" strokeWidth="0.8" />
-        <text x="144" y="265" fontFamily="Arial, sans-serif" fontSize="10" fill="#4A5568">Système d'abattage</text>
-
-        {/* Note bas */}
-        <text x="20" y="322" fontFamily="Arial, sans-serif" fontSize="10" fill="#6B7280">
-          Routeur 3G/4G intégré — Surveillance à distance — Débriefing quotidien — Rapport de conformité VLEP
-        </text>
       </svg>
       <figcaption className="mt-3 text-center text-[11px] text-muted-foreground">
         Schéma explicatif — Mesure simultanée amont/aval d'un système d'abattage de COV — CLM Industry XFLR-9
