@@ -437,23 +437,42 @@ function SanteEnvironnementPage() {
 
       {/* CE QUE VOUS RECEVEZ */}
       <Container className="py-16 md:py-24">
-        <h2 className="text-2xl font-bold text-foreground md:text-3xl">
-          Ce que vous recevez à l'issue de la campagne
-        </h2>
-        <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          À l'issue de chaque campagne de mesure, CLM Industry remet un rapport d'expertise complet
-          incluant :
-        </p>
-        <ul className="mt-8 grid gap-4 lg:grid-cols-2">
-          {deliverables.map((d) => (
-            <li key={d.slice(0, 30)} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden />
-              <span>{d}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="grid gap-12 lg:grid-cols-2">
+          <div>
+            <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+              Ce que vous recevez à l'issue de la campagne
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              À l'issue de chaque campagne de mesure, CLM Industry remet un rapport d'expertise
+              complet incluant :
+            </p>
+            <ul className="mt-8 space-y-4">
+              {deliverables.map((d) => (
+                <li key={d.slice(0, 30)} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden />
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+              Questions fréquentes
+            </h2>
+            <div className="mt-8 space-y-4">
+              {faq.map((f) => (
+                <details key={f.q} className="rounded-lg border border-border bg-card p-6">
+                  <summary className="cursor-pointer text-base font-semibold text-foreground">
+                    {f.q}
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
 
-        <div className="mt-14 rounded-lg border border-border bg-card p-6 md:p-8">
+        <div className="mt-16 rounded-lg border border-border bg-card p-6 md:p-8">
           <h3 className="text-lg font-bold text-foreground">Exemple de rapport de mesure</h3>
           <div className="mt-4 flex flex-wrap gap-6 text-xs text-muted-foreground">
             <span className="flex items-center gap-2">
