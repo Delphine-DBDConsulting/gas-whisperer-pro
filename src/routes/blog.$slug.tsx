@@ -68,11 +68,12 @@ function useVlepRenderer() {
   let used = false;
   return function renderText(text: string) {
     if (used) return text;
-    const idx = text.indexOf("Valeurs Limites d'Exposition Professionnelle");
+    const idx = text.indexOf(VLEP_LABEL);
     const short = text.indexOf("VLEP");
     if (idx === -1 && short === -1) return text;
     used = true;
-    const link = (
+
+    const link = (label: string) => (
       <a
         key="vlep"
         href={VLEP_URL}
@@ -80,23 +81,27 @@ function useVlepRenderer() {
         rel="noopener noreferrer"
         className="text-accent underline underline-offset-2 hover:text-foreground"
       >
-        {VLEP_LABEL} (VLEP)
+        {label}
       </a>
     );
-    if (idx !== -1) {
+
+    // L'acronyme "VLEP" est la première occurrence : on le lie.
+    if (short !== -1 && (idx === -1 || short < idx)) {
       return (
         <>
-          {text.slice(0, idx)}
-          {link}
-          {text.slice(idx + VLEP_LABEL.length)}
+          {text.slice(0, short)}
+          {link("VLEP")}
+          {text.slice(short + 4)}
         </>
       );
     }
+
+    // La forme longue est la première occurrence : on lie la forme longue.
     return (
       <>
-        {text.slice(0, short)}
-        {link}
-        {text.slice(short + 4)}
+        {text.slice(0, idx)}
+        {link(VLEP_LABEL)}
+        {text.slice(idx + VLEP_LABEL.length)}
       </>
     );
   };
