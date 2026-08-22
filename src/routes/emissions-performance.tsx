@@ -499,7 +499,7 @@ function EmissionsPerformancePage() {
         <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
             CLM Industry déploie deux analyseurs XFLR-9 simultanément — l'un en amont, l'autre en
-            aval de votre système d'abattage. Les mesures sont réalisées en temps réel, en continu,
+            aval de votre système d'abattage — pour quantifier l'efficacité réelle de votre système, molécule par molécule. Les mesures sont réalisées en temps réel, en continu,
             sur une durée de 1 à 2 mois selon vos cycles de production.
           </p>
           <p>
