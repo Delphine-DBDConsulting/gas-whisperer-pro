@@ -157,9 +157,9 @@ function CasClients() {
   return (
     <>
       <PageHeader
-        eyebrow="Cas clients"
+        eyebrow="CAS CLIENTS"
         title="Ce que change une mesure réellement précise"
-        intro="Les campagnes de CLM Industry servent avant tout à décider : corriger une exposition, dimensionner un équipement, sécuriser un contrôle réglementaire... Voici quelques cas d'usage concrets."
+        intro="Les campagnes de CLM Industry servent avant tout à décider : corriger une exposition, dimensionner un équipement, sécuriser un contrôle réglementaire... "
       />
 
       <Container className="py-16 md:py-24">
