@@ -9,7 +9,7 @@ import logoAsset from "@/assets/clm-logo.svg.asset.json";
 const navLinks = [
   { to: "/offres", label: "Solutions" },
   { to: "/notre-technologie", label: "Notre technologie" },
-  { to: "/references", label: "Cas clients" },
+  { to: "/cas-clients", label: "Cas clients" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
