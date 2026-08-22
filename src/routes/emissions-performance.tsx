@@ -304,6 +304,149 @@ function MultiSpeciesChart() {
   );
 }
 
+/* ---------- Schéma amont/aval ---------- */
+function UpstreamDownstreamDiagram() {
+  return (
+    <figure className="mt-10">
+      <svg
+        width="100%"
+        viewBox="0 0 680 340"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Schéma explicatif — mesure simultanée amont/aval d'un système d'abattage de COV avec analyseur XFLR-9"
+        className="rounded-xl"
+      >
+        <defs>
+          <marker
+            id="arrow-abat"
+            viewBox="0 0 10 10"
+            refX="8"
+            refY="5"
+            markerWidth="6"
+            markerHeight="6"
+            orient="auto-start-reverse"
+          >
+            <path
+              d="M2 1L8 5L2 9"
+              fill="none"
+              stroke="#4A5568"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </marker>
+        </defs>
+
+        {/* Background */}
+        <rect width="680" height="340" fill="#F5F6F8" rx="12" />
+
+        {/* PROCESS INDUSTRIEL */}
+        <rect x="20" y="100" width="100" height="80" rx="8" fill="#E8ECF0" stroke="#C8D0DA" strokeWidth="0.8" />
+        <rect x="38" y="76" width="12" height="28" rx="2" fill="none" stroke="#6B7280" strokeWidth="0.8" />
+        <rect x="58" y="68" width="12" height="36" rx="2" fill="none" stroke="#6B7280" strokeWidth="0.8" />
+        <rect x="78" y="73" width="12" height="31" rx="2" fill="none" stroke="#6B7280" strokeWidth="0.8" />
+        <path d="M44 76 Q42 68 46 62" fill="none" stroke="#9CA3AF" strokeWidth="0.8" opacity="0.6" />
+        <path d="M64 68 Q62 58 66 52" fill="none" stroke="#9CA3AF" strokeWidth="0.8" opacity="0.6" />
+        <path d="M84 73 Q82 63 86 57" fill="none" stroke="#9CA3AF" strokeWidth="0.8" opacity="0.6" />
+        <text x="70" y="136" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="13" fontWeight="600" fill="#1C2B3A">Process</text>
+        <text x="70" y="154" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="11" fill="#4A5568">industriel</text>
+
+        {/* Flèche process → amont */}
+        <line x1="120" y1="140" x2="158" y2="140" stroke="#4A5568" strokeWidth="1.5" markerEnd="url(#arrow-abat)" fill="none" />
+        <text x="139" y="133" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#4A5568">COV</text>
+
+        {/* ANALYSEUR AMONT */}
+        <rect x="160" y="108" width="110" height="64" rx="8" fill="#E6F1FB" stroke="#185FA5" strokeWidth="1" />
+        <text x="215" y="132" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="13" fontWeight="700" fill="#0C447C">XFLR-9</text>
+        <text x="215" y="150" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="600" fill="#185FA5">Amont</text>
+        <text x="215" y="163" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#378ADD">(upstream)</text>
+
+        {/* Spectre amont */}
+        <rect x="168" y="186" width="94" height="44" rx="4" fill="white" stroke="#D0D5DD" strokeWidth="0.5" />
+        <polyline
+          points="172,224 180,210 188,218 196,200 204,212 212,196 220,208 228,202 236,215 244,205 252,216 256,218"
+          fill="none"
+          stroke="#185FA5"
+          strokeWidth="1.2"
+        />
+        <line x1="168" y1="224" x2="262" y2="224" stroke="#D0D5DD" strokeWidth="0.5" />
+        <text x="215" y="243" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#4A5568">Spectre amont</text>
+
+        {/* Flèche amont → abattage */}
+        <line x1="270" y1="140" x2="308" y2="140" stroke="#4A5568" strokeWidth="1.5" markerEnd="url(#arrow-abat)" fill="none" />
+
+        {/* SYSTÈME D'ABATTAGE */}
+        <rect x="310" y="96" width="120" height="88" rx="8" fill="#E1F5EE" stroke="#0F6E56" strokeWidth="1" />
+        <line x1="328" y1="108" x2="328" y2="180" stroke="#0F6E56" strokeWidth="0.6" opacity="0.4" />
+        <line x1="344" y1="108" x2="344" y2="180" stroke="#0F6E56" strokeWidth="0.6" opacity="0.4" />
+        <line x1="360" y1="108" x2="360" y2="180" stroke="#0F6E56" strokeWidth="0.6" opacity="0.4" />
+        <line x1="380" y1="108" x2="380" y2="180" stroke="#0F6E56" strokeWidth="0.6" opacity="0.4" />
+        <line x1="396" y1="108" x2="396" y2="180" stroke="#0F6E56" strokeWidth="0.6" opacity="0.4" />
+        <line x1="412" y1="108" x2="412" y2="180" stroke="#0F6E56" strokeWidth="0.6" opacity="0.4" />
+        <text x="370" y="128" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="13" fontWeight="700" fill="#085041">Système</text>
+        <text x="370" y="146" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="13" fontWeight="700" fill="#085041">d'abattage</text>
+        <text x="370" y="164" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="11" fill="#0F6E56">COV</text>
+
+        {/* Label efficacité */}
+        <line x1="310" y1="88" x2="430" y2="88" stroke="#1B4F8A" strokeWidth="0.8" strokeDasharray="3 2" opacity="0.5" />
+        <text x="370" y="82" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#1B4F8A" opacity="0.9">Efficacité d'abattage mesurée</text>
+
+        {/* Flèche abattage → aval */}
+        <line x1="430" y1="140" x2="468" y2="140" stroke="#4A5568" strokeWidth="1.5" markerEnd="url(#arrow-abat)" fill="none" />
+
+        {/* ANALYSEUR AVAL */}
+        <rect x="470" y="108" width="110" height="64" rx="8" fill="#E6F1FB" stroke="#185FA5" strokeWidth="1" />
+        <text x="525" y="132" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="13" fontWeight="700" fill="#0C447C">XFLR-9</text>
+        <text x="525" y="150" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="600" fill="#185FA5">Aval</text>
+        <text x="525" y="163" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#378ADD">(downstream)</text>
+
+        {/* Spectre aval réduit */}
+        <rect x="478" y="186" width="94" height="44" rx="4" fill="white" stroke="#D0D5DD" strokeWidth="0.5" />
+        <polyline
+          points="482,224 490,222 498,221 506,222 514,221 522,222 530,220 538,222 546,221 554,222 562,221 566,222"
+          fill="none"
+          stroke="#185FA5"
+          strokeWidth="1.2"
+        />
+        <line x1="478" y1="224" x2="572" y2="224" stroke="#D0D5DD" strokeWidth="0.5" />
+        <text x="525" y="243" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#4A5568">Spectre aval</text>
+
+        {/* Flèches vers cloud */}
+        <path d="M215 172 L215 272 L348 272" fill="none" stroke="#4A5568" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#arrow-abat)" opacity="0.5" />
+        <path d="M525 172 L525 272 L394 272" fill="none" stroke="#4A5568" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#arrow-abat)" opacity="0.5" />
+
+        {/* CLOUD */}
+        <ellipse cx="370" cy="272" rx="46" ry="20" fill="#E8ECF0" stroke="#C8D0DA" strokeWidth="0.8" />
+        <ellipse cx="348" cy="264" rx="20" ry="14" fill="#E8ECF0" stroke="#C8D0DA" strokeWidth="0.8" />
+        <ellipse cx="392" cy="264" rx="20" ry="14" fill="#E8ECF0" stroke="#C8D0DA" strokeWidth="0.8" />
+        <text x="370" y="277" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="600" fill="#1C2B3A">Cloud</text>
+
+        {/* Flèche cloud → rapport */}
+        <line x1="416" y1="272" x2="450" y2="272" stroke="#4A5568" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#arrow-abat)" fill="none" opacity="0.6" />
+
+        {/* RAPPORT */}
+        <rect x="452" y="252" width="90" height="40" rx="8" fill="#EAF3DE" stroke="#3B6D11" strokeWidth="1" />
+        <text x="497" y="268" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="700" fill="#27500A">Rapport</text>
+        <text x="497" y="284" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#3B6D11">d'expertise</text>
+
+        {/* Légende */}
+        <rect x="20" y="255" width="10" height="10" rx="2" fill="#E6F1FB" stroke="#185FA5" strokeWidth="0.8" />
+        <text x="34" y="265" fontFamily="Arial, sans-serif" fontSize="10" fill="#4A5568">Analyseur XFLR-9</text>
+        <rect x="130" y="255" width="10" height="10" rx="2" fill="#E1F5EE" stroke="#0F6E56" strokeWidth="0.8" />
+        <text x="144" y="265" fontFamily="Arial, sans-serif" fontSize="10" fill="#4A5568">Système d'abattage</text>
+
+        {/* Note bas */}
+        <text x="20" y="322" fontFamily="Arial, sans-serif" fontSize="10" fill="#6B7280">
+          Routeur 3G/4G intégré — Surveillance à distance — Débriefing quotidien — Rapport de conformité VLEP
+        </text>
+      </svg>
+      <figcaption className="mt-3 text-center text-[11px] text-muted-foreground">
+        Schéma explicatif — Mesure simultanée amont/aval d'un système d'abattage de COV — CLM Industry XFLR-9
+      </figcaption>
+    </figure>
+  );
+}
+
 const receipt = [
   "Les courbes de concentration mesurées en amont et en aval de votre système sur toute la durée de la campagne",
   "Le taux d'efficacité réel de votre installation d'abattage, molécule par molécule",
@@ -382,6 +525,7 @@ function EmissionsPerformancePage() {
             détecter des composés inconnus que les instruments classiques ne peuvent pas identifier.
           </p>
         </div>
+        <UpstreamDownstreamDiagram />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {[
             ["500+", "espèces gazeuses identifiables"],
