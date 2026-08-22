@@ -301,6 +301,7 @@ function MultiSpeciesChart() {
         </text>
       ))}
     </svg>
+  );
 }
 
 /* ---------- Schéma amont/aval ---------- */
