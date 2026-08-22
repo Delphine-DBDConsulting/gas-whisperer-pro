@@ -28,8 +28,6 @@ const DESCRIPTION =
 
 const VLEP_URL = "https://www.inrs.fr/publications/bdd/vlep.html";
 const COV_URL = "https://aida.ineris.fr/inspection-icpe/air/cov/cov";
-const ADEME_URL =
-  "https://librairie.ademe.fr/air-et-bruit/1183-reduction-a-la-source-des-emissions-de-cov-solutions-existantes-par-secteur-d-activite.html";
 const DRIETS_URL = "https://drieets.ile-de-france.gouv.fr";
 
 const abatement = [
@@ -512,9 +510,7 @@ function EmissionsPerformancePage() {
             Quelle que soit la technologie installée sur votre site, le XFLR-9 mesure simultanément
             les émissions à l'entrée et à la sortie de vos{" "}
             <a
-              href={ADEME_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/blog/systemes-abattage-cov-guide-complet"
               className="font-medium text-accent underline underline-offset-4"
             >
               systèmes d'abattage
