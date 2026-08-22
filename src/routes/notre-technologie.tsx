@@ -1,3 +1,4 @@
+import frenchFabLogo from "@/assets/french-fab-logo.png.asset.json";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Atom,
