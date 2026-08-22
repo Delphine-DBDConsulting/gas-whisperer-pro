@@ -61,12 +61,12 @@ function Index() {
   return (
     <>
       <Hero />
+      <LogoMarquee />
       <Regulatory />
       <Solution />
       <Solutions />
       <Applications />
       <BlogTeaser />
-      <LogoMarquee />
       <FinalCta />
     </>
   );
