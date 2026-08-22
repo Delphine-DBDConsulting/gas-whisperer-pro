@@ -525,6 +525,7 @@ function EmissionsPerformancePage() {
             détecter des composés inconnus que les instruments classiques ne peuvent pas identifier.
           </p>
         </div>
+        <UpstreamDownstreamDiagram />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {[
             ["500+", "espèces gazeuses identifiables"],
