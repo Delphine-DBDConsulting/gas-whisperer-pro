@@ -101,8 +101,8 @@ function Hero() {
           <img
             src={xflr9.url}
             alt="Analyseur XFLR-9 — technologie OPO Laser pour la mesure de gaz industriels"
-            width={1024}
-            height={1024}
+            width={1148}
+            height={794}
             className="relative w-full rounded-lg border border-border/60 shadow-2xl"
           />
         </div>

@@ -67,8 +67,8 @@ function Technologie() {
         <img
           src={xflr9.url}
           alt="Analyseur XFLR-9 — laser OPO pour la mesure de gaz industriels"
-          width={1024}
-          height={1024}
+          width={1148}
+          height={794}
           loading="lazy"
           className="w-full rounded-lg border border-border/60 shadow-2xl"
         />
