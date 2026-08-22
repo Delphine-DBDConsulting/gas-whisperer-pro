@@ -27,12 +27,6 @@ const rows = [
   ["Déploiement", "Lourd et intrusif", "< 1 heure sur site"],
 ];
 
-const stats = [
-  ["500+", "espèces gazeuses identifiables"],
-  ["< 1h", "déploiement sur site, sans interruption de production"],
-  ["ppb", "niveau de précision de détection"],
-  ["10", "gaz mesurés simultanément en temps réel"],
-];
 
 function Technologie() {
   return (
