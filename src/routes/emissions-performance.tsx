@@ -614,6 +614,21 @@ function EmissionsPerformancePage() {
                   <span>{d}</span>
                 </li>
               ))}
+              <li className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden />
+                <span>
+                  La comparaison des concentrations mesurées aux{" "}
+                  <a
+                    href={VLEP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-accent underline underline-offset-4"
+                  >
+                    Valeurs Limites d'Exposition Professionnelle
+                  </a>{" "}
+                  (VLEP) en vigueur
+                </span>
+              </li>
             </ul>
           </div>
           <div>
@@ -629,6 +644,62 @@ function EmissionsPerformancePage() {
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="mt-16 rounded-lg border border-border bg-card p-6 md:p-8">
+          <h3 className="text-lg font-bold text-foreground">
+            Exemple de mesure simultanée multi-espèces
+          </h3>
+          <div className="mt-4 flex flex-wrap gap-5 text-xs text-muted-foreground">
+            {SERIES.map((s) => (
+              <span key={s.name} className="flex items-center gap-2">
+                <span
+                  className="inline-block h-2.5 w-2.5"
+                  style={{ backgroundColor: s.color }}
+                  aria-hidden
+                />
+                {s.name} (VLEP {s.vlep.toString().replace(".", ",")} ppm)
+              </span>
+            ))}
+            <span className="flex items-center gap-2">
+              <span
+                className="h-0.5 w-6"
+                style={{
+                  backgroundImage:
+                    "repeating-linear-gradient(90deg,#9aa4b2 0 6px,transparent 6px 10px)",
+                }}
+                aria-hidden
+              />
+              VLEP respective
+            </span>
+          </div>
+          <div className="mt-4 overflow-x-auto">
+            <MultiSpeciesChart />
+          </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["Benzène", "⚠ Dépassement pts 3-4", true],
+              ["Formaldéhyde", "⚠ Dépassement pts 3-5", true],
+              ["Toluène", "✓ Conforme", false],
+              ["Acétone", "✓ Conforme", false],
+            ].map(([name, label, danger]) => (
+              <div
+                key={name as string}
+                className={`rounded-md border px-5 py-4 text-sm ${
+                  danger
+                    ? "border-[#d03b3b]/40 bg-[#d03b3b]/10"
+                    : "border-accent/40 bg-accent/10"
+                }`}
+              >
+                <div className="font-semibold text-foreground">{name}</div>
+                <div className="mt-1 text-muted-foreground">{label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-center text-[11px] text-muted-foreground">
+            Exemple illustratif — Mesure simultanée de 4 espèces gazeuses — 8 points de
+            prélèvement — Site industriel anonymisé
+          </p>
         </div>
       </Container>
 
