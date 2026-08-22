@@ -89,6 +89,25 @@ const deliverables = [
   "Un document exploitable directement dans votre Document Unique d'Évaluation des Risques (DUER) et opposable lors d'un contrôle par la DRIETS, la DREETS, le médecin du travail ou le CSE",
 ];
 
+const faq = [
+  {
+    q: "Le rapport CLM Industry est-il opposable en cas d'inspection ?",
+    a: "Oui. Chaque rapport est horodaté, tracé et signé. Il documente les concentrations mesurées molécule par molécule, les comparaisons aux VLEP en vigueur et les recommandations. Il peut être présenté à la DRIETS, la DREETS, au médecin du travail ou au CSE.",
+  },
+  {
+    q: "Quelle est la différence avec un capteur PID classique ?",
+    a: "Un capteur PID mesure le Carbone Organique Total (COT) sans identifier la molécule. Le XFLR-9 identifie et quantifie plus de 500 espèces gazeuses en temps réel, avec une précision à l'ordre du ppb. C'est cette identification qui rend le rapport juridiquement solide.",
+  },
+  {
+    q: "Combien de temps dure une campagne de mesure ?",
+    a: "La durée dépend du nombre de postes de travail et de la complexité du site. Une campagne de conformité VLEP classique se déroule sur quelques jours à deux semaines, avec un déploiement rapide et sans interruption de production.",
+  },
+  {
+    q: "Le XFLR-9 peut-il mesurer plusieurs gaz simultanément ?",
+    a: "Oui. L'analyseur mesure jusqu'à 10 espèces gazeuses en un seul passage. Cela permet de cartographier l'exposition réelle sans multiplier les interventions et les consommables.",
+  },
+];
+
 const caseStudies = [
   {
     sector: "Chimie de spécialités",
