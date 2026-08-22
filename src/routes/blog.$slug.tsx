@@ -201,17 +201,18 @@ function ArticlePage() {
             Cet article vous a été utile ?
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Découvrez comment CLM Industry peut vous aider à identifier et mesurer les gaz présents
-            sur votre site.
+            {post.footerCta?.text ??
+              "Découvrez comment CLM Industry peut vous aider à identifier et mesurer les gaz présents sur votre site."}
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <BookingButton />
-            <Link to="/sante-environnement" className="cta-outline">
-              Découvrir nos solutions
+            <Link to={post.footerCta?.linkTo ?? "/sante-environnement"} className="cta-outline">
+              {post.footerCta?.linkLabel ?? "Découvrir nos solutions"}
             </Link>
           </div>
         </Container>
       </section>
+
     </>
   );
 }
