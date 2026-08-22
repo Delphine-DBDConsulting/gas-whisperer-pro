@@ -383,9 +383,15 @@ function SanteEnvironnementPage() {
         <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
             CLM Industry déploie son analyseur propriétaire XFLR-9 directement sur votre site
-            industriel. En s'appuyant sur la technologie OPO Laser, l'instrument identifie et
-            quantifie plus de 500 espèces gazeuses en temps réel, avec une précision à l'ordre du
-            ppb — bien en dessous des seuils VLEP les plus exigeants.
+            industriel. En s'appuyant sur la{" "}
+            <Link
+              to="/notre-technologie"
+              className="font-medium text-accent underline underline-offset-4"
+            >
+              technologie OPO Laser
+            </Link>
+            , l'instrument identifie et quantifie plus de 500 espèces gazeuses en temps réel, avec
+            une précision à l'ordre du ppb — bien en dessous des seuils VLEP les plus exigeants.
           </p>
           <p>
             Contrairement aux analyseurs mono-gaz classiques, le XFLR-9 mesure simultanément jusqu'à
