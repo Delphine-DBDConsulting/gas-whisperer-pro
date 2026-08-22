@@ -526,18 +526,6 @@ function EmissionsPerformancePage() {
           </p>
         </div>
         <UpstreamDownstreamDiagram />
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {[
-            ["500+", "espèces gazeuses identifiables"],
-            ["Temps réel", "mesure continue amont/aval"],
-            ["1 à 2 mois", "durée de campagne type"],
-          ].map(([v, l]) => (
-            <div key={v} className="rounded-lg border border-border bg-card p-7">
-              <div className="text-2xl font-extrabold text-accent">{v}</div>
-              <div className="mt-2 text-sm text-muted-foreground">{l}</div>
-            </div>
-          ))}
-        </div>
       </Container>
 
       {/* SYSTÈMES D'ABATTAGE */}
