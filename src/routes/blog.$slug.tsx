@@ -105,7 +105,10 @@ function useVlepRenderer() {
 function ArticlePage() {
   const { post } = Route.useLoaderData();
   const renderText = useVlepRenderer();
-  const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const related = post.related
+    ? post.related.flatMap((s) => posts.filter((p) => p.slug === s))
+    : posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+
 
   return (
     <>
