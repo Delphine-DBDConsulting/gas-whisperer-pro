@@ -471,7 +471,6 @@ function EmissionsPerformancePage() {
             d'exploitation. Une mesure ponctuelle ne dit rien des pics liés aux changements de
             série, aux démarrages ou aux dérives d'un média filtrant.{"\u00a0"}<br />
             <br />
-            <br />
             CLM Industry déploie deux analyseurs XFLR-9 simultanément — l'un en amont, l'autre en
             aval de votre installation — pour quantifier l'efficacité d'abattage molécule par
             molécule, là où les solutions classiques mesurent uniquement le carbone organique total,
