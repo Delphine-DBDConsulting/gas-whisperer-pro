@@ -5,6 +5,7 @@ import { toast } from "sonner";
 
 import brochureAsset from "@/assets/clm-industry-brochure-en.pdf.asset.json";
 import xfi9 from "@/assets/xfi9-analyzer.jpg";
+import { BookingButton } from "@/components/site/booking";
 import { Container } from "@/components/site/container";
 import { COMPANY } from "@/lib/company";
 import { submitBrochureLead } from "@/lib/leads.functions";
@@ -96,6 +97,10 @@ function BrochurePage() {
             </li>
           ))}
         </ul>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <BookingButton>Book a 15-min call with a gas measurement expert</BookingButton>
+          <span className="text-sm text-muted-foreground">Or download the brochure →</span>
+        </div>
         <img
           src={xfi9}
           alt="XFLR-9 analyser — OPO laser industrial gas measurement"
@@ -114,9 +119,15 @@ function BrochurePage() {
               Click below to download the CLM Industry brochure. Our team will also reach out if you
               would like a technical discussion.
             </p>
-            <a href={BROCHURE_URL} download className="cta-primary mt-8">
+            <a href={BROCHURE_URL} download className="cta-primary mt-6">
               Download the PDF
             </a>
+            <div className="mt-6 border-t border-border/60 pt-6">
+              <p className="text-sm font-medium text-foreground">
+                Want to discuss your application?
+              </p>
+              <BookingButton className="mt-3 w-full justify-center">Book a 15-min call</BookingButton>
+            </div>
           </div>
         ) : (
           <form onSubmit={onSubmit} noValidate className="grid gap-5">
