@@ -229,5 +229,53 @@ function Block({
         ))}
       </ul>
     );
+  if (block.type === "callout")
+    return (
+      <div
+        className={`rounded-lg border-l-4 p-5 ${
+          block.tone === "warning"
+            ? "border-l-[color:var(--warning,#E0A24A)] bg-[color:var(--warning,#E0A24A)]/10"
+            : "border-l-accent bg-accent/10"
+        }`}
+      >
+        <p className="text-sm font-bold text-foreground">{block.title}</p>
+        <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+          {renderText(block.text)}
+        </p>
+      </div>
+    );
+  if (block.type === "table")
+    return (
+      <div className="overflow-x-auto rounded-lg border border-border">
+        <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+          <thead>
+            <tr className="bg-[color:var(--footer)]">
+              {block.headers.map((h) => (
+                <th key={h} className="px-4 py-3 font-semibold text-foreground">
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {block.rows.map((row, i) => (
+              <tr key={row[0]} className={i % 2 ? "bg-card/40" : ""}>
+                {row.map((cell, j) => (
+                  <td
+                    key={j}
+                    className={`border-t border-border/60 px-4 py-3 ${
+                      j === 0 ? "font-medium text-foreground" : "text-muted-foreground"
+                    }`}
+                  >
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
   return <p className="text-base leading-relaxed text-muted-foreground">{renderText(block.text)}</p>;
 }
+
