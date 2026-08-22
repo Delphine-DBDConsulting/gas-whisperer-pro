@@ -104,10 +104,10 @@ function BrochurePage() {
           <BookingButton className="mt-3">Book a call</BookingButton>
         </div>
         <img
-          src={xfi9}
+          src={xflr9.url}
           alt="XFLR-9 analyser — OPO laser industrial gas measurement"
-          width={1024}
-          height={1024}
+          width={1148}
+          height={794}
           loading="lazy"
           className="mt-10 w-full rounded-lg border border-border/60"
         />
