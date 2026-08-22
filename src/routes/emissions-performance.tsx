@@ -469,7 +469,7 @@ function EmissionsPerformancePage() {
         </Container>
       </section>
 
-            {/* PROBLÈME + SOLUTION + TECHNOLOGIE */}
+      {/* PROBLÈME + SOLUTION + TECHNOLOGIE */}
       <Container className="py-16 md:py-24">
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">
           Vos systèmes d'abattage sont-ils réellement efficaces ?
@@ -513,7 +513,7 @@ function EmissionsPerformancePage() {
         </div>
       </Container>
 
-{/* SYSTÈMES D'ABATTAGE */}
+      {/* SYSTÈMES D'ABATTAGE */}
       <section className="border-y border-border/40 bg-[color:var(--footer)]">
         <Container className="py-16 md:py-24">
           <h2 className="text-2xl font-bold text-foreground md:text-3xl">
