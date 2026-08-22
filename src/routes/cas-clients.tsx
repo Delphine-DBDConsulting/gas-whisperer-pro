@@ -5,7 +5,7 @@ import {
   IconBuildingFactory,
   IconChevronLeft,
   IconChevronRight,
-  IconCircuitBoard,
+  IconCpu,
   IconFireExtinguisher,
   IconFlask,
   IconLeaf,
