@@ -351,6 +351,12 @@ function EmissionsPerformancePage() {
             mesurent en carbone organique total, sans distinction.
           </p>
           <p>
+            Grâce à sa technologie OPO Laser et son identification ad nihilo de plus de 500 espèces
+            gazeuses, le XFLR-9 différencie instantanément chaque molécule présente dans le flux —
+            des COV aux NOx — sans spectre de référence préalable. Une capacité unique qui permet de
+            détecter des composés inconnus que les instruments classiques ne peuvent pas identifier.
+          </p>
+          <p>
             Les données produites alimentent directement vos déclarations environnementales, votre
             dossier ICPE et vos arbitrages d'investissement.
           </p>
@@ -374,12 +380,6 @@ function EmissionsPerformancePage() {
             l'efficacité réelle de votre système, molécule par molécule. Les données produites
             permettent d'ajuster la fréquence de maintenance, d'optimiser la consommation
             énergétique, et de constituer un dossier de conformité opposable en cas de contrôle.
-          </p>
-          <p>
-            Grâce à sa technologie OPO Laser et son identification ad nihilo de plus de 500 espèces
-            gazeuses, le XFLR-9 différencie instantanément chaque molécule présente dans le flux —
-            des COV aux NOx — sans spectre de référence préalable. Une capacité unique qui permet de
-            détecter des composés inconnus que les instruments classiques ne peuvent pas identifier.
           </p>
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
