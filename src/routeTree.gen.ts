@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TechnologieRouteImport } from './routes/technologie'
 import { Route as SanteEnvironnementRouteImport } from './routes/sante-environnement'
-import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as PolitiqueDeConfidentialiteRouteImport } from './routes/politique-de-confidentialite'
 import { Route as NotreTechnologieRouteImport } from './routes/notre-technologie'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
@@ -32,11 +31,6 @@ const TechnologieRoute = TechnologieRouteImport.update({
 const SanteEnvironnementRoute = SanteEnvironnementRouteImport.update({
   id: '/sante-environnement',
   path: '/sante-environnement',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReferencesRoute = ReferencesRouteImport.update({
-  id: '/references',
-  path: '/references',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PolitiqueDeConfidentialiteRoute =
@@ -106,7 +100,6 @@ export interface FileRoutesByFullPath {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/notre-technologie': typeof NotreTechnologieRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
-  '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
   '/technologie': typeof TechnologieRoute
   '/en/brochure': typeof EnBrochureRoute
@@ -122,7 +115,6 @@ export interface FileRoutesByTo {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/notre-technologie': typeof NotreTechnologieRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
-  '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
   '/technologie': typeof TechnologieRoute
   '/en/brochure': typeof EnBrochureRoute
@@ -139,7 +131,6 @@ export interface FileRoutesById {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/notre-technologie': typeof NotreTechnologieRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
-  '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
   '/technologie': typeof TechnologieRoute
   '/en/brochure': typeof EnBrochureRoute
@@ -157,7 +148,6 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/notre-technologie'
     | '/politique-de-confidentialite'
-    | '/references'
     | '/sante-environnement'
     | '/technologie'
     | '/en/brochure'
@@ -173,7 +163,6 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/notre-technologie'
     | '/politique-de-confidentialite'
-    | '/references'
     | '/sante-environnement'
     | '/technologie'
     | '/en/brochure'
@@ -189,7 +178,6 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/notre-technologie'
     | '/politique-de-confidentialite'
-    | '/references'
     | '/sante-environnement'
     | '/technologie'
     | '/en/brochure'
@@ -206,7 +194,6 @@ export interface RootRouteChildren {
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   NotreTechnologieRoute: typeof NotreTechnologieRoute
   PolitiqueDeConfidentialiteRoute: typeof PolitiqueDeConfidentialiteRoute
-  ReferencesRoute: typeof ReferencesRoute
   SanteEnvironnementRoute: typeof SanteEnvironnementRoute
   TechnologieRoute: typeof TechnologieRoute
   EnBrochureRoute: typeof EnBrochureRoute
@@ -229,13 +216,6 @@ declare module '@tanstack/react-router' {
       path: '/sante-environnement'
       fullPath: '/sante-environnement'
       preLoaderRoute: typeof SanteEnvironnementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/references': {
-      id: '/references'
-      path: '/references'
-      fullPath: '/references'
-      preLoaderRoute: typeof ReferencesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/politique-de-confidentialite': {
@@ -326,7 +306,6 @@ const rootRouteChildren: RootRouteChildren = {
   MentionsLegalesRoute: MentionsLegalesRoute,
   NotreTechnologieRoute: NotreTechnologieRoute,
   PolitiqueDeConfidentialiteRoute: PolitiqueDeConfidentialiteRoute,
-  ReferencesRoute: ReferencesRoute,
   SanteEnvironnementRoute: SanteEnvironnementRoute,
   TechnologieRoute: TechnologieRoute,
   EnBrochureRoute: EnBrochureRoute,
