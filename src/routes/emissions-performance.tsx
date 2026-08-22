@@ -478,10 +478,11 @@ function EmissionsPerformancePage() {
           <p>
             Un système d'abattage des COV n'a de valeur que par son rendement réel, en conditions
             d'exploitation. Une mesure ponctuelle ne dit rien des pics liés aux changements de
-            série, aux démarrages ou aux dérives d'un média filtrant. CLM Industry déploie deux
-            analyseurs XFLR-9 simultanément — l'un en amont, l'autre en aval de votre installation
-            — pour quantifier l'efficacité d'abattage molécule par molécule, là où les solutions
-            classiques mesurent uniquement le carbone organique total, sans distinction.
+            série, aux démarrages ou aux dérives d'un média filtrant.{"\u00a0"}<br />
+            CLM Industry déploie deux analyseurs XFLR-9 simultanément — l'un en amont, l'autre en
+            aval de votre installation — pour quantifier l'efficacité d'abattage molécule par
+            molécule, là où les solutions classiques mesurent uniquement le carbone organique total,
+            sans distinction.
           </p>
           <p>
             Grâce à la technologie OPO Laser et son identification ad nihilo de plus de 500 espèces
