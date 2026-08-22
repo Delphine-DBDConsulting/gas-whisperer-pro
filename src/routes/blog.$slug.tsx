@@ -153,12 +153,15 @@ function ArticlePage() {
 
         <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-xl border border-border bg-card p-6">
-            <h2 className="text-base font-bold text-foreground">Une question sur votre site ?</h2>
+            <h2 className="text-base font-bold text-foreground">
+              {post.sidebarCta?.title ?? "Une question sur votre site ?"}
+            </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Nos experts analysent votre situation.
+              {post.sidebarCta?.text ?? "Nos experts analysent votre situation."}
             </p>
             <BookingButton className="mt-5 w-full justify-center" />
           </div>
+
 
           <div className="rounded-xl border border-border bg-card p-6">
             <h2 className="text-base font-bold text-foreground">À lire aussi</h2>
