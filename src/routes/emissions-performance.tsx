@@ -28,8 +28,6 @@ const DESCRIPTION =
 
 const VLEP_URL = "https://www.inrs.fr/publications/bdd/vlep.html";
 const COV_URL = "https://aida.ineris.fr/inspection-icpe/air/cov/cov";
-const ADEME_URL =
-  "https://librairie.ademe.fr/air-et-bruit/1183-reduction-a-la-source-des-emissions-de-cov-solutions-existantes-par-secteur-d-activite.html";
 const DRIETS_URL = "https://drieets.ile-de-france.gouv.fr";
 
 const abatement = [
