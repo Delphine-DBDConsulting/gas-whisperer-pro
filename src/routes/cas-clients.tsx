@@ -131,7 +131,7 @@ const sectors = [
   { label: "Agroalimentaire & fragrances", icon: IconLeaf },
   { label: "Pétrochimie & énergie", icon: IconBuildingFactory },
   { label: "Pharmacie & biotech", icon: IconPill },
-  { label: "Microélectronique", icon: IconCircuitBoard },
+  { label: "Microélectronique", icon: IconCpu },
   { label: "Sécurité incendie", icon: IconFireExtinguisher },
 ];
 
