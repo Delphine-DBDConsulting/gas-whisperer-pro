@@ -494,7 +494,7 @@ function NotreTechnologie() {
         </div>
       </Container>
 
-      {/* Section 7 — Deux exemples concrets */}
+      {/* Section 8 — Deux exemples concrets */}
       <section className="border-y border-border/40 bg-[color:var(--footer)]">
         <Container className="py-16 md:py-24">
           <h2 className="text-2xl font-bold text-foreground md:text-3xl">Deux exemples concrets</h2>
