@@ -121,16 +121,6 @@ function Technologie() {
         </Container>
       </section>
 
-      <Container className="py-16 md:py-24">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map(([n, l]) => (
-            <div key={l} className="card-hover rounded-lg border border-border bg-card p-8">
-              <div className="text-4xl font-extrabold leading-none text-accent">{n}</div>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{l}</p>
-            </div>
-          ))}
-        </div>
-      </Container>
 
       <section className="border-t-2 border-accent">
         <Container className="py-16 text-center md:py-24">
