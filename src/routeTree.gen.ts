@@ -17,6 +17,7 @@ import { Route as NotreTechnologieRouteImport } from './routes/notre-technologie
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as EmissionsPerformanceRouteImport } from './routes/emissions-performance'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CasClientsRouteImport } from './routes/cas-clients'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OffresIndexRouteImport } from './routes/offres.index'
 import { Route as OffresSanteEnvironnementRouteImport } from './routes/offres.sante-environnement'
@@ -64,6 +65,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasClientsRoute = CasClientsRouteImport.update({
+  id: '/cas-clients',
+  path: '/cas-clients',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -94,6 +100,7 @@ const EnBrochureRoute = EnBrochureRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cas-clients': typeof CasClientsRoute
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
   '/mentions-legales': typeof MentionsLegalesRoute
@@ -109,6 +116,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cas-clients': typeof CasClientsRoute
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
   '/mentions-legales': typeof MentionsLegalesRoute
@@ -125,6 +133,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cas-clients': typeof CasClientsRoute
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
   '/mentions-legales': typeof MentionsLegalesRoute
@@ -142,6 +151,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/cas-clients'
     | '/contact'
     | '/emissions-performance'
     | '/mentions-legales'
@@ -157,6 +167,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/cas-clients'
     | '/contact'
     | '/emissions-performance'
     | '/mentions-legales'
@@ -172,6 +183,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/cas-clients'
     | '/contact'
     | '/emissions-performance'
     | '/mentions-legales'
@@ -188,6 +200,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CasClientsRoute: typeof CasClientsRoute
   ContactRoute: typeof ContactRoute
   EmissionsPerformanceRoute: typeof EmissionsPerformanceRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
@@ -260,6 +273,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cas-clients': {
+      id: '/cas-clients'
+      path: '/cas-clients'
+      fullPath: '/cas-clients'
+      preLoaderRoute: typeof CasClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -300,6 +320,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CasClientsRoute: CasClientsRoute,
   ContactRoute: ContactRoute,
   EmissionsPerformanceRoute: EmissionsPerformanceRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
