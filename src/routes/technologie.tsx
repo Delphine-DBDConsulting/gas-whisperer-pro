@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import xfi9 from "@/assets/xfi9-analyzer.jpg";
+import xflr9 from "@/assets/xflr9-analyzer.png.asset.json";
 import { BookingButton } from "@/components/site/booking";
 import { Container, PageHeader } from "@/components/site/container";
 
@@ -65,10 +65,10 @@ function Technologie() {
           </p>
         </div>
         <img
-          src={xfi9}
+          src={xflr9.url}
           alt="Analyseur XFLR-9 — laser OPO pour la mesure de gaz industriels"
-          width={1024}
-          height={1024}
+          width={1148}
+          height={794}
           loading="lazy"
           className="w-full rounded-lg border border-border/60 shadow-2xl"
         />
