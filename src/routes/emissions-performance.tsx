@@ -598,7 +598,7 @@ function EmissionsPerformancePage() {
       <Container className="py-16 md:py-24">
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
-            <h2 className="text-2xl font-bold text-foreground md:text-3xl">Vos livrables</h2>
+            <h2 className="text-2xl font-bold text-foreground md:text-3xl">Ce que vous recevez à l'issue de la campagne</h2>
             <ul className="mt-8 space-y-4">
               {deliverables.map((d) => (
                 <li key={d.slice(0, 30)} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
