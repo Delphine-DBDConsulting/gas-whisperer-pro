@@ -65,6 +65,7 @@ function Index() {
       <Solution />
       <Solutions />
       <Applications />
+      <BlogTeaser />
       <LogoMarquee />
       <FinalCta />
     </>
