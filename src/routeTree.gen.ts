@@ -24,6 +24,7 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as OffresSanteEnvironnementRouteImport } from './routes/offres.sante-environnement'
 import { Route as OffresEmissionsPerformanceRouteImport } from './routes/offres.emissions-performance'
 import { Route as EnBrochureRouteImport } from './routes/en.brochure'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const TechnologieRoute = TechnologieRouteImport.update({
   id: '/technologie',
@@ -103,6 +104,11 @@ const EnBrochureRoute = EnBrochureRouteImport.update({
   path: '/en/brochure',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -115,6 +121,7 @@ export interface FileRoutesByFullPath {
   '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
   '/technologie': typeof TechnologieRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/en/brochure': typeof EnBrochureRoute
   '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
   '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
@@ -132,6 +139,7 @@ export interface FileRoutesByTo {
   '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
   '/technologie': typeof TechnologieRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/en/brochure': typeof EnBrochureRoute
   '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
   '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
@@ -150,6 +158,7 @@ export interface FileRoutesById {
   '/references': typeof ReferencesRoute
   '/sante-environnement': typeof SanteEnvironnementRoute
   '/technologie': typeof TechnologieRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/en/brochure': typeof EnBrochureRoute
   '/offres/emissions-performance': typeof OffresEmissionsPerformanceRoute
   '/offres/sante-environnement': typeof OffresSanteEnvironnementRoute
@@ -169,6 +178,7 @@ export interface FileRouteTypes {
     | '/references'
     | '/sante-environnement'
     | '/technologie'
+    | '/blog/$slug'
     | '/en/brochure'
     | '/offres/emissions-performance'
     | '/offres/sante-environnement'
@@ -186,6 +196,7 @@ export interface FileRouteTypes {
     | '/references'
     | '/sante-environnement'
     | '/technologie'
+    | '/blog/$slug'
     | '/en/brochure'
     | '/offres/emissions-performance'
     | '/offres/sante-environnement'
@@ -203,6 +214,7 @@ export interface FileRouteTypes {
     | '/references'
     | '/sante-environnement'
     | '/technologie'
+    | '/blog/$slug'
     | '/en/brochure'
     | '/offres/emissions-performance'
     | '/offres/sante-environnement'
@@ -221,6 +233,7 @@ export interface RootRouteChildren {
   ReferencesRoute: typeof ReferencesRoute
   SanteEnvironnementRoute: typeof SanteEnvironnementRoute
   TechnologieRoute: typeof TechnologieRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   EnBrochureRoute: typeof EnBrochureRoute
   OffresEmissionsPerformanceRoute: typeof OffresEmissionsPerformanceRoute
   OffresSanteEnvironnementRoute: typeof OffresSanteEnvironnementRoute
@@ -335,6 +348,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnBrochureRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -349,6 +369,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReferencesRoute: ReferencesRoute,
   SanteEnvironnementRoute: SanteEnvironnementRoute,
   TechnologieRoute: TechnologieRoute,
+  BlogSlugRoute: BlogSlugRoute,
   EnBrochureRoute: EnBrochureRoute,
   OffresEmissionsPerformanceRoute: OffresEmissionsPerformanceRoute,
   OffresSanteEnvironnementRoute: OffresSanteEnvironnementRoute,
