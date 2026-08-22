@@ -447,6 +447,7 @@ function UpstreamDownstreamDiagram() {
   );
 }
 
+const receipt = [
   "Les courbes de concentration mesurées en amont et en aval de votre système sur toute la durée de la campagne",
   "Le taux d'efficacité réel de votre installation d'abattage, molécule par molécule",
   "L'identification de toutes les espèces gazeuses présentes, y compris les composés détectés ad nihilo",
