@@ -41,6 +41,189 @@ export const BLOG_CATEGORIES: BlogCategory[] = [
 
 export const posts: BlogPost[] = [
   {
+    slug: "systemes-abattage-cov-guide-complet",
+    category: "Systèmes d'abattage",
+    title: "Systèmes d'abattage des COV : quel traitement choisir pour votre site industriel ?",
+    date: "Juin 2026",
+    readingTime: "7 min de lecture",
+    excerpt:
+      "Charbon actif, RTO, oxydation catalytique, biofiltre, condensation : guide complet pour choisir le système d'abattage des COV adapté à votre process industriel, vos contraintes et vos obligations VLEP.",
+    tags: [
+      "Systèmes d'abattage",
+      "COV",
+      "RTO",
+      "Charbon actif",
+      "VLEP",
+      "Conformité",
+      "Mesure industrielle",
+    ],
+    related: [
+      "duer-risque-chimique-obligations",
+      "clm-industry-french-fab",
+      "opo-laser-vs-fid-pid",
+    ],
+    sidebarCta: {
+      title: "Évaluer votre système d'abattage",
+      text: "Nos experts analysent votre installation et vous proposent une campagne de monitoring adaptée.",
+    },
+    footerCta: {
+      text: "Découvrez comment CLM Industry peut vous aider à mesurer l'efficacité réelle de votre système d'abattage.",
+      linkLabel: "Découvrir Émissions & Performance",
+      linkTo: "/emissions-performance",
+    },
+    body: [
+      {
+        type: "p",
+        text: "Les Composés Organiques Volatils (COV) émis par les process industriels sont soumis à des réglementations de plus en plus strictes. Choisir le bon système d'abattage ne se réduit pas à une question de budget — c'est une décision technique qui engage la conformité réglementaire, les coûts d'exploitation et la sécurité de vos équipes sur le long terme. Ce guide passe en revue les principales technologies disponibles, leurs conditions d'utilisation optimales et les critères qui orientent le choix.",
+      },
+      { type: "h2", text: "Les deux grandes familles de traitement" },
+      {
+        type: "p",
+        text: "Avant d'entrer dans le détail des technologies, il faut comprendre la distinction fondamentale entre deux approches :",
+      },
+      {
+        type: "p",
+        text: "La récupération (transfert de phase) — le COV est capturé et transféré vers une phase solide ou liquide sans être détruit. Les technologies concernées sont l'absorption, l'adsorption sur charbon actif, la condensation et la séparation membranaire. Ces procédés permettent de récupérer les solvants à des fins de valorisation, mais génèrent des déchets secondaires à gérer.",
+      },
+      {
+        type: "p",
+        text: "La destruction (oxydation) — les COV sont convertis en CO₂, eau et chaleur par réaction chimique. Les technologies concernées sont l'oxydation thermique (RTO), l'oxydation catalytique et la biodégradation. Ces procédés éliminent définitivement les polluants mais consomment de l'énergie et peuvent générer des sous-produits secondaires.",
+      },
+      {
+        type: "p",
+        text: "Le choix entre les deux dépend de cinq paramètres opérationnels : le débit d'air à traiter, la concentration en COV, la nature chimique des polluants, la compatibilité du système avec le process, et le taux d'abattage visé.",
+      },
+      { type: "h2", text: "Cinq paramètres pour orienter votre choix" },
+      {
+        type: "p",
+        text: "Chaque technologie d'abattage opère dans une plage d'optimisation définie par deux axes : le débit volumique (m³/h) et la concentration en COV (g/m³). Comprendre où se situe votre process sur cette matrice est la première étape de tout choix éclairé.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Biofiltre et photocatalyse — faibles débits, faibles concentrations.",
+          "Adsorption et absorption — concentrations variables, débits modérés à élevés.",
+          "Oxydation thermique (RTO) — hauts débits continus, concentrations élevées.",
+          "Condensation — fortes concentrations, applications spécifiques de récupération.",
+        ],
+      },
+      { type: "h2", text: "Les technologies de récupération" },
+      { type: "h3", text: "Absorption — laver le gaz avec un solvant" },
+      {
+        type: "p",
+        text: "L'absorption consiste à faire traverser le flux gazeux par un solvant liquide qui capte les COV par transfert de masse. Adaptée aux polluants solubles (acides, bases, composés polaires), elle permet parfois de récupérer le solvant par distillation en aval. Sa principale contrainte : elle génère des effluents liquides à traiter.",
+      },
+      { type: "h3", text: "Adsorption sur charbon actif — piéger les molécules" },
+      {
+        type: "p",
+        text: "Le charbon actif est le média adsorbant le plus répandu dans l'industrie. Son réseau de micropores offre une surface d'échange considérable qui retient les molécules de COV par liaisons électrostatiques (forces de Van der Waals).",
+      },
+      {
+        type: "p",
+        text: "Ses avantages : faible investissement initial, bonne efficacité sur une large gamme de COV, possibilité de régénération. Ses contraintes : coûts d'exploitation élevés liés aux cycles de remplacement ou de régénération, saturation progressive du média.",
+      },
+      {
+        type: "callout",
+        title: "Point critique",
+        text: "Sans mesure réelle de la saturation du lit de charbon, les industriels ont tendance à remplacer les filtres par précaution, bien avant qu'ils ne soient saturés. C'est précisément ce que permet d'éviter une campagne de mesure amont/aval CLM Industry.",
+      },
+      { type: "h3", text: "Condensation — refroidir pour récupérer" },
+      {
+        type: "p",
+        text: "La condensation exploite la réduction de température pour faire passer les COV de la phase gazeuse à la phase liquide, permettant leur récupération et valorisation. Elle est particulièrement efficace sur les flux à forte concentration et s'utilise souvent en pré-traitement avant adsorption (système condenseur/adsorbeur synergique).",
+      },
+      { type: "h3", text: "Séparation membranaire — filtrer sous pression" },
+      {
+        type: "p",
+        text: "Les membranes polymères denses, sous pression, laissent passer sélectivement certaines molécules selon leur taille (pores < 2 nm). Encore peu répandue en traitement industriel des COV, cette technologie reste réservée à des applications très spécifiques.",
+      },
+      { type: "h2", text: "Les technologies de destruction" },
+      { type: "h3", text: "Oxydation thermique — brûler les COV" },
+      {
+        type: "p",
+        text: "L'oxydation thermique traite les COV comme un combustible : à haute température (700-1000°C), les molécules organiques réagissent avec l'oxygène pour donner du CO₂ et de la vapeur d'eau. L'efficacité de destruction dépend de trois facteurs simultanés — la Température, la Turbulence et le Temps de séjour — connus sous le nom de règle des « 3T ». Si l'un de ces trois facteurs fait défaut, la destruction est incomplète et des sous-produits potentiellement plus dangereux peuvent se former.",
+      },
+      { type: "p", text: "Il existe trois variantes principales :" },
+      {
+        type: "ul",
+        items: [
+          "DFTO (Direct Fired Thermal Oxidizer) — combustion directe sans récupération thermique, rapide à déployer mais gourmand en énergie.",
+          "Récupératif — récupère la chaleur des fumées pour préchauffer les gaz entrants, meilleure efficacité énergétique.",
+          "RTO (Regenerative Thermal Oxidizer) — atteint jusqu'à 97 % d'efficacité thermique grâce à des médias céramiques qui stockent et restituent la chaleur. Standard pour les flux continus à fort débit.",
+        ],
+      },
+      { type: "h3", text: "Oxydation catalytique — abaisser la température" },
+      {
+        type: "p",
+        text: "En introduisant un catalyseur (généralement à base de métaux précieux platine/palladium), la température de réaction descend à 200-450°C, réduisant drastiquement la consommation d'énergie. Le catalyseur abaisse l'énergie d'activation de la réaction, mais présente une sensibilité aux poisons catalytiques (métaux lourds, silicium, halogènes) qui peuvent dégrader ses performances de manière irréversible.",
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Attention particulière",
+        text: "Pour les COV contenant des hétéro-atomes (halogènes, soufre, azote), l'oxydation thermique simple peut générer des sous-produits secondaires — acides, dioxines — plus dangereux que les polluants initiaux. Dans ces cas, un laveur de gaz (scrubber) doit être couplé en aval du système d'oxydation.",
+      },
+      { type: "h3", text: "Biodégradation — faire travailler les bactéries" },
+      {
+        type: "p",
+        text: "Les biofiltres et bioréacteurs utilisent des micro-organismes fixés sur un support (tourbe, compost, mousse) pour dégrader les COV en CO₂, eau et biomasse. Très efficaces sur les BTEX (benzène, toluène, éthylbenzène, xylènes), ils offrent les coûts d'exploitation les plus faibles de toutes les technologies de destruction. Leur limite principale est la fragilité biologique : les variations de température, d'humidité ou de charge polluante peuvent perturber la population bactérienne et dégrader significativement les performances.",
+      },
+      { type: "h2", text: "Matrice de décision" },
+      { type: "p", text: "Quelle technologie pour quel contexte ?" },
+      {
+        type: "table",
+        headers: ["Technologie", "Mécanisme", "Investissement", "Exploitation", "Sous-produits"],
+        rows: [
+          ["Absorption", "Transfert", "Moyen", "Moyen", "Effluents liquides"],
+          ["Adsorption (charbon actif)", "Transfert", "Faible", "Élevé", "Déchets solides"],
+          ["Condensation", "Transfert", "Élevé", "Élevé", "Condensats à traiter"],
+          ["Membrane", "Transfert", "Élevé", "Élevé", "Aucun"],
+          [
+            "Oxydation thermique (RTO)",
+            "Destruction",
+            "Élevé",
+            "Élevé",
+            "Sous-produits si hétéro-atomes",
+          ],
+          ["Oxydation catalytique", "Destruction", "Élevé", "Faible", "Minimal"],
+          ["Biodégradation", "Destruction", "Moyen", "Faible", "Biomasse"],
+        ],
+      },
+      { type: "h2", text: "Pourquoi la mesure est indispensable" },
+      {
+        type: "p",
+        text: "Choisir et installer un système d'abattage ne suffit pas. La question qui se pose ensuite — et que trop peu d'industriels se posent — est : mon système fonctionne-t-il réellement comme prévu ?",
+      },
+      {
+        type: "p",
+        text: "Un système d'abattage peut sembler opérationnel tout en laissant passer des substances Cancérogènes, Mutagènes et Reprotoxiques (CMR) au-dessus des Valeurs Limites d'Exposition Professionnelle (VLEP). Sans mesure précise en amont et en aval, cette dérive reste invisible.",
+      },
+      {
+        type: "p",
+        text: "C'est précisément le rôle des campagnes de mesure CLM Industry : déployer simultanément deux analyseurs XFLR-9 de part et d'autre de votre système d'abattage pour quantifier, molécule par molécule, son efficacité réelle dans vos conditions d'exploitation.",
+      },
+      { type: "p", text: "Les données produites permettent de :" },
+      {
+        type: "ul",
+        items: [
+          "Ajuster la fréquence de maintenance selon la saturation réelle (et non par précaution).",
+          "Moduler la puissance de combustion selon les cycles de production.",
+          "Constituer un dossier de conformité opposable en cas de contrôle réglementaire.",
+        ],
+      },
+      { type: "h2", text: "En résumé" },
+      {
+        type: "p",
+        text: "Il n'existe pas de technologie d'abattage universelle. Le bon choix résulte toujours d'une analyse fine de votre process : nature des COV émis, débit, concentration, contraintes ATEX, tolérance aux sous-produits et objectifs réglementaires.",
+      },
+      {
+        type: "p",
+        text: "Ce qui est certain : quelle que soit la technologie retenue, sa performance réelle ne peut être garantie sans mesure indépendante. La conformité aux VLEP ne se décrète pas — elle se prouve.",
+      },
+    ],
+  },
+
+  {
     slug: "benzene-vlep-0-2-ppm",
     category: "Réglementation",
     title: "Benzène : la nouvelle VLEP à 0,2 ppm change-t-elle votre obligation de mesure ?",
