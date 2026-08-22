@@ -500,20 +500,6 @@ function EmissionsPerformancePage() {
           </p>
         </div>
         <UpstreamDownstreamDiagram />
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          <article className="card-hover rounded-xl border border-border bg-card p-6 text-center">
-            <div className="text-3xl font-bold text-accent">500+</div>
-            <p className="mt-2 text-sm text-muted-foreground">espèces gazeuses identifiables</p>
-          </article>
-          <article className="card-hover rounded-xl border border-border bg-card p-6 text-center">
-            <div className="text-3xl font-bold text-accent">Temps réel</div>
-            <p className="mt-2 text-sm text-muted-foreground">mesure continue amont/aval</p>
-          </article>
-          <article className="card-hover rounded-xl border border-border bg-card p-6 text-center">
-            <div className="text-3xl font-bold text-accent">1 à 2 mois</div>
-            <p className="mt-2 text-sm text-muted-foreground">durée de campagne type</p>
-          </article>
-        </div>
       </Container>
 
       {/* SYSTÈMES D'ABATTAGE */}
