@@ -10,7 +10,7 @@ import {
   Snowflake,
 } from "lucide-react";
 
-import xfi9 from "@/assets/xfi9-analyzer.jpg";
+import xflr9 from "@/assets/xflr9-analyzer.png.asset.json";
 import { BookingButton } from "@/components/site/booking";
 import { Container } from "@/components/site/container";
 import { LogoMarquee } from "@/components/site/logo-marquee";
@@ -99,7 +99,7 @@ function Hero() {
             }}
           />
           <img
-            src={xfi9}
+            src={xflr9.url}
             alt="Analyseur XFLR-9 — technologie OPO Laser pour la mesure de gaz industriels"
             width={1024}
             height={1024}
