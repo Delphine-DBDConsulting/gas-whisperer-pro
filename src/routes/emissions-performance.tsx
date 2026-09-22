@@ -59,7 +59,7 @@ const abatement = [
   {
     icon: Snowflake,
     title: "Condensation",
-    text: "Refroidissement du flux pour récupérer les COV en phase liquide. Recommandé sur fortes concentrations, souvent couplé à l'adsorption.",
+    text: "Refroidissement du flux pour récupérer les COV en phase liquide. Recommandé sur fortes concentrations, souvent couplé à l'adsorption. La mesure XFLR-9 permet d'optimiser la consommation d'azote liquide de ce type d'installation.",
   },
 ];
 
@@ -77,12 +77,12 @@ const steps = [
   {
     icon: Wifi,
     title: "Monitoring continu",
-    text: "Mesures et alertes en temps réel, surveillance à distance via cloud, débriefing quotidien. Les données sont accessibles en continu depuis nos équipes.",
+    text: "Mesures et alertes en temps réel, surveillance à distance via cloud, débriefing quotidien assuré par nos équipes.",
   },
   {
     icon: FileCheck2,
-    title: "Rapport et recommandations",
-    text: "À l'issue de la campagne : réunion de débriefing, remise d'un rapport d'expertise complet avec analyses, conclusions et recommandations d'optimisation.",
+    title: "Rapport d'expertise",
+    text: "À l'issue de la campagne : réunion de débriefing et remise d'un rapport d'expertise complet avec analyses et conclusions.",
   },
 ];
 
@@ -91,7 +91,6 @@ const deliverables = [
   "Taux d'efficacité réel de votre installation d'abattage, molécule par molécule.",
   "Identification des pics d'émission, corrélation avec les événements de production et de toutes les espèces gazeuses présentes, y compris les composés détectés ad nihilo.",
   "Reporting intermédiaire régulier pendant la campagne.",
-  "Recommandations d'optimisation : fréquence de maintenance, ajustement de puissance, plan d'action corrective et réglages process.",
   "Document opposable présentable en cas de contrôle réglementaire (DRIETS, DREETS, inspection ICPE, CSE).",
 ];
 

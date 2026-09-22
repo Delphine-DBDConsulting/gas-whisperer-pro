@@ -27,7 +27,7 @@ import { Container } from "@/components/site/container";
 
 const TITLE = "Technologie OPO Laser pour la mesure de gaz industriels | CLM Industry";
 const DESCRIPTION =
-  "Le XFLR-9 de CLM Industry repose sur la technologie OPO Laser. Identification ad nihilo de 500+ espèces gazeuses, précision au ppb, mesure simultanée de 10 gaz. Unique en France.";
+  "Le XFLR-9 de CLM Industry repose sur la technologie OPO Laser. Identification de 500+ espèces gazeuses, précision au ppb, mesure simultanée de 10 gaz. Unique en France.";
 
 const VLEP_URL = "https://www.inrs.fr/publications/bdd/vlep.html";
 
@@ -111,11 +111,7 @@ const comparison: [string, string, string][] = [
   ["Sélectivité", "✗ Mesure globale du COT", "✓ Isolation par empreinte spectrale"],
   ["Identification CMR", "✗ Impossible", "✓ Instantanée, sans ambiguïté"],
   ["Limite de détection", "Ordre du ppm", "✓ Ordre du ppb"],
-  ["Mesure en continu", "Ponctuel / lent", "✓ Temps réel, quelques minutes"],
-  ["Identification ad nihilo", "✗ Spectre préalable obligatoire", "✓ Sans spectre préalable"],
   ["Consommables", "Gaz vecteurs, filtres, tubes", "✓ Zéro consommable"],
-  ["Analyse non-destructive", "✗", "✓"],
-  ["Déploiement sur site", "Lourd et intrusif", "✓ < 1 heure"],
   ["Mesures simultanées", "1 molécule à la fois", "✓ Jusqu'à 10 gaz"],
 ];
 
@@ -165,7 +161,7 @@ const sectors = [
 const fleetCards = [
   {
     icon: Wrench,
-    title: "4 analyseurs disponibles",
+    title: "Flotte mobile d'analyseurs",
     text: "Une flotte dimensionnée pour répondre à plusieurs missions simultanées, sur des sites industriels de toute taille.",
   },
   {
@@ -253,12 +249,6 @@ function NotreTechnologie() {
             </a>{" "}
             contraignante. Votre dossier de conformité reste incomplet — et juridiquement fragile.
           </p>
-          <p>
-            Une autre limite fondamentale : les capteurs FID/PID nécessitent un spectre de référence
-            préalable pour chaque molécule qu'ils doivent mesurer. Ils ne peuvent identifier que ce
-            qu'on leur a appris à chercher. Un composé inconnu ou inattendu passera systématiquement
-            sous leur radar.
-          </p>
         </div>
       </Container>
 
@@ -281,17 +271,6 @@ function NotreTechnologie() {
               principe pour identifier et quantifier simultanément jusqu'à 10 gaz différents en
               temps réel, sans confusion possible entre molécules, et sans spectre de référence
               préalable.
-            </p>
-          </div>
-
-          <div className="mt-10 max-w-3xl rounded-lg border border-border border-l-4 border-l-accent bg-accent/10 p-6">
-            <div className="font-bold text-accent">Identification ad nihilo</div>
-            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-              Contrairement aux capteurs classiques qui ne peuvent mesurer que des molécules
-              préalablement référencées, le XFLR-9 identifie des espèces gazeuses inconnues à partir
-              de zéro — sans base de comparaison préétablie. Une capacité unique qui permet de
-              détecter des composés imprévus que les autres instruments ne voient tout simplement
-              pas.
             </p>
           </div>
 
@@ -435,8 +414,8 @@ function NotreTechnologie() {
       <Container className="py-16 md:py-24">
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">La flotte CLM Industry</h2>
         <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">
-          CLM Industry dispose d'une flotte de 4 analyseurs XFLR-9, maintenus en état optimal de
-          fonctionnement et disponibles pour des déploiements simultanés sur plusieurs sites. Chaque
+          CLM Industry dispose d'une flotte d'analyseurs XFLR-9 maintenus en état optimal de
+          fonctionnement, mobilisables pour des déploiements simultanés sur plusieurs sites. Chaque
           appareil est régulièrement étalonné et vérifié pour garantir la fiabilité et la
           traçabilité des mesures produites.
         </p>
@@ -478,9 +457,8 @@ function NotreTechnologie() {
         </h2>
         <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">
           Le XFLR-9 identifie et mesure les émissions gazeuses dans l'ensemble des environnements
-          industriels émetteurs de COV et de NOx. Sa capacité d'identification ad nihilo de plus de
-          500 espèces gazeuses en fait un instrument universel, adapté à tous les process
-          industriels.
+          industriels émetteurs de COV et de NOx. Sa capacité à identifier plus de 500 espèces
+          gazeuses en fait un instrument universel, adapté à tous les process industriels.
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {sectors.map((s) => (

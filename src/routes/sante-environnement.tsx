@@ -262,7 +262,7 @@ function SanteEnvironnementPage() {
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
             Les Composés Organiques Volatils s'évaporent dans l'air de vos ateliers sans signal
             d'alarme. CLM Industry réalise une campagne de mesure exhaustive sur votre site et vous
-            remet un rapport de conformité VLEP opposable.
+            remet un rapport de conformité VLEP complet, traçable et signé.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
             <BookingButton />
