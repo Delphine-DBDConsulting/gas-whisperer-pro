@@ -15,6 +15,7 @@ import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as PolitiqueDeConfidentialiteRouteImport } from './routes/politique-de-confidentialite'
 import { Route as NotreTechnologieRouteImport } from './routes/notre-technologie'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as GazMesurablesRouteImport } from './routes/gaz-mesurables'
 import { Route as EmissionsPerformanceRouteImport } from './routes/emissions-performance'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CasClientsRouteImport } from './routes/cas-clients'
@@ -55,6 +56,11 @@ const NotreTechnologieRoute = NotreTechnologieRouteImport.update({
 const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
   id: '/mentions-legales',
   path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GazMesurablesRoute = GazMesurablesRouteImport.update({
+  id: '/gaz-mesurables',
+  path: '/gaz-mesurables',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmissionsPerformanceRoute = EmissionsPerformanceRouteImport.update({
@@ -115,6 +121,7 @@ export interface FileRoutesByFullPath {
   '/cas-clients': typeof CasClientsRoute
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
+  '/gaz-mesurables': typeof GazMesurablesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/notre-technologie': typeof NotreTechnologieRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
@@ -133,6 +140,7 @@ export interface FileRoutesByTo {
   '/cas-clients': typeof CasClientsRoute
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
+  '/gaz-mesurables': typeof GazMesurablesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/notre-technologie': typeof NotreTechnologieRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
@@ -152,6 +160,7 @@ export interface FileRoutesById {
   '/cas-clients': typeof CasClientsRoute
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
+  '/gaz-mesurables': typeof GazMesurablesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/notre-technologie': typeof NotreTechnologieRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
@@ -172,6 +181,7 @@ export interface FileRouteTypes {
     | '/cas-clients'
     | '/contact'
     | '/emissions-performance'
+    | '/gaz-mesurables'
     | '/mentions-legales'
     | '/notre-technologie'
     | '/politique-de-confidentialite'
@@ -190,6 +200,7 @@ export interface FileRouteTypes {
     | '/cas-clients'
     | '/contact'
     | '/emissions-performance'
+    | '/gaz-mesurables'
     | '/mentions-legales'
     | '/notre-technologie'
     | '/politique-de-confidentialite'
@@ -208,6 +219,7 @@ export interface FileRouteTypes {
     | '/cas-clients'
     | '/contact'
     | '/emissions-performance'
+    | '/gaz-mesurables'
     | '/mentions-legales'
     | '/notre-technologie'
     | '/politique-de-confidentialite'
@@ -227,6 +239,7 @@ export interface RootRouteChildren {
   CasClientsRoute: typeof CasClientsRoute
   ContactRoute: typeof ContactRoute
   EmissionsPerformanceRoute: typeof EmissionsPerformanceRoute
+  GazMesurablesRoute: typeof GazMesurablesRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   NotreTechnologieRoute: typeof NotreTechnologieRoute
   PolitiqueDeConfidentialiteRoute: typeof PolitiqueDeConfidentialiteRoute
@@ -283,6 +296,13 @@ declare module '@tanstack/react-router' {
       path: '/mentions-legales'
       fullPath: '/mentions-legales'
       preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gaz-mesurables': {
+      id: '/gaz-mesurables'
+      path: '/gaz-mesurables'
+      fullPath: '/gaz-mesurables'
+      preLoaderRoute: typeof GazMesurablesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/emissions-performance': {
@@ -363,6 +383,7 @@ const rootRouteChildren: RootRouteChildren = {
   CasClientsRoute: CasClientsRoute,
   ContactRoute: ContactRoute,
   EmissionsPerformanceRoute: EmissionsPerformanceRoute,
+  GazMesurablesRoute: GazMesurablesRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
   NotreTechnologieRoute: NotreTechnologieRoute,
   PolitiqueDeConfidentialiteRoute: PolitiqueDeConfidentialiteRoute,
