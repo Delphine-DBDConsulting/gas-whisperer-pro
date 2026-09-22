@@ -10,6 +10,7 @@ import {
   Snowflake,
 } from "lucide-react";
 
+import usineFiligrane from "@/assets/usine-filigrane.jpg.asset.json";
 import xflr9 from "@/assets/xflr9-analyzer.png.asset.json";
 import { BookingButton } from "@/components/site/booking";
 import { Container } from "@/components/site/container";
