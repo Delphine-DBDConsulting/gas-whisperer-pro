@@ -16,7 +16,7 @@ import { BookingButton } from "@/components/site/booking";
 import { Container } from "@/components/site/container";
 
 const DESCRIPTION =
-  "CLM Industry identifie et quantifie les substances CMR sur vos postes de travail. Campagne de mesure ponctuelle, rapport de conformité VLEP opposable. Analyseur XFLR-9 technologie OPO Laser.";
+  "CLM Industry identifie et quantifie les substances CMR sur vos postes de travail. Campagne de mesure ponctuelle, rapport de conformité VLEP documenté et traçable. Analyseur XFLR-9 technologie OPO Laser.";
 const TITLE = "Mesure de conformité VLEP sur site industriel | CLM Industry";
 
 const VLEP_URL = "https://www.inrs.fr/publications/bdd/vlep.html";
@@ -26,7 +26,6 @@ const comparison: [string, string, string][] = [
   ["Précision", "Ordre du ppm", "Ordre du ppb"],
   ["Différenciation CMR", "✗ Impossible", "✓ Instantanée"],
   ["Consommables", "Gaz vecteurs, tubes, filtres", "Zéro consommable"],
-  ["Déploiement sur site", "Lourd et intrusif", "< 1 heure"],
 ];
 
 const steps = [
@@ -56,7 +55,7 @@ const useCases = [
   {
     icon: Award,
     title: "Audit de conformité réglementaire",
-    text: "Vous devez justifier du respect des VLEP sur vos postes de travail auprès de l'inspection du travail, de la médecine du travail ou de votre CSE. La campagne CLM Industry produit un rapport opposable, daté et signé.",
+    text: "Vous devez justifier du respect des VLEP sur vos postes de travail auprès de l'inspection du travail, de la médecine du travail ou de votre CSE. La campagne CLM Industry produit un rapport détaillé, daté et signé.",
   },
   {
     icon: Search,
@@ -86,17 +85,17 @@ const deliverables = [
   "La cartographie des postes de travail concernés et des niveaux d'exposition par zone",
   "L'identification des substances Cancérogènes, Mutagènes et Reprotoxiques (CMR) détectées, avec leur catégorie de danger",
   "Les recommandations d'action en cas de dépassement détecté",
-  "Un document exploitable directement dans votre Document Unique d'Évaluation des Risques (DUER) et opposable lors d'un contrôle par la DRIETS, la DREETS, le médecin du travail ou le CSE",
+  "Un document exploitable directement dans votre Document Unique d'Évaluation des Risques (DUER) et présentable lors d'un contrôle par la DRIETS, la DREETS, le médecin du travail ou le CSE",
 ];
 
 const faq = [
   {
-    q: "Le rapport CLM Industry est-il opposable en cas d'inspection ?",
+    q: "Le rapport CLM Industry est-il présentable en cas d'inspection ?",
     a: "Oui. Chaque rapport est horodaté, tracé et signé. Il documente les concentrations mesurées molécule par molécule, les comparaisons aux VLEP en vigueur et les recommandations. Il peut être présenté à la DRIETS, la DREETS, au médecin du travail ou au CSE.",
   },
   {
     q: "Quelle est la différence avec un capteur PID classique ?",
-    a: "Un capteur PID mesure le Carbone Organique Total (COT) sans identifier la molécule. Le XFLR-9 identifie et quantifie plus de 500 espèces gazeuses en temps réel, avec une précision à l'ordre du ppb. C'est cette identification qui rend le rapport juridiquement solide.",
+    a: "Un capteur PID mesure le Carbone Organique Total (COT) sans identifier la molécule. Le XFLR-9 identifie et quantifie plus de 500 espèces gazeuses en temps réel, avec une précision à l'ordre du ppb. C'est cette identification qui donne à votre dossier toute sa valeur.",
   },
   {
     q: "Combien de temps dure une campagne de mesure ?",
@@ -301,6 +300,17 @@ function SanteEnvironnementPage() {
               formaldéhyde est limité à 0,3 ppm. Ces seuils ne tolèrent aucune approximation : seule
               une mesure précise, molécule par molécule, permet de garantir la conformité avec
               certitude.
+            </p>
+            <p>
+              Le benzène et le formaldéhyde ne sont que deux exemples parmi les substances
+              surveillées. Le XFLR-9 identifie et quantifie{" "}
+              <Link
+                to="/gaz-mesurables"
+                className="font-medium text-accent underline underline-offset-4"
+              >
+                plus de 500 espèces gazeuses — consultez la liste des gaz mesurables
+              </Link>
+              .
             </p>
           </div>
           <aside className="rounded-lg border-l-4 border-accent bg-accent/10 p-8">
