@@ -75,8 +75,26 @@ function Index() {
 
 function Hero() {
   return (
-    <section className="border-b border-border/40">
-      <Container className="grid items-center gap-12 py-20 md:py-28 lg:grid-cols-2">
+    <section className="relative overflow-hidden border-b border-border/40">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: `url(${usineFiligrane.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.18,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(10,17,32,0.92) 0%, rgba(10,17,32,0.75) 45%, rgba(10,17,32,0.35) 100%)",
+        }}
+      />
+      <Container className="relative grid items-center gap-12 py-20 md:py-28 lg:grid-cols-2">
         <div>
           <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Révéler l'invisible.
