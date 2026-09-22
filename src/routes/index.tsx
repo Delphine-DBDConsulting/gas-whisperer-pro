@@ -83,7 +83,7 @@ function Hero() {
           backgroundImage: `url(${usineFiligrane.url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: 0.18,
+          opacity: 0.5,
         }}
       />
       <div
@@ -91,7 +91,7 @@ function Hero() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(10,17,32,0.92) 0%, rgba(10,17,32,0.75) 45%, rgba(10,17,32,0.35) 100%)",
+            "linear-gradient(90deg, rgba(10,17,32,0.88) 0%, rgba(10,17,32,0.6) 50%, rgba(10,17,32,0.15) 100%)",
         }}
       />
       <Container className="relative grid items-center gap-12 py-20 md:py-28 lg:grid-cols-2">
