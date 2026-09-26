@@ -273,7 +273,29 @@ function SanteEnvironnementPage() {
         </Container>
       </section>
 
+      {/* CAS D'USAGE */}
+      <section className="border-y border-border/40 bg-[color:var(--footer)]">
+        <Container className="py-16 md:py-24">
+          <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+            Quand faire appel à CLM Industry ?
+          </h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {useCases.map((c) => (
+              <article
+                key={c.title}
+                className="card-hover rounded-xl border border-border bg-card p-7"
+              >
+                <c.icon className="h-6 w-6 text-accent" aria-hidden />
+                <h3 className="mt-4 text-base font-bold text-foreground">{c.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* CE QUE LA LOI IMPOSE */}
+
       <Container className="py-16 md:py-24">
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">
           Ce que la loi impose à votre entreprise
@@ -430,26 +452,6 @@ function SanteEnvironnementPage() {
         </ol>
       </Container>
 
-      {/* CAS D'USAGE */}
-      <section className="border-y border-border/40 bg-[color:var(--footer)]">
-        <Container className="py-16 md:py-24">
-          <h2 className="text-2xl font-bold text-foreground md:text-3xl">
-            Quand faire appel à CLM Industry ?
-          </h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {useCases.map((c) => (
-              <article
-                key={c.title}
-                className="card-hover rounded-xl border border-border bg-card p-7"
-              >
-                <c.icon className="h-6 w-6 text-accent" aria-hidden />
-                <h3 className="mt-4 text-base font-bold text-foreground">{c.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
 
       {/* CE QUE VOUS RECEVEZ */}
       <Container className="py-16 md:py-24">
