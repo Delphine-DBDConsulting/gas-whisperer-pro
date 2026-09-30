@@ -467,6 +467,7 @@ function EmissionsPerformancePage() {
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">
           Vos systèmes d'abattage sont-ils réellement efficaces ?
         </h2>
+        <UpstreamDownstreamDiagram />
         <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
             Un système d'abattage des COV n'a de valeur que par son rendement réel, en conditions
@@ -491,7 +492,6 @@ function EmissionsPerformancePage() {
             opposable, disponible à tout moment en cas de contrôle réglementaire.
           </p>
         </div>
-        <UpstreamDownstreamDiagram />
       </Container>
 
       {/* SYSTÈMES D'ABATTAGE */}
