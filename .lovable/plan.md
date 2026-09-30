@@ -1,81 +1,35 @@
-## Objectif
+# Retours client — plan de mise en œuvre
 
-Passer de la maquette (une seule page d'accueil avec ancres) à un site complet et fonctionnel : pages dédiées, intégration CRM **Brevo** pour les formulaires de contact et de prise de rendez-vous en ligne, page de téléchargement de la brochure anglaise, et pages légales.
+## Lot A — Structure commune à toutes les pages
+1. **Bandeau d'arrivée par page** : emplacement réservé sous le titre de chaque page, avec 1 à 3 chiffres clés + un texte de preuve de 20-30 mots. Les chiffres changent selon la page (factices et signalés comme tels quand on n'a pas la vraie valeur).
+2. **Visuel dès l'arrivée** : chaque en-tête de page reçoit un emplacement image (visuel d'ambiance provisoire, remplaçable ensuite).
+3. **Fil d'Ariane** sous l'en-tête de toutes les pages intérieures, aussi lisible par Google.
+4. **Menu flottant permanent** : barre arrondie détachée du haut, toujours visible au scroll, bouton « Prendre rendez-vous » plein. Sur mobile, uniquement logo + bouton menu (hamburger), toujours accessible.
+5. **Pied de page** : icônes email (sales@clm-industry.fr) et LinkedIn.
+6. **Plus de contraste entre sections** : alternance plus marquée des deux fonds navy.
+7. **Boutons d'action** : le bleu reste la couleur des boutons ; au survol, passage en **rose fuchsia** (proposé par la cliente, testé à l'écran, réversible en une ligne). Le cyan reste pour les liens et détails.
 
-## Arborescence cible
+## Lot B — Preuve et contenu
+8. **Témoignages anonymisés** : carrousel automatique (prénom + initiale, poste, encart [secteur] + [citation]), placé sur l'accueil juste après la section des offres ; tout le texte présent dans la page pour le SEO/GEO. Témoignages provisoires à faire valider.
+9. **Avis / preuve sociale** : emplacement dans l'en-tête de l'accueil avec chiffres factices (à redemander au client).
+10. **Cartes d'offres** : cartes visuelles réservées pour les 2 solutions + gaz mesurables, avec emplacement image vide stylé (illustration plus tard).
+11. **Liens blog / cas clients → solution** : chaque article et chaque cas client affiche un encart « Solution concernée » menant à la bonne page.
+12. **Architecture du futur hub /gaz-mesurables** : données par molécule rangées pour qu'on puisse créer ensuite une section ancrée ou une page par molécule sans refonte (rien de visible ajouté maintenant).
 
-```text
-/                              Accueil (existant, allégé : teasers + liens vers les pages)
-/offres/sante-environnement    Offre 1 — détail complet
-/offres/emissions-performance  Offre 2 — détail complet
-/technologie                   XFi-9, laser OPO, comparatif FID/PID, chiffres clés
-/references                    Clients, cas clients / ROI
-/contact                       Formulaire de contact + CTA vers rendez-vous
-/rendez-vous                   Prise de rendez-vous en ligne (widget Brevo Meetings)
-/en/brochure                   English brochure download page (cible du drapeau 🇬🇧)
-/mentions-legales
-/politique-de-confidentialite
-```
+## Lot C — Effets inspirés de ZeusLock
+13. **Parallax léger** sur les visuels à côté du texte (effet CSS/scroll économe, désactivé si l'utilisateur a demandé moins d'animations).
+14. **Frise 3 étapes** (cercles + pointillés) pour le déroulé des campagnes : Préparation → Mesures sur site → Rapport.
+15. **Carrousel horizontal de cartes numérotées** et **carrousel vertical avec menu latéral** : uniquement sur contenus secondaires (familles de gaz, secteurs), tout le contenu présent dans la page.
+16. **Chiffres avec barre de progression** : proposition = jauges « limite de détection XFLR-9 vs VLEP » (ex. benzène 0,2 ppm vs VLEP 1 ppm), barre qui se remplit à l'arrivée à l'écran.
+17. **Blog** : vignette image sur chaque carte + filtres (déjà présents).
+18. **Page de prise de rendez-vous en deux colonnes** : bénéfices à gauche, formulaire/agenda à droite, 3 pastilles de réassurance dessous.
+19. **Listes numérotées à puces rondes** : composant prêt ; réécriture des textes en mots percutants à faire ensemble (pas de modification de texte sans vous).
 
-Chaque page a ses propres `title`, `description`, `og:title`, `og:description`.
-
-## Étape 1 — Structure et navigation partagée
-
-- Extraction de l'en-tête et du pied de page dans des composants réutilisés par toutes les pages (aujourd'hui ils sont codés en dur dans la page d'accueil).
-- Menu de navigation en liens de route réels (plus d'ancres `#`), avec état actif, menu mobile (burger) et bouton « Prendre rendez-vous » vers `/rendez-vous`.
-- Page 404 en français, aux couleurs Stratos.
-- L'accueil garde le hero, la section réglementaire et des blocs de synthèse renvoyant vers les pages dédiées.
-
-## Étape 2 — Pages de contenu
-
-- **Offres** : deux pages construites sur un gabarit commun (contexte, déroulé de la mission, livrables, durée, FAQ courte, CTA contact).
-- **Technologie** : principe OPO Laser, tableau comparatif FID/PID (déplacé depuis l'accueil), chiffres clés (500+, <1h, ppb).
-- **Références** : logos clients + 2 à 3 cas clients avec le ROI chiffré.
-- Effets de survol cyan, largeur max 1200 px, paddings 80/48 px conservés partout.
-
-## Étape 3 — Intégration CRM Brevo (contact et rendez-vous)
-
-- **Connexion Brevo** : lier le connecteur Brevo au projet. Dans Brevo, autoriser l'adresse IP sortante du **Lovable Connector Gateway** : `34.49.40.81`. Pour les tests depuis l'éditeur Lovable, autoriser aussi `34.22.168.241`.
-- **Formulaire `/contact`** : à chaque soumission, créer ou mettre à jour un contact Brevo avec les attributs suivants (mapping 1-for-1 avec les champs du formulaire) :
-  - `EMAIL`, `NOM` / `PRENOM`, `SOCIETE`, `FONCTION`, `TELEPHONE`, `SITE_INDUSTRIEL`, `OFFRE`, `MESSAGE`.
-- **Page `/rendez-vous`** : intégrer le widget de prise de rendez-vous en ligne **Brevo Meetings**. Les champs demandés au prospect (nom, email, société, téléphone) doivent correspondre aux champs du formulaire de contact. Si possible, le widget est pré-rempli avec les informations déjà saisies.
-- **Brochure anglaise `/en/brochure`** : créer un contact Brevo avec `EMAIL`, `NOM`, `SOCIETE`, `LANGUE = en`, `SOURCE = brochure_en`.
-- **Backup local** : conserver une copie de chaque soumission dans les tables `contact_requests` et `brochure_leads` de Lovable Cloud pour traçabilité et audit.
-- **Notifications** : envoyer un email interne à CLM à chaque nouveau contact/réception via Brevo (ou via Lovable Emails si le domaine d'envoi Brevo n'est pas encore configuré), plus un accusé de réception automatique au prospect.
-
-## Étape 4 — Page brochure anglaise
-
-- `/en/brochure` : page en anglais présentant brièvement CLM Industry et proposant le téléchargement du PDF.
-- Téléchargement conditionné à un mini-formulaire (nom, email, société) enregistré dans Brevo, afin de tracer les leads — ou en accès direct si vous préférez.
-- Le drapeau 🇬🇧 de la navigation pointe vers cette page.
-
-## Étape 5 — Pages légales
-
-- Mentions légales (éditeur C.L.M.I. S.A.R.L., SIRET, directeur de publication, hébergeur) et politique de confidentialité (données collectées par les formulaires, durée de conservation, droits RGPD, traitement par Brevo, contact DPO).
-- Bandeau cookies uniquement si un outil de mesure d'audience est ajouté.
-
-## Étape 6 — SEO et finitions
-
-- `robots.txt` et `sitemap.xml` couvrant toutes les pages, données structurées JSON-LD `Organization` + `Service`.
-- Vérification responsive mobile / tablette / desktop et défilement fluide.
-
-## Contenus réels à me fournir
-
-Je pose des contenus provisoires clairement marqués tant que je n'ai pas :
-
-1. Logos clients réels autorisés (fichiers) — les noms actuels (Air Liquide, TotalEnergies…) sont fictifs et juridiquement risqués ; je les retire d'ici là.
-2. Téléphone, SIRET, adresse exacte, nom du directeur de publication, hébergeur.
-3. 2 à 3 cas clients avec chiffres de ROI (même anonymisés : « site pétrochimique, 800 salariés »).
-4. Le PDF de la brochure anglaise.
-5. L'adresse email destinataire des demandes et le domaine d'envoi.
-6. **Le lien de rendez-vous Brevo Meetings** (URL du widget ou identifiant de la réunion) pour la page `/rendez-vous`.
+## Hors périmètre (noté pour plus tard)
+- Pages par molécule (non signé), certifications ISO (quand obtenues), recherche de molécule dans le menu (à rappeler à la fin du site), carte contact humaine (refusée), cartes inclinées (refusées).
 
 ## Détails techniques
-
-- TanStack Start avec routage par fichiers (`src/routes/`), un fichier par page ; composants partagés dans `src/components/`.
-- Formulaires traités par des server functions avec validation Zod.
-- **Brevo** : connecteur `brevo` lié au projet via le Lovable Connector Gateway (`https://connector-gateway.lovable.dev/brevo`). Les appels utilisent `Authorization: Bearer ${LOVABLE_API_KEY}` et `X-Connection-Api-Key: ${BREVO_API_KEY}`.
-- Contacts Brevo créés via `POST /contacts` (ou `PUT /contacts/{email}` pour la mise à jour) avec les attributs listés ci-dessus.
-- Backup local dans Lovable Cloud (Supabase) : tables `contact_requests` et `brochure_leads` avec insertion publique et lecture réservée aux administrateurs.
-- Emails transactionnels via Brevo SMTP/API ou Lovable Emails en fallback si le domaine d'envoi CLM n'est pas encore configuré.
-- Design system existant (`src/styles.css`) inchangé.
+- Nouveaux composants partagés : KeyFigures, PageHero (image + preuve), Breadcrumbs (+ JSON-LD BreadcrumbList), Testimonials, NumberedSteps, ProgressStat, RelatedSolution, Parallax (IntersectionObserver + transform, prefers-reduced-motion).
+- Données gaz déplacées dans un module dédié avec slug par molécule.
+- Couleur de survol ajoutée comme token dans styles.css.
+- Mise en œuvre par lots A → B → C, vérification visuelle à chaque lot.
