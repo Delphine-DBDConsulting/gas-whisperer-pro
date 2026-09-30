@@ -47,11 +47,6 @@ export const Route = createFileRoute("/notre-technologie")({
   component: NotreTechnologie,
 });
 
-const heroStats = [
-  ["500+", "espèces gazeuses identifiables"],
-  ["ppb", "niveau de précision"],
-  ["< 1h", "déploiement sur site"],
-];
 
 const opoSteps = [
   {
@@ -211,14 +206,6 @@ function NotreTechnologie() {
             <Link to="/sante-environnement" className="cta-outline">
               Découvrir nos solutions
             </Link>
-          </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
-            {heroStats.map(([n, l]) => (
-              <div key={l} className="card-hover rounded-lg border border-border bg-card p-6">
-                <div className="text-3xl font-extrabold leading-none text-accent">{n}</div>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{l}</p>
-              </div>
-            ))}
           </div>
         </Container>
       </section>
