@@ -1,4 +1,4 @@
-import { PageIntro } from "@/components/site/page-kit";
+import { PageIntro, VisualSlot } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 
@@ -90,6 +90,7 @@ function ArticleCard({ post }: { post: (typeof posts)[number] }) {
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent hover:shadow-xl">
       <span className="absolute inset-x-0 top-0 h-[2px] bg-accent opacity-0 transition-opacity group-hover:opacity-100" />
+      <VisualSlot label="Vignette à venir" className="-mx-6 -mt-6 mb-5 h-36 rounded-none border-x-0 border-t-0" />
       <span className="w-fit rounded-full bg-accent/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent">
         {post.category}
       </span>

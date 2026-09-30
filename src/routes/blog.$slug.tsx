@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Breadcrumbs, RelatedSolution } from "@/components/site/page-kit";
 import { IconMail } from "@tabler/icons-react";
 
 import { BookingButton } from "@/components/site/booking";
@@ -115,8 +116,14 @@ function ArticlePage() {
     : posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
 
+  const solution =
+    post.footerCta?.linkTo?.includes("emissions") || post.category === "Systèmes d'abattage"
+      ? "emissions"
+      : "sante";
+
   return (
     <>
+      <Breadcrumbs items={[{ label: "Blog", to: "/blog" }, { label: post.title }]} />
       <Container className="grid gap-12 py-16 md:py-24 lg:grid-cols-[minmax(0,7fr)_minmax(0,3fr)]">
         <article>
           <span className="inline-block rounded-full bg-accent/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent">
@@ -167,6 +174,8 @@ function ArticlePage() {
             <BookingButton className="mt-5 w-full justify-center" />
           </div>
 
+
+          <RelatedSolution solution={solution} />
 
           <div className="rounded-xl border border-border bg-card p-6">
             <h2 className="text-base font-bold text-foreground">À lire aussi</h2>

@@ -218,6 +218,12 @@ function CasClients() {
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{c.problem}</p>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{c.result}</p>
               <div className="mt-auto pt-6 text-sm font-semibold text-accent">{c.kpi}</div>
+              <Link
+                to={c.solution === "Santé & Environnement" ? "/sante-environnement" : "/emissions-performance"}
+                className="mt-4 text-xs font-semibold text-muted-foreground hover:text-accent"
+              >
+                Solution concernée : {c.solution} →
+              </Link>
             </article>
           ))}
         </div>
