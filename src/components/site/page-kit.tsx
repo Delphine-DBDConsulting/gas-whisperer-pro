@@ -100,7 +100,7 @@ export function PageIntro({
   imageAlt = "Site industriel",
 }: {
   crumbs: Crumb[];
-  figures: KeyFigure[];
+  figures?: KeyFigure[];
   proof: string;
   image?: string;
   imageAlt?: string;
@@ -111,15 +111,17 @@ export function PageIntro({
       <section className="border-b border-border/40 bg-card">
         <Container className="grid items-center gap-8 py-10 lg:grid-cols-[1.4fr_1fr]">
           <div>
-            <div className="grid gap-6 sm:grid-cols-3">
-              {figures.map((f) => (
-                <div key={f.label} className="border-l-2 border-accent pl-4">
-                  <div className="text-3xl font-extrabold leading-none text-foreground">{f.value}</div>
-                  <p className="mt-2 text-xs leading-snug text-muted-foreground">{f.label}</p>
-                </div>
-              ))}
-            </div>
-            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">{proof}</p>
+            {figures && figures.length > 0 && (
+              <div className="grid gap-6 sm:grid-cols-3">
+                {figures.map((f) => (
+                  <div key={f.label} className="border-l-2 border-accent pl-4">
+                    <div className="text-3xl font-extrabold leading-none text-foreground">{f.value}</div>
+                    <p className="mt-2 text-xs leading-snug text-muted-foreground">{f.label}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+            <p className={`max-w-2xl text-sm leading-relaxed text-muted-foreground ${figures && figures.length > 0 ? "mt-6" : ""}`}>{proof}</p>
           </div>
           <div className="relative h-44 overflow-hidden rounded-lg border border-border bg-[color:var(--footer)] md:h-52">
             <Parallax strength={24} className="absolute -inset-y-8 inset-x-0">
