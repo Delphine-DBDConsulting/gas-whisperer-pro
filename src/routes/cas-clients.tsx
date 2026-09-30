@@ -1,3 +1,4 @@
+import { PageIntro } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
@@ -161,6 +162,7 @@ function CasClients() {
         title="Ce que change une mesure réellement précise"
         intro="Les campagnes de CLM Industry servent avant tout à décider : corriger une exposition, dimensionner un équipement, sécuriser un contrôle réglementaire... "
       />
+      <PageIntro crumbs={[{ label: "Cas clients" }]} figures={[{ value: "130 k€", label: "économisés par an sur un site pharmaceutique" }, { value: "12", label: "postes cartographiés en une campagne" }, { value: "0", label: "arrêt de production" }]} proof="Des décisions concrètes issues de mesures réelles : une fuite de benzène localisée, un cycle de filtres optimisé, un plan HSE argumenté." />
 
       <Container className="py-16 md:py-24">
         <p className="max-w-3xl text-base leading-relaxed text-muted-foreground">

@@ -1,3 +1,4 @@
+import { PageIntro } from "@/components/site/page-kit";
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
@@ -70,6 +71,7 @@ function ContactPage() {
         title="Parlons de votre site industriel"
         intro="Décrivez-nous vos installations et vos obligations réglementaires. Nous revenons vers vous sous 48 heures avec une recommandation de campagne."
       />
+      <PageIntro crumbs={[{ label: "Contact" }]} figures={[{ value: "48 h", label: "pour une recommandation de campagne" }, { value: "1–5 j", label: "de campagne sur site" }, { value: "500+", label: "gaz identifiables" }]} proof="Décrivez votre site et vos obligations : un expert vous propose la campagne la plus adaptée, sans engagement." />
 
       <Container className="grid gap-12 py-16 md:py-24 lg:grid-cols-[1.5fr_1fr] lg:items-start">
         <div className="rounded-lg border border-border bg-card p-8">

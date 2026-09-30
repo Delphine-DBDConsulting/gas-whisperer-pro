@@ -1,4 +1,6 @@
 import frenchFabLogo from "@/assets/french-fab-logo.png.asset.json";
+import { PageIntro } from "@/components/site/page-kit";
+import xflr from "@/assets/xflr9-analyzer.png.asset.json";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Atom,
@@ -220,6 +222,8 @@ function NotreTechnologie() {
           </div>
         </Container>
       </section>
+
+      <PageIntro crumbs={[{ label: "Notre technologie" }]} figures={[{ value: "ppb", label: "niveau de détection" }, { value: "500+", label: "espèces dans la bibliothèque" }, { value: "0", label: "consommable pendant la mesure" }]} proof="Issue de l'aérospatial, la technologie OPO Laser lit l'empreinte infrarouge de chaque molécule : là où un capteur classique voit un signal global, le XFLR-9 nomme le gaz." image={xflr.url} imageAlt="Analyseur XFLR-9" />
 
       {/* Section 2 — Limites des capteurs classiques */}
       <Container className="py-16 md:py-24">

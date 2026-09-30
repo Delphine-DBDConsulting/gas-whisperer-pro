@@ -1,3 +1,4 @@
+import { PageIntro } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { BookingButton } from "@/components/site/booking";
@@ -96,6 +97,8 @@ function GazMesurables() {
           </div>
         </Container>
       </section>
+
+      <PageIntro crumbs={[{ label: "Gaz mesurables" }]} figures={[{ value: "500+", label: "espèces gazeuses" }, { value: "6", label: "familles de gaz couvertes" }, { value: "0,005 ppm", label: "limite de détection du cyclohexane" }]} proof="Des COV aux NOx en passant par les CMR et les réfrigérants : un seul analyseur, un seul passage, chaque molécule identifiée et quantifiée." />
 
       {/* FAMILLES DE GAZ */}
       <Container className="py-16 md:py-24">
