@@ -1,5 +1,5 @@
 import frenchFabLogo from "@/assets/french-fab-logo.png.asset.json";
-import { PageIntro } from "@/components/site/page-kit";
+import { PageIntro, VisualSlot } from "@/components/site/page-kit";
 import xflr from "@/assets/xflr9-analyzer.png.asset.json";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
