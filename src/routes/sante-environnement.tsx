@@ -1,4 +1,4 @@
-import { PageIntro } from "@/components/site/page-kit";
+import { PageIntro, Parallax, ProgressStats } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   AlertTriangle,
@@ -338,13 +338,21 @@ function SanteEnvironnementPage() {
               .
             </p>
           </div>
-          <aside className="rounded-lg border-l-4 border-accent bg-accent/10 p-8">
-            <div className="text-[28px] font-medium leading-none text-accent">0,2 ppm</div>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Valeur limite d'exposition au benzène en vigueur depuis avril 2024. En cas de
-              dépassement : responsabilité pénale de l'employeur engagée.
-            </p>
-          </aside>
+          <Parallax strength={30}>
+            <aside className="rounded-lg border-l-4 border-accent bg-accent/10 p-8">
+              <div className="mb-6 text-sm font-semibold uppercase tracking-wider text-accent">
+                Limite de détection vs VLEP
+              </div>
+              <ProgressStats
+                scrollLinked
+                rows={[
+                  { name: "Benzène", lod: 0.05, limit: 0.2, unit: "ppm" },
+                  { name: "Formaldéhyde", lod: 0.03, limit: 0.3, unit: "ppm" },
+                  { name: "Toluène", lod: 0.3, limit: 20, unit: "ppm" },
+                ]}
+              />
+            </aside>
+          </Parallax>
         </div>
       </Container>
 

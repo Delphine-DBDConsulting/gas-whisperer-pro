@@ -238,38 +238,72 @@ export function NumberedList({ items }: { items: string[] }) {
 }
 
 /* ---------- Jauges : limite de détection vs seuil ---------- */
-export function ProgressStats({ rows }: { rows: { name: string; lod: number; limit: number; unit: string }[] }) {
+export function ProgressStats({ rows, scrollLinked = false }: { rows: { name: string; lod: number; limit: number; unit: string }[]; scrollLinked?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => e.isIntersecting && setVisible(true), { threshold: 0.3 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+    if (!scrollLinked) {
+      const io = new IntersectionObserver(([e]) => e.isIntersecting && setVisible(true), { threshold: 0.3 });
+      io.observe(el);
+      return () => io.disconnect();
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setProgress(1);
+      return;
+    }
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // 0 quand le haut entre en bas d'écran, 1 quand le bloc atteint le tiers haut
+      const p = (vh - r.top) / (vh * 0.75);
+      setProgress(Math.min(1, Math.max(0, p)));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [scrollLinked]);
   return (
     <div ref={ref} className="space-y-6">
-      {rows.map((r) => {
+      {rows.map((r, i) => {
         const pct = Math.max(2, (r.lod / r.limit) * 100);
+        // décalage progressif : chaque jauge démarre un peu après la précédente
+        const local = scrollLinked ? Math.min(1, Math.max(0, progress * 1.4 - i * 0.2)) : visible ? 1 : 0;
         return (
           <div key={r.name}>
-            <div className="flex justify-between text-sm">
+            <div className="flex flex-wrap justify-between gap-x-3 text-sm">
               <span className="font-semibold text-foreground">{r.name}</span>
               <span className="text-muted-foreground">
                 XFLR-9 : <strong className="text-accent">{r.lod.toLocaleString("fr-FR")} {r.unit}</strong> · VLEP : {r.limit.toLocaleString("fr-FR")} {r.unit}
               </span>
             </div>
             <div className="relative mt-2 h-3 overflow-hidden rounded-full bg-[color:var(--footer)]">
+              {scrollLinked && (
+                <div className="absolute inset-y-0 left-0 rounded-full bg-accent/25" style={{ width: `${local * 100}%` }} />
+              )}
               <div
-                className="h-full rounded-full bg-accent transition-[width] duration-1000 ease-out"
-                style={{ width: visible ? `${pct}%` : "0%" }}
+                className={`relative h-full rounded-full bg-accent ${scrollLinked ? "" : "transition-[width] duration-1000 ease-out"}`}
+                style={{ width: `${pct * local}%` }}
               />
             </div>
           </div>
         );
       })}
-      <p className="text-xs text-muted-foreground">Barre pleine = seuil VLEP. Plus la barre est courte, plus la marge de détection est grande.</p>
+      <p className="text-xs text-muted-foreground">
+        {scrollLinked ? "Barre complète = seuil VLEP ; partie pleine = limite de détection du XFLR-9." : "Barre pleine = seuil VLEP. Plus la barre est courte, plus la marge de détection est grande."}
+      </p>
     </div>
   );
 }
