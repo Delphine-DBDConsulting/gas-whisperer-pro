@@ -49,9 +49,15 @@ function OffresIndex() {
               key={o.title}
               className="card-hover relative overflow-hidden rounded-lg border border-border bg-card p-8"
             >
-              <span className="absolute inset-x-0 top-0 h-1 bg-accent" />
-              <h2 className="text-2xl font-bold text-foreground">{o.title}</h2>
-              <p className="mt-2 italic text-muted-foreground">{o.subtitle}</p>
+              <span className="absolute inset-x-0 top-0 h-[3px] bg-accent" />
+              <VisualSlot
+                label="Illustration à venir"
+                className="-mx-8 -mt-8 mb-6 h-40 rounded-none border-x-0 border-t-0"
+              />
+              <span className="w-fit rounded-full bg-accent/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                {o.title}
+              </span>
+              <h2 className="mt-4 text-2xl font-bold text-foreground">{o.subtitle}</h2>
               <p className="mt-6 text-base leading-relaxed text-muted-foreground">{o.text}</p>
               <Link
                 to={o.to}
