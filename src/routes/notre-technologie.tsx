@@ -476,47 +476,59 @@ function NotreTechnologie() {
         <Container className="py-16 md:py-24">
           <h2 className="text-2xl font-bold text-foreground md:text-3xl">Deux exemples concrets</h2>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <article className="card-hover flex flex-col rounded-xl border border-border bg-card p-8">
+            <article className="card-hover relative overflow-hidden rounded-lg border border-border bg-card p-8">
+              <span className="absolute inset-x-0 top-0 h-[3px] bg-accent" />
+              <VisualSlot
+                label="Illustration à venir"
+                className="-mx-8 -mt-8 mb-6 h-40 rounded-none border-x-0 border-t-0"
+              />
               <span className="w-fit rounded-full bg-accent/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
                 Santé &amp; Environnement
               </span>
-              <h3 className="mt-4 text-lg font-semibold text-foreground">
+              <h3 className="mt-4 text-2xl font-bold text-foreground">
                 Une VLEP benzène dépassée identifiée avant contrôle
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
                 Des capteurs PID signalaient une hausse de COV sans permettre d'en identifier
                 l'origine, à quelques semaines d'un contrôle réglementaire. La campagne CLM Industry
                 a isolé le benzène comme molécule responsable et localisé la fuite sur une ligne de
                 transfert. Correction réalisée avant le contrôle.
               </p>
-              <p className="mt-5 font-bold text-accent">Arrêt de poste évité</p>
+              <hr className="my-6 border-border" />
+              <p className="font-bold text-accent">Arrêt de poste évité</p>
               <Link
                 to="/sante-environnement"
-                className="mt-5 text-sm font-semibold text-accent hover:underline"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
               >
-                Découvrir la solution Santé &amp; Environnement →
+                Découvrir la solution Santé &amp; Environnement <span aria-hidden>→</span>
               </Link>
             </article>
 
-            <article className="card-hover flex flex-col rounded-xl border border-border bg-card p-8">
+            <article className="card-hover relative overflow-hidden rounded-lg border border-border bg-card p-8">
+              <span className="absolute inset-x-0 top-0 h-[3px] bg-accent" />
+              <VisualSlot
+                label="Illustration à venir"
+                className="-mx-8 -mt-8 mb-6 h-40 rounded-none border-x-0 border-t-0"
+              />
               <span className="w-fit rounded-full bg-accent/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
                 Émissions &amp; Performance
               </span>
-              <h3 className="mt-4 text-lg font-semibold text-foreground">
+              <h3 className="mt-4 text-2xl font-bold text-foreground">
                 Charbons actifs : cycle de remplacement optimisé
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
                 Une installation d'abattage des COV dans l'industrie pharmaceutique imposait un
                 remplacement des filtres toutes les trois semaines par simple précaution. Une
                 campagne de mesure amont/aval sur un mois a démontré qu'un remplacement mensuel
                 était amplement suffisant pour garantir la conformité VLEP.
               </p>
-              <p className="mt-5 font-bold text-accent">130 000 € économisés par an</p>
+              <hr className="my-6 border-border" />
+              <p className="font-bold text-accent">130 000 € économisés par an</p>
               <Link
                 to="/emissions-performance"
-                className="mt-5 text-sm font-semibold text-accent hover:underline"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
               >
-                Découvrir la solution Émissions &amp; Performance →
+                Découvrir la solution Émissions &amp; Performance <span aria-hidden>→</span>
               </Link>
             </article>
           </div>
