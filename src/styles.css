@@ -60,6 +60,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-footer: var(--footer);
+  --color-cta-hover: var(--cta-hover);
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
@@ -85,7 +86,8 @@
   --border: oklch(0.35 0.035 254);
   --input: oklch(0.35 0.035 254);
   --ring: oklch(0.62 0.087 209);
-  --footer: oklch(0.19 0.03 254);                /* #111E2E */
+  --footer: oklch(0.16 0.03 254);
+  --cta-hover: oklch(0.6 0.24 350);              /* rose fuchsia (survol CTA) */                /* #111E2E */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -158,8 +160,8 @@
   color: var(--color-accent-foreground);
   font-size: 0.9375rem;
   font-weight: 600;
-  transition: filter 0.15s ease, transform 0.15s ease;
-  &:hover { filter: brightness(1.12); }
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  &:hover { background-color: var(--color-cta-hover); }
   &:active { transform: translateY(1px); }
 }
 

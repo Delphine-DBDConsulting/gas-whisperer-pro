@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, type LinkProps } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronRight, ImageIcon } from "lucide-react";
 
@@ -6,7 +6,7 @@ import { Container } from "./container";
 import skyline from "@/assets/usine-skyline.png.asset.json";
 
 /* ---------- Fil d'Ariane (+ données structurées) ---------- */
-export type Crumb = { label: string; to?: string };
+export type Crumb = { label: string; to?: LinkProps["to"] };
 
 export function Breadcrumbs({ items }: { items: Crumb[] }) {
   const all: Crumb[] = [{ label: "Accueil", to: "/" }, ...items];
