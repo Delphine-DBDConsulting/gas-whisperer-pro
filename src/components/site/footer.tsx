@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Linkedin, Mail } from "lucide-react";
 
 import { Container } from "./container";
 import { COMPANY } from "@/lib/company";
@@ -53,6 +54,14 @@ export function SiteFooter() {
             >
               {COMPANY.email}
             </a>
+            <div className="flex gap-3 pt-3 md:justify-end">
+              <a href={`mailto:${COMPANY.email}`} aria-label="Nous écrire" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground hover:border-accent hover:text-accent">
+                <Mail className="h-4 w-4" />
+              </a>
+              <a href="https://www.linkedin.com/company/c-l-m-industry/" target="_blank" rel="noopener noreferrer" aria-label="CLM Industry sur LinkedIn" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground hover:border-accent hover:text-accent">
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </div>
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground md:flex-row md:items-center">

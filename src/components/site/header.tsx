@@ -23,8 +23,9 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur">
-      <Container className="flex h-16 items-center justify-between gap-6">
+    <header className="sticky top-0 z-50 px-3 pt-3">
+      <div className="mx-auto max-w-[1200px] rounded-2xl border border-border/60 bg-background/85 shadow-lg backdrop-blur">
+      <div className="flex h-16 items-center justify-between gap-6 px-5">
         <Link to="/" className="flex items-center gap-2">
           <img
             src={logoAsset.url}
@@ -100,10 +101,10 @@ export function SiteHeader() {
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
-      </Container>
+      </div>
 
       {open ? (
-        <div className="border-t border-border/60 bg-background lg:hidden">
+        <div className="max-h-[75vh] overflow-y-auto rounded-b-2xl border-t border-border/60 lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {navLinks.map((l) => (
               <div key={l.to}>
@@ -140,6 +141,7 @@ export function SiteHeader() {
           </Container>
         </div>
       ) : null}
+      </div>
     </header>
   );
 }
