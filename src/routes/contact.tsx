@@ -151,6 +151,7 @@ function ContactPage() {
               </div>
             </form>
           )}
+          <Reassurance />
         </div>
 
         <aside className="space-y-6">

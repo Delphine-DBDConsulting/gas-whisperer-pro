@@ -103,17 +103,8 @@ function GazMesurables() {
           composés suivies lors de nos campagnes. Pour vérifier la mesurabilité d'une molécule
           précise, contactez-nous.
         </p>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {families.map((f) => (
-            <article
-              key={f.title}
-              className="card-hover rounded-xl border border-border bg-card p-7"
-            >
-              <h3 className="text-base font-bold text-foreground">{f.title}</h3>
-              <p className="mt-3 text-sm font-medium text-accent">{f.examples}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.detail}</p>
-            </article>
-          ))}
+        <div className="mt-10">
+          <NumberedCarousel items={families.map((f) => ({ title: f.title, sub: f.examples, text: f.detail }))} />
         </div>
       </Container>
 

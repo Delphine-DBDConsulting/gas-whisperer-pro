@@ -264,7 +264,7 @@ function NotreTechnologie() {
         <div className="mt-8 max-w-3xl">
           <ProgressStats
             rows={[
-              { name: "Benzène", lod: 0.05, limit: 1, unit: "ppm" },
+              { name: "Benzène", lod: 0.05, limit: 0.2, unit: "ppm" },
               { name: "Formaldéhyde", lod: 0.03, limit: 0.3, unit: "ppm" },
               { name: "Toluène", lod: 0.3, limit: 20, unit: "ppm" },
             ]}
