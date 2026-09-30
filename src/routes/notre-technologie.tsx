@@ -1,4 +1,6 @@
 import frenchFabLogo from "@/assets/french-fab-logo.png.asset.json";
+import { PageIntro, ProgressStats } from "@/components/site/page-kit";
+import xflr from "@/assets/xflr9-analyzer.png.asset.json";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Atom,
@@ -221,6 +223,8 @@ function NotreTechnologie() {
         </Container>
       </section>
 
+      <PageIntro crumbs={[{ label: "Notre technologie" }]} figures={[{ value: "ppb", label: "niveau de détection" }, { value: "500+", label: "espèces dans la bibliothèque" }, { value: "0", label: "consommable pendant la mesure" }]} proof="Issue de l'aérospatial, la technologie OPO Laser lit l'empreinte infrarouge de chaque molécule : là où un capteur classique voit un signal global, le XFLR-9 nomme le gaz." image={xflr.url} imageAlt="Analyseur XFLR-9" />
+
       {/* Section 2 — Limites des capteurs classiques */}
       <Container className="py-16 md:py-24">
         <h2 className="max-w-3xl text-2xl font-bold text-foreground md:text-3xl">
@@ -249,6 +253,22 @@ function NotreTechnologie() {
             </a>{" "}
             contraignante. Votre dossier de conformité reste incomplet — et juridiquement fragile.
           </p>
+        </div>
+      </Container>
+
+      {/* Jauges LOD vs VLEP */}
+      <Container className="pb-16 md:pb-24">
+        <h2 className="max-w-3xl text-2xl font-bold text-foreground md:text-3xl">
+          Bien en dessous des seuils réglementaires
+        </h2>
+        <div className="mt-8 max-w-3xl">
+          <ProgressStats
+            rows={[
+              { name: "Benzène", lod: 0.05, limit: 0.2, unit: "ppm" },
+              { name: "Formaldéhyde", lod: 0.03, limit: 0.3, unit: "ppm" },
+              { name: "Toluène", lod: 0.3, limit: 20, unit: "ppm" },
+            ]}
+          />
         </div>
       </Container>
 

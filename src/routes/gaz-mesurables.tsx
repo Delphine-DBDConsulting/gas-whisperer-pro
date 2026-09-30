@@ -1,3 +1,5 @@
+import { NumberedCarousel, PageIntro } from "@/components/site/page-kit";
+import { GASES } from "@/lib/gases";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { BookingButton } from "@/components/site/booking";
@@ -9,15 +11,7 @@ const DESCRIPTION =
 
 const VLEP_URL = "https://www.inrs.fr/publications/bdd/vlep.html";
 
-const lodRows: [string, string, string][] = [
-  ["Formaldéhyde", "0,03", "ppm (0,04 mg/m³)"],
-  ["Cyclohexane", "0,005", "ppm (0,02 mg/m³)"],
-  ["Chlorure d'hydrogène (HCl)", "0,04", "ppm (0,06 mg/m³)"],
-  ["Benzène", "0,05", "ppm"],
-  ["Toluène", "0,3", "ppm (1 mg/m³)"],
-  ["Acétone", "0,1", "ppm (0,3 mg/m³)"],
-  ["Cyanure d'hydrogène (HCN)", "0,6", "ppm (0,6 mg/m³)"],
-];
+const lodRows: [string, string, string][] = GASES.map((g) => [g.name, g.lod, g.unit]);
 
 const families = [
   {
@@ -97,6 +91,8 @@ function GazMesurables() {
         </Container>
       </section>
 
+      <PageIntro crumbs={[{ label: "Gaz mesurables" }]} figures={[{ value: "500+", label: "espèces gazeuses" }, { value: "6", label: "familles de gaz couvertes" }, { value: "0,005 ppm", label: "limite de détection du cyclohexane" }]} proof="Des COV aux NOx en passant par les CMR et les réfrigérants : un seul analyseur, un seul passage, chaque molécule identifiée et quantifiée." />
+
       {/* FAMILLES DE GAZ */}
       <Container className="py-16 md:py-24">
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">
@@ -107,17 +103,8 @@ function GazMesurables() {
           composés suivies lors de nos campagnes. Pour vérifier la mesurabilité d'une molécule
           précise, contactez-nous.
         </p>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {families.map((f) => (
-            <article
-              key={f.title}
-              className="card-hover rounded-xl border border-border bg-card p-7"
-            >
-              <h3 className="text-base font-bold text-foreground">{f.title}</h3>
-              <p className="mt-3 text-sm font-medium text-accent">{f.examples}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.detail}</p>
-            </article>
-          ))}
+        <div className="mt-10">
+          <NumberedCarousel items={families.map((f) => ({ title: f.title, sub: f.examples, text: f.detail }))} />
         </div>
       </Container>
 

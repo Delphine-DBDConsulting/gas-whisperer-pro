@@ -16,6 +16,7 @@ import { BookingButton } from "@/components/site/booking";
 import { Container } from "@/components/site/container";
 import { LogoMarquee } from "@/components/site/logo-marquee";
 import { posts } from "@/lib/blog";
+import { Parallax, StepTimeline, TestimonialCarousel, VisualSlot } from "@/components/site/page-kit";
 
 const DESCRIPTION =
   "CLM Industry réalise des campagnes de mesure de gaz industriels sur site. Identification ad nihilo de 500+ espèces gazeuses, conformité VLEP/CMR, optimisation des systèmes d'abattage. Analyseur XFLR-9 technologie OPO Laser.";
@@ -66,6 +67,8 @@ function Index() {
       <Regulatory />
       <Solution />
       <Solutions />
+      <TestimonialCarousel title="Ce qu'en disent nos clients" />
+      <CampaignSteps />
       <Applications />
       <BlogTeaser />
       <FinalCta />
@@ -110,6 +113,11 @@ function Hero() {
               Nos solutions de mesure
             </a>
           </div>
+          {/* Preuve sociale — chiffres factices à faire valider par le client */}
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            <span><span className="text-accent">★★★★★</span> <strong className="text-foreground">4,9/5</strong> satisfaction client</span>
+            <span><strong className="text-foreground">120+</strong> campagnes réalisées</span>
+          </div>
         </div>
         <div className="relative">
           <div
@@ -119,6 +127,7 @@ function Hero() {
                 "radial-gradient(circle at 50% 50%, rgba(33,150,182,0.35), transparent 70%)",
             }}
           />
+          <Parallax strength={30}>
           <img
             src={xflr9.url}
             alt="Analyseur XFLR-9 — technologie OPO Laser pour la mesure de gaz industriels"
@@ -126,6 +135,7 @@ function Hero() {
             height={794}
             className="relative w-full rounded-lg border border-border/60 shadow-2xl"
           />
+          </Parallax>
         </div>
       </Container>
     </section>
@@ -374,6 +384,7 @@ function Solutions() {
               className="card-hover relative overflow-hidden rounded-lg border border-border bg-card p-8"
             >
               <span className="absolute inset-x-0 top-0 h-[3px] bg-accent" />
+              <VisualSlot label="Illustration à venir" className="-mx-8 -mt-8 mb-6 h-40 rounded-none border-x-0 border-t-0" />
               <h3 className="mt-4 text-2xl font-bold text-foreground">{o.title}</h3>
               <p className="mt-2 italic text-muted-foreground">{o.subtitle}</p>
               <hr className="my-6 border-border" />
@@ -452,6 +463,23 @@ const applications = [
     desc: "Agents extincteurs, systèmes de suppression Halon/FM-200",
   },
 ];
+
+function CampaignSteps() {
+  return (
+    <section className="border-b border-border/40">
+      <Container className="py-16 md:py-24">
+        <StepTimeline
+          title="Une campagne en 3 étapes"
+          steps={[
+            { title: "Préparation", text: "Procédés, molécules cibles, points de mesure." },
+            { title: "Mesures sur site", text: "Installation en moins d'une heure, sans arrêt de production." },
+            { title: "Rapport", text: "Résultats molécule par molécule, daté et signé." },
+          ]}
+        />
+      </Container>
+    </section>
+  );
+}
 
 function Applications() {
   return (

@@ -1,3 +1,4 @@
+import { PageIntro } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   AlertTriangle,
@@ -458,6 +459,8 @@ function EmissionsPerformancePage() {
           </div>
         </Container>
       </section>
+
+      <PageIntro crumbs={[{ label: "Solutions", to: "/offres" }, { label: "Émissions & Performance" }]} figures={[{ value: "1–2 mois", label: "de monitoring continu" }, { value: "2", label: "analyseurs en amont et en aval" }, { value: "130 k€", label: "d'économie annuelle sur un cas client" }]} proof="Le rendement réel de vos systèmes d'abattage, molécule par molécule : ajustez la maintenance et vos consommations sur des données mesurées, pas estimées." />
 
       {/* PROBLÈME + SOLUTION + TECHNOLOGIE */}
       <Container className="py-16 md:py-24">

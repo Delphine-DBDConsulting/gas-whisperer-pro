@@ -1,3 +1,4 @@
+import { PageIntro } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   AlertTriangle,
@@ -272,6 +273,8 @@ function SanteEnvironnementPage() {
           </div>
         </Container>
       </section>
+
+      <PageIntro crumbs={[{ label: "Solutions", to: "/offres" }, { label: "Santé & Environnement" }]} figures={[{ value: "500+", label: "espèces gazeuses identifiables" }, { value: "10", label: "gaz mesurés simultanément" }, { value: "< 1 h", label: "d'installation, sans arrêt de production" }]} proof="Une campagne de 1 à 5 jours suffit pour savoir quelles molécules respirent vos équipes et documenter votre conformité VLEP et CMR, poste par poste." />
 
       {/* CAS D'USAGE */}
       <section className="border-y border-border/40 bg-[color:var(--footer)]">

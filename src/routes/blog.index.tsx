@@ -1,3 +1,4 @@
+import { PageIntro, VisualSlot } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 
@@ -36,6 +37,7 @@ function BlogIndex() {
         title="Blog & Actualités"
         intro="Réglementation, technologie, retours terrain — les sujets qui comptent pour les responsables HSE et les industriels."
       />
+      <PageIntro crumbs={[{ label: "Blog" }]} figures={[{ value: "6", label: "guides et analyses" }, { value: "4", label: "thématiques : réglementation, technologie, abattage, ROI" }, { value: "INRS", label: "sources réglementaires citées" }]} proof="Réglementation VLEP, choix d'un système d'abattage, retours d'expérience chiffrés : l'essentiel pour décider, rédigé par nos experts terrain." />
 
       <Container className="py-16 md:py-24">
         <div className="flex flex-wrap justify-center gap-3">
@@ -88,6 +90,7 @@ function ArticleCard({ post }: { post: (typeof posts)[number] }) {
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent hover:shadow-xl">
       <span className="absolute inset-x-0 top-0 h-[2px] bg-accent opacity-0 transition-opacity group-hover:opacity-100" />
+      <VisualSlot label="Vignette à venir" className="-mx-6 -mt-6 mb-5 h-36 rounded-none border-x-0 border-t-0" />
       <span className="w-fit rounded-full bg-accent/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent">
         {post.category}
       </span>

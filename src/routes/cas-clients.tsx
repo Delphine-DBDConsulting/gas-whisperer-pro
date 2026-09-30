@@ -1,3 +1,4 @@
+import { PageIntro } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
@@ -161,6 +162,7 @@ function CasClients() {
         title="Ce que change une mesure réellement précise"
         intro="Les campagnes de CLM Industry servent avant tout à décider : corriger une exposition, dimensionner un équipement, sécuriser un contrôle réglementaire... "
       />
+      <PageIntro crumbs={[{ label: "Cas clients" }]} figures={[{ value: "130 k€", label: "économisés par an sur un site pharmaceutique" }, { value: "12", label: "postes cartographiés en une campagne" }, { value: "0", label: "arrêt de production" }]} proof="Des décisions concrètes issues de mesures réelles : une fuite de benzène localisée, un cycle de filtres optimisé, un plan HSE argumenté." />
 
       <Container className="py-16 md:py-24">
         <p className="max-w-3xl text-base leading-relaxed text-muted-foreground">
@@ -216,6 +218,12 @@ function CasClients() {
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{c.problem}</p>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{c.result}</p>
               <div className="mt-auto pt-6 text-sm font-semibold text-accent">{c.kpi}</div>
+              <Link
+                to={c.solution === "Santé & Environnement" ? "/sante-environnement" : "/emissions-performance"}
+                className="mt-4 text-xs font-semibold text-muted-foreground hover:text-accent"
+              >
+                Solution concernée : {c.solution} →
+              </Link>
             </article>
           ))}
         </div>
