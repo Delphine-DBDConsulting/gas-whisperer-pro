@@ -1,4 +1,5 @@
-import { PageIntro } from "@/components/site/page-kit";
+import { NumberedCarousel, PageIntro } from "@/components/site/page-kit";
+import { GASES } from "@/lib/gases";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { BookingButton } from "@/components/site/booking";
@@ -10,15 +11,7 @@ const DESCRIPTION =
 
 const VLEP_URL = "https://www.inrs.fr/publications/bdd/vlep.html";
 
-const lodRows: [string, string, string][] = [
-  ["Formaldéhyde", "0,03", "ppm (0,04 mg/m³)"],
-  ["Cyclohexane", "0,005", "ppm (0,02 mg/m³)"],
-  ["Chlorure d'hydrogène (HCl)", "0,04", "ppm (0,06 mg/m³)"],
-  ["Benzène", "0,05", "ppm"],
-  ["Toluène", "0,3", "ppm (1 mg/m³)"],
-  ["Acétone", "0,1", "ppm (0,3 mg/m³)"],
-  ["Cyanure d'hydrogène (HCN)", "0,6", "ppm (0,6 mg/m³)"],
-];
+const lodRows: [string, string, string][] = GASES.map((g) => [g.name, g.lod, g.unit]);
 
 const families = [
   {
