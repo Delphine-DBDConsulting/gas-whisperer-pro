@@ -343,6 +343,11 @@ function NotreTechnologie() {
           LOD : Limite de Détection — concentration minimale détectable par l'analyseur dans des
           conditions standard.
         </p>
+        <div className="mt-8">
+          <Link to="/gaz-mesurables" className="cta-outline">
+            Voir la liste des gaz analysables par le XFLR-9
+          </Link>
+        </div>
       </Container>
 
       {/* Section 5 — Tableau comparatif */}
