@@ -47,11 +47,6 @@ export const Route = createFileRoute("/notre-technologie")({
   component: NotreTechnologie,
 });
 
-const heroStats = [
-  ["500+", "espèces gazeuses identifiables"],
-  ["ppb", "niveau de précision"],
-  ["< 1h", "déploiement sur site"],
-];
 
 const opoSteps = [
   {
