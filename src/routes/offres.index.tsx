@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { BookingButton } from "@/components/site/booking";
 import { Container, PageHeader } from "@/components/site/container";
+import { VisualSlot } from "@/components/site/page-kit";
 
 const DESCRIPTION =
   "Deux solutions de mesure de gaz industriels : campagne ponctuelle de conformité VLEP/CMR, ou monitoring continu des émissions pour optimiser vos installations.";
