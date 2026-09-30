@@ -1,5 +1,5 @@
 import frenchFabLogo from "@/assets/french-fab-logo.png.asset.json";
-import { PageIntro, ProgressStats } from "@/components/site/page-kit";
+import { PageIntro } from "@/components/site/page-kit";
 import xflr from "@/assets/xflr9-analyzer.png.asset.json";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
@@ -243,21 +243,6 @@ function NotreTechnologie() {
         </div>
       </Container>
 
-      {/* Jauges LOD vs VLEP */}
-      <Container className="pb-16 md:pb-24">
-        <h2 className="max-w-3xl text-2xl font-bold text-foreground md:text-3xl">
-          Bien en dessous des seuils réglementaires
-        </h2>
-        <div className="mt-8 max-w-3xl">
-          <ProgressStats
-            rows={[
-              { name: "Benzène", lod: 0.05, limit: 0.2, unit: "ppm" },
-              { name: "Formaldéhyde", lod: 0.03, limit: 0.3, unit: "ppm" },
-              { name: "Toluène", lod: 0.3, limit: 20, unit: "ppm" },
-            ]}
-          />
-        </div>
-      </Container>
 
       {/* Section 3 — La résolution OPO */}
       <section className="border-y border-border/40 bg-[color:var(--footer)]">
