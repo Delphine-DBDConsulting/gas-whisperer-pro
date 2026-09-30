@@ -1,4 +1,4 @@
-import { PageIntro, VisualSlot } from "@/components/site/page-kit";
+import { VisualSlot } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 
@@ -37,7 +37,6 @@ function BlogIndex() {
         title="Blog & Actualités"
         intro="Réglementation, technologie, retours terrain — les sujets qui comptent pour les responsables HSE et les industriels."
       />
-      <PageIntro crumbs={[{ label: "Blog" }]} proof="Réglementation VLEP, choix d'un système d'abattage, retours d'expérience chiffrés : l'essentiel pour décider, rédigé par nos experts terrain." />
 
       <Container className="py-16 md:py-24">
         <div className="flex flex-wrap justify-center gap-3">
