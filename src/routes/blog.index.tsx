@@ -1,4 +1,4 @@
-import { PageIntro, VisualSlot } from "@/components/site/page-kit";
+import { VisualSlot } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 
