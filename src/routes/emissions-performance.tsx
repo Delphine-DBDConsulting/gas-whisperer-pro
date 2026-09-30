@@ -492,7 +492,6 @@ function EmissionsPerformancePage() {
             opposable, disponible à tout moment en cas de contrôle réglementaire.
           </p>
         </div>
-        <UpstreamDownstreamDiagram />
       </Container>
 
       {/* SYSTÈMES D'ABATTAGE */}
