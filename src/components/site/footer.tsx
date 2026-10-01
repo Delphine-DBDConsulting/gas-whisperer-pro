@@ -43,6 +43,9 @@ export function SiteFooter() {
             <Link to="/contact" className="text-muted-foreground hover:text-accent">
               Contact
             </Link>
+            <Link to="/faq" className="text-muted-foreground hover:text-accent">
+              FAQ
+            </Link>
             <Link to="/en/brochure" className="text-muted-foreground hover:text-accent">
               English brochure
             </Link>
