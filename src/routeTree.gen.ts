@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CasClientsRouteImport } from './routes/cas-clients'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EmissionsPerformanceRouteImport } from './routes/emissions-performance'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GazMesurablesRouteImport } from './routes/gaz-mesurables'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as NotreTechnologieRouteImport } from './routes/notre-technologie'
@@ -45,6 +46,11 @@ const ContactRoute = ContactRouteImport.update({
 const EmissionsPerformanceRoute = EmissionsPerformanceRouteImport.update({
   id: '/emissions-performance',
   path: '/emissions-performance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GazMesurablesRoute = GazMesurablesRouteImport.update({
@@ -121,6 +127,7 @@ export interface FileRoutesByFullPath {
   '/cas-clients': typeof CasClientsRoute
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
+  '/faq': typeof FaqRoute
   '/gaz-mesurables': typeof GazMesurablesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/notre-technologie': typeof NotreTechnologieRoute
@@ -140,6 +147,7 @@ export interface FileRoutesByTo {
   '/cas-clients': typeof CasClientsRoute
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
+  '/faq': typeof FaqRoute
   '/gaz-mesurables': typeof GazMesurablesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/notre-technologie': typeof NotreTechnologieRoute
@@ -160,6 +168,7 @@ export interface FileRoutesById {
   '/cas-clients': typeof CasClientsRoute
   '/contact': typeof ContactRoute
   '/emissions-performance': typeof EmissionsPerformanceRoute
+  '/faq': typeof FaqRoute
   '/gaz-mesurables': typeof GazMesurablesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/notre-technologie': typeof NotreTechnologieRoute
@@ -181,6 +190,7 @@ export interface FileRouteTypes {
     | '/cas-clients'
     | '/contact'
     | '/emissions-performance'
+    | '/faq'
     | '/gaz-mesurables'
     | '/mentions-legales'
     | '/notre-technologie'
@@ -200,6 +210,7 @@ export interface FileRouteTypes {
     | '/cas-clients'
     | '/contact'
     | '/emissions-performance'
+    | '/faq'
     | '/gaz-mesurables'
     | '/mentions-legales'
     | '/notre-technologie'
@@ -219,6 +230,7 @@ export interface FileRouteTypes {
     | '/cas-clients'
     | '/contact'
     | '/emissions-performance'
+    | '/faq'
     | '/gaz-mesurables'
     | '/mentions-legales'
     | '/notre-technologie'
@@ -239,6 +251,7 @@ export interface RootRouteChildren {
   CasClientsRoute: typeof CasClientsRoute
   ContactRoute: typeof ContactRoute
   EmissionsPerformanceRoute: typeof EmissionsPerformanceRoute
+  FaqRoute: typeof FaqRoute
   GazMesurablesRoute: typeof GazMesurablesRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   NotreTechnologieRoute: typeof NotreTechnologieRoute
@@ -282,6 +295,13 @@ declare module '@tanstack/react-router' {
       path: '/emissions-performance'
       fullPath: '/emissions-performance'
       preLoaderRoute: typeof EmissionsPerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gaz-mesurables': {
@@ -383,6 +403,7 @@ const rootRouteChildren: RootRouteChildren = {
   CasClientsRoute: CasClientsRoute,
   ContactRoute: ContactRoute,
   EmissionsPerformanceRoute: EmissionsPerformanceRoute,
+  FaqRoute: FaqRoute,
   GazMesurablesRoute: GazMesurablesRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
   NotreTechnologieRoute: NotreTechnologieRoute,
