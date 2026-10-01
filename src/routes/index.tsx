@@ -7,7 +7,9 @@ import {
   FlaskConical,
   Leaf,
   Pill,
+  ShieldAlert,
   Snowflake,
+  TrendingUp,
 } from "lucide-react";
 
 import usineFiligrane from "@/assets/usine-filigrane.jpg.asset.json";
@@ -16,7 +18,7 @@ import { BookingButton } from "@/components/site/booking";
 import { Container } from "@/components/site/container";
 import { LogoMarquee } from "@/components/site/logo-marquee";
 import { posts } from "@/lib/blog";
-import { Parallax, StepTimeline, TestimonialCarousel, VisualSlot } from "@/components/site/page-kit";
+import { Parallax, StepTimeline, TestimonialCarousel } from "@/components/site/page-kit";
 
 const DESCRIPTION =
   "CLM Industry réalise des campagnes de mesure de gaz industriels sur site. Identification ad nihilo de 500+ espèces gazeuses, conformité VLEP/CMR, optimisation des systèmes d'abattage. Analyseur XFLR-9 technologie OPO Laser.";
@@ -360,41 +362,63 @@ function Solutions() {
   const solutions = [
     {
       title: "Santé & Environnement",
-      subtitle: "Pour connaître précisément ce que respirent vos équipes",
-      text: "Campagne de mesure ponctuelle — identification exhaustive des gaz présents sur votre site, rapport de conformité VLEP remis en fin de mission.",
+      situation: "Un contrôle est annoncé",
+      text: "Identifier les molécules réellement présentes dans l'air de vos ateliers, poste par poste, et documenter votre conformité VLEP et CMR.",
+      duration: "1 à 5 jours",
+      image: xflr9.url,
+      imageAlt: "Analyseur XFLR-9 utilisé pour les campagnes de mesure de gaz",
+      Icon: ShieldAlert,
       to: "/offres/sante-environnement" as const,
     },
     {
       title: "Émissions & Performance",
-      subtitle: "Pour piloter vos émissions dans la durée et optimiser vos installations",
-      text: "Monitoring continu sur 1 à 2 mois — mesures amont/aval de vos systèmes d'abattage, reporting régulier, données pour piloter vos cycles de production.",
+      situation: "Un investissement est à arbitrer",
+      text: "Mesurer le rendement réel de vos systèmes d'abattage, amont et aval, et optimiser vos cycles de production dans la durée.",
+      duration: "1 à 2 mois",
+      image: usineFiligrane.url,
+      imageAlt: "Installations industrielles et cheminées d'usine",
+      Icon: TrendingUp,
       to: "/offres/emissions-performance" as const,
     },
   ];
   return (
     <section id="solutions" className="scroll-mt-20 border-b border-border/40">
       <Container className="py-20 md:py-28">
-        <h2 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">
-          Deux solutions adaptées à votre situation
-        </h2>
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl font-extrabold leading-tight text-foreground md:text-5xl">
+            Deux situations. Deux campagnes.
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            On ne nous appelle pas par curiosité. On nous appelle parce qu'un contrôle est annoncé,
+            ou parce qu'une installation coûte trop cher. Votre point de départ décide de la campagne.
+          </p>
+        </div>
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           {solutions.map((o) => (
             <article
               key={o.title}
-              className="card-hover relative overflow-hidden rounded-lg border border-border bg-card p-8"
+              className="card-hover flex min-w-0 flex-col overflow-hidden border border-border bg-card"
             >
-              <span className="absolute inset-x-0 top-0 h-[3px] bg-accent" />
-              <VisualSlot label="Illustration à venir" className="-mx-8 -mt-8 mb-6 h-40 rounded-none border-x-0 border-t-0" />
-              <h3 className="mt-4 text-2xl font-bold text-foreground">{o.title}</h3>
-              <p className="mt-2 italic text-muted-foreground">{o.subtitle}</p>
-              <hr className="my-6 border-border" />
-              <p className="text-base leading-relaxed text-muted-foreground">{o.text}</p>
-              <Link
-                to={o.to}
-                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
-              >
-                Découvrir la solution <span aria-hidden>→</span>
-              </Link>
+              <div className="h-48 overflow-hidden border-b border-border bg-footer md:h-56">
+                <img src={o.image} alt={o.imageAlt} className={`h-full w-full ${o.Icon === ShieldAlert ? "object-contain p-5" : "object-cover"}`} loading="lazy" />
+              </div>
+              <div className="flex flex-1 flex-col p-6 md:p-8">
+                <div className="flex items-center gap-3 text-xs font-semibold uppercase text-accent">
+                  <o.Icon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                  <span>{o.situation}</span>
+                </div>
+                <h3 className="mt-4 text-2xl font-bold text-foreground md:text-3xl">{o.title}</h3>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground">{o.text}</p>
+                <div className="mt-auto flex flex-wrap items-end justify-between gap-5 pt-10">
+                  <div>
+                    <p className="text-xs font-semibold uppercase text-muted-foreground">Durée · Résultat</p>
+                    <p className="mt-1 text-2xl font-extrabold text-foreground">{o.duration}</p>
+                  </div>
+                  <Link to={o.to} aria-label={`Découvrir ${o.title}`} className="inline-flex h-11 items-center gap-3 border border-accent px-5 text-sm font-semibold text-accent transition-colors hover:border-cta-hover hover:bg-cta-hover hover:text-accent-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+                    Découvrir <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </div>
             </article>
           ))}
         </div>
