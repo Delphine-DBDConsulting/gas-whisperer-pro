@@ -9,63 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as CasClientsRouteImport } from './routes/cas-clients'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as EmissionsPerformanceRouteImport } from './routes/emissions-performance'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as GazMesurablesRouteImport } from './routes/gaz-mesurables'
-import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
-import { Route as NotreTechnologieRouteImport } from './routes/notre-technologie'
-import { Route as PolitiqueDeConfidentialiteRouteImport } from './routes/politique-de-confidentialite'
-import { Route as ReferencesRouteImport } from './routes/references'
-import { Route as SanteEnvironnementRouteImport } from './routes/sante-environnement'
 import { Route as TechnologieRouteImport } from './routes/technologie'
-import { Route as BlogIndexRouteImport } from './routes/blog.index'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as EnBrochureRouteImport } from './routes/en.brochure'
+import { Route as SanteEnvironnementRouteImport } from './routes/sante-environnement'
+import { Route as ReferencesRouteImport } from './routes/references'
+import { Route as PolitiqueDeConfidentialiteRouteImport } from './routes/politique-de-confidentialite'
+import { Route as NotreTechnologieRouteImport } from './routes/notre-technologie'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as GazMesurablesRouteImport } from './routes/gaz-mesurables'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as EmissionsPerformanceRouteImport } from './routes/emissions-performance'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CasClientsRouteImport } from './routes/cas-clients'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as OffresIndexRouteImport } from './routes/offres.index'
-import { Route as OffresEmissionsPerformanceRouteImport } from './routes/offres.emissions-performance'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as OffresSanteEnvironnementRouteImport } from './routes/offres.sante-environnement'
+import { Route as OffresEmissionsPerformanceRouteImport } from './routes/offres.emissions-performance'
+import { Route as EnBrochureRouteImport } from './routes/en.brochure'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const TechnologieRoute = TechnologieRouteImport.update({
+  id: '/technologie',
+  path: '/technologie',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CasClientsRoute = CasClientsRouteImport.update({
-  id: '/cas-clients',
-  path: '/cas-clients',
+const SanteEnvironnementRoute = SanteEnvironnementRouteImport.update({
+  id: '/sante-environnement',
+  path: '/sante-environnement',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EmissionsPerformanceRoute = EmissionsPerformanceRouteImport.update({
-  id: '/emissions-performance',
-  path: '/emissions-performance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GazMesurablesRoute = GazMesurablesRouteImport.update({
-  id: '/gaz-mesurables',
-  path: '/gaz-mesurables',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
-  id: '/mentions-legales',
-  path: '/mentions-legales',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NotreTechnologieRoute = NotreTechnologieRouteImport.update({
-  id: '/notre-technologie',
-  path: '/notre-technologie',
+const ReferencesRoute = ReferencesRouteImport.update({
+  id: '/references',
+  path: '/references',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PolitiqueDeConfidentialiteRoute =
@@ -74,34 +49,44 @@ const PolitiqueDeConfidentialiteRoute =
     path: '/politique-de-confidentialite',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ReferencesRoute = ReferencesRouteImport.update({
-  id: '/references',
-  path: '/references',
+const NotreTechnologieRoute = NotreTechnologieRouteImport.update({
+  id: '/notre-technologie',
+  path: '/notre-technologie',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SanteEnvironnementRoute = SanteEnvironnementRouteImport.update({
-  id: '/sante-environnement',
-  path: '/sante-environnement',
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TechnologieRoute = TechnologieRouteImport.update({
-  id: '/technologie',
-  path: '/technologie',
+const GazMesurablesRoute = GazMesurablesRouteImport.update({
+  id: '/gaz-mesurables',
+  path: '/gaz-mesurables',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
+const EmissionsPerformanceRoute = EmissionsPerformanceRouteImport.update({
+  id: '/emissions-performance',
+  path: '/emissions-performance',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnBrochureRoute = EnBrochureRouteImport.update({
-  id: '/en/brochure',
-  path: '/en/brochure',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasClientsRoute = CasClientsRouteImport.update({
+  id: '/cas-clients',
+  path: '/cas-clients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OffresIndexRoute = OffresIndexRouteImport.update({
@@ -109,18 +94,33 @@ const OffresIndexRoute = OffresIndexRouteImport.update({
   path: '/offres/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const OffresEmissionsPerformanceRoute =
-  OffresEmissionsPerformanceRouteImport.update({
-    id: '/offres/emissions-performance',
-    path: '/offres/emissions-performance',
-    getParentRoute: () => rootRouteImport,
-  } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OffresSanteEnvironnementRoute =
   OffresSanteEnvironnementRouteImport.update({
     id: '/offres/sante-environnement',
     path: '/offres/sante-environnement',
     getParentRoute: () => rootRouteImport,
   } as any)
+const OffresEmissionsPerformanceRoute =
+  OffresEmissionsPerformanceRouteImport.update({
+    id: '/offres/emissions-performance',
+    path: '/offres/emissions-performance',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EnBrochureRoute = EnBrochureRouteImport.update({
+  id: '/en/brochure',
+  path: '/en/brochure',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -269,74 +269,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cas-clients': {
-      id: '/cas-clients'
-      path: '/cas-clients'
-      fullPath: '/cas-clients'
-      preLoaderRoute: typeof CasClientsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/emissions-performance': {
-      id: '/emissions-performance'
-      path: '/emissions-performance'
-      fullPath: '/emissions-performance'
-      preLoaderRoute: typeof EmissionsPerformanceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gaz-mesurables': {
-      id: '/gaz-mesurables'
-      path: '/gaz-mesurables'
-      fullPath: '/gaz-mesurables'
-      preLoaderRoute: typeof GazMesurablesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentions-legales': {
-      id: '/mentions-legales'
-      path: '/mentions-legales'
-      fullPath: '/mentions-legales'
-      preLoaderRoute: typeof MentionsLegalesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/notre-technologie': {
-      id: '/notre-technologie'
-      path: '/notre-technologie'
-      fullPath: '/notre-technologie'
-      preLoaderRoute: typeof NotreTechnologieRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/politique-de-confidentialite': {
-      id: '/politique-de-confidentialite'
-      path: '/politique-de-confidentialite'
-      fullPath: '/politique-de-confidentialite'
-      preLoaderRoute: typeof PolitiqueDeConfidentialiteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/references': {
-      id: '/references'
-      path: '/references'
-      fullPath: '/references'
-      preLoaderRoute: typeof ReferencesRouteImport
+    '/technologie': {
+      id: '/technologie'
+      path: '/technologie'
+      fullPath: '/technologie'
+      preLoaderRoute: typeof TechnologieRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sante-environnement': {
@@ -346,32 +283,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SanteEnvironnementRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/technologie': {
-      id: '/technologie'
-      path: '/technologie'
-      fullPath: '/technologie'
-      preLoaderRoute: typeof TechnologieRouteImport
+    '/references': {
+      id: '/references'
+      path: '/references'
+      fullPath: '/references'
+      preLoaderRoute: typeof ReferencesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/': {
-      id: '/blog/'
-      path: '/blog'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
+    '/politique-de-confidentialite': {
+      id: '/politique-de-confidentialite'
+      path: '/politique-de-confidentialite'
+      fullPath: '/politique-de-confidentialite'
+      preLoaderRoute: typeof PolitiqueDeConfidentialiteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
+    '/notre-technologie': {
+      id: '/notre-technologie'
+      path: '/notre-technologie'
+      fullPath: '/notre-technologie'
+      preLoaderRoute: typeof NotreTechnologieRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/en/brochure': {
-      id: '/en/brochure'
-      path: '/en/brochure'
-      fullPath: '/en/brochure'
-      preLoaderRoute: typeof EnBrochureRouteImport
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gaz-mesurables': {
+      id: '/gaz-mesurables'
+      path: '/gaz-mesurables'
+      fullPath: '/gaz-mesurables'
+      preLoaderRoute: typeof GazMesurablesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/emissions-performance': {
+      id: '/emissions-performance'
+      path: '/emissions-performance'
+      fullPath: '/emissions-performance'
+      preLoaderRoute: typeof EmissionsPerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cas-clients': {
+      id: '/cas-clients'
+      path: '/cas-clients'
+      fullPath: '/cas-clients'
+      preLoaderRoute: typeof CasClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/offres/': {
@@ -381,11 +360,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OffresIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/offres/emissions-performance': {
-      id: '/offres/emissions-performance'
-      path: '/offres/emissions-performance'
-      fullPath: '/offres/emissions-performance'
-      preLoaderRoute: typeof OffresEmissionsPerformanceRouteImport
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/offres/sante-environnement': {
@@ -393,6 +372,27 @@ declare module '@tanstack/react-router' {
       path: '/offres/sante-environnement'
       fullPath: '/offres/sante-environnement'
       preLoaderRoute: typeof OffresSanteEnvironnementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offres/emissions-performance': {
+      id: '/offres/emissions-performance'
+      path: '/offres/emissions-performance'
+      fullPath: '/offres/emissions-performance'
+      preLoaderRoute: typeof OffresEmissionsPerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/brochure': {
+      id: '/en/brochure'
+      path: '/en/brochure'
+      fullPath: '/en/brochure'
+      preLoaderRoute: typeof EnBrochureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
