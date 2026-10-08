@@ -1,3 +1,4 @@
+import { getPost } from "@/lib/blog";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -131,7 +132,7 @@ function RootComponent() {
   const pathname = useRouterState({ select: state => state.location.pathname });
   const labels: Record<string,string> = { "/offres":"Nos solutions", "/sante-environnement":"Santé & Environnement", "/emissions-performance":"Émissions & Performance", "/technologie":"Technologie", "/notre-technologie":"Technologie", "/cas-clients":"Cas clients", "/gaz-mesurables":"Gaz mesurables", "/blog":"Blog", "/contact":"Contact", "/faq":"FAQ", "/en/brochure":"English brochure", "/mentions-legales":"Mentions légales", "/politique-de-confidentialite":"Politique de confidentialité" };
   const path = pathname.replace(/\/$/, "") || "/";
-  const crumbs: Crumb[] = path.includes("en/brochure") ? [{label:"English brochure"}] : [{label:labels[path] ?? "Article", ...(path.startsWith("/blog/") ? {} : {})}];
+  const crumbs: Crumb[] = path.includes("en/brochure") ? [{label:"English brochure"}] : [{label:labels[path] ?? getPost(path.split("/").at(-1) ?? "")?.title ?? "Article"}];
   if (path === "/sante-environnement" || path === "/emissions-performance") crumbs.unshift({label:"Nos solutions",to:"/offres"});
   if (path.startsWith("/blog/")) crumbs.unshift({label:"Blog",to:"/blog"});
 

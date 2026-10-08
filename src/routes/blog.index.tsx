@@ -49,6 +49,7 @@ function BlogIndex() {
               <Button
                 key={c}
                 type="button"
+                variant="ghost"
                 onClick={() => setActive(c)}
                 aria-pressed={isActive}
                 className={`rounded-md px-5 py-2.5 text-sm font-semibold transition-colors ${

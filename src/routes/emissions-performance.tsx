@@ -163,6 +163,8 @@ const useCases = [
 export const Route = createFileRoute("/emissions-performance")({
   head: () => ({
     meta: [
+      { property: "og:image", content: designVisuals.factory },
+      { name: "twitter:image", content: designVisuals.factory },
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },

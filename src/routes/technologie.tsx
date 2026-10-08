@@ -37,6 +37,8 @@ const VLEP_URL = "https://www.inrs.fr/publications/bdd/vlep.html";
 export const Route = createFileRoute("/technologie")({
   head: () => ({
     meta: [
+      { property: "og:image", content: designVisuals.analyzer },
+      { name: "twitter:image", content: designVisuals.analyzer },
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
@@ -187,7 +189,7 @@ function Cell({ value }: { value: string }) {
 function NotreTechnologie() {
   return (
     <>
-      <section className="v2-solution-hero"><Container><div><p className="text-xs font-semibold uppercase text-accent-light">Notre technologie</p><h1 className="mt-5 font-extrabold">Une technologie de rupture au service de la mesure industrielle</h1><p className="mt-6 text-base leading-relaxed text-muted-foreground">Le XFLR-9® repose sur la technologie OPO Laser (Oscillateur Paramétrique Optique), issue de l'aérospatial. Là où les capteurs classiques ne voient qu'un signal global, il lit l'empreinte infrarouge unique de chaque molécule.</p><div className="mt-8 flex flex-wrap gap-4"><BookingButton/><Link to="/offres" className="cta-outline">Découvrir nos solutions</Link></div><div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">{[["ppb","niveau de précision"],["500+","espèces gazeuses"],["< 1 h","déploiement sur site"]].map(([n,l])=><div key={n}><strong className="text-xl text-accent-light">{n}</strong><p className="mt-1 text-xs text-muted-foreground">{l}</p></div>)}</div></div><div className="hero-media"><img src={designVisuals.analyzer} alt="Analyseur XFLR-9® et technologie OPO Laser"/></div></Container></section>
+      <section className="v2-solution-hero"><Container><div><p className="text-xs font-semibold uppercase text-accent-light">Notre technologie</p><h1 className="mt-5 font-extrabold">Une technologie de rupture au service de la mesure industrielle</h1><p className="mt-6 text-base leading-relaxed text-muted-foreground">Le XFLR-9® repose sur la technologie OPO Laser (Oscillateur Paramétrique Optique), issue de l'aérospatial. Là où les capteurs classiques ne voient qu'un signal global, il lit l'empreinte infrarouge unique de chaque molécule.</p><div className="mt-8 flex flex-wrap gap-4"><BookingButton/><Link to="/offres" className="cta-outline">Découvrir nos solutions</Link></div></div><div className="hero-media"><img src={designVisuals.analyzer} alt="Analyseur XFLR-9® et technologie OPO Laser"/></div></Container></section>
 
       {/* Section 2 — Limites des capteurs classiques */}
       <Container className="py-16 md:py-24">

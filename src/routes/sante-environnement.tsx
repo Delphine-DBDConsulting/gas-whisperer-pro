@@ -1,5 +1,4 @@
 import { designVisuals } from "@/components/site/design-v2";
-import content from "@/content/solutions.json";
 import { PageIntro, Parallax, ProgressStats } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
@@ -31,7 +30,7 @@ const comparison: [string, string, string][] = [
   ["Consommables", "Gaz vecteurs, tubes, filtres", "Zéro consommable"],
 ];
 
-const legacySteps = [
+const steps = [
   {
     icon: ClipboardList,
     title: "Prise de contact et cadrage",
@@ -54,7 +53,6 @@ const legacySteps = [
   },
 ];
 
-const steps = content.seSteps.map((step, i) => ({...step, icon: [ClipboardList,Wrench,LineChart,FileCheck2][i] ?? ClipboardList}));
 
 const useCases = [
   {
@@ -145,6 +143,8 @@ const caseStudies = [
 export const Route = createFileRoute("/sante-environnement")({
   head: () => ({
     meta: [
+      { property: "og:image", content: designVisuals.analyzer },
+      { name: "twitter:image", content: designVisuals.analyzer },
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },

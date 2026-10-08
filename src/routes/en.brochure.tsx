@@ -19,6 +19,8 @@ const DESCRIPTION =
 export const Route = createFileRoute("/en/brochure")({
   head: () => ({
     meta: [
+      { property: "og:image", content: designVisuals.analyzer },
+      { name: "twitter:image", content: designVisuals.analyzer },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { title: "Industrial gas measurement — English brochure | CLM Industry" },

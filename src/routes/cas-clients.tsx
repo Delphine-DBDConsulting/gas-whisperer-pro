@@ -189,6 +189,7 @@ function CasClients() {
               <Button
                 key={f.value}
                 type="button"
+                variant="ghost"
                 onClick={() => setActiveFilter(f.value)}
                 className={`rounded-md px-5 py-2.5 text-sm font-semibold transition-colors ${
                   isActive
