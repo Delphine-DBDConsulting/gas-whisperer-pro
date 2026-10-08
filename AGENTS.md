@@ -13,3 +13,5 @@
 - Keep existing backend lead functions, Zod schemas, CRM and PDF delivery untouched during visual redesigns to preserve production behavior.
 - Use `/technologie` as the canonical technology route and preserve legacy URLs through redirects to avoid breaking external links.
 - Store imported design media as asset pointers and shared visual widgets separately from page content to preserve portable rendering.
+
+- Apply shared visual rhythm with semantic global tokens and page-specific layouts, while keeping legacy route aliases as redirects so design replacements preserve indexing and external callers.
