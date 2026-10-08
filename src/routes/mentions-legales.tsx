@@ -1,4 +1,3 @@
-import { LegalTabs, LegalContents } from "@/components/site/design-v2";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { Container, PageHeader } from "@/components/site/container";
@@ -10,8 +9,6 @@ const DESCRIPTION =
 export const Route = createFileRoute("/mentions-legales")({
   head: () => ({
     meta: [
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
       { title: "Mentions légales — CLM Industry" },
       { name: "description", content: DESCRIPTION },
       { name: "robots", content: "noindex" },
@@ -26,9 +23,9 @@ function MentionsLegales() {
   return (
     <>
       <PageHeader title="Mentions légales" />
-      <LegalTabs/><Container className="legal-layout py-12"><LegalContents titles={["Éditeur du site", "Directeur de la publication", "Hébergement", "Propriété intellectuelle", "Responsabilité"]}/>
+      <Container className="max-w-3xl py-16 md:py-24">
         <div className="space-y-10 text-base leading-relaxed text-muted-foreground">
-          <section id="legal-0">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Éditeur du site</h2>
             <p className="mt-3">
               {COMPANY.legalName} — {COMPANY.address}
@@ -38,15 +35,15 @@ function MentionsLegales() {
               SIRET : {COMPANY.siret}
             </p>
           </section>
-          <section id="legal-1">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Directeur de la publication</h2>
             <p className="mt-3">{COMPANY.publicationDirector}</p>
           </section>
-          <section id="legal-2">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Hébergement</h2>
             <p className="mt-3">{COMPANY.host}</p>
           </section>
-          <section id="legal-3">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Propriété intellectuelle</h2>
             <p className="mt-3">
               L'ensemble des contenus de ce site (textes, images, schémas, marques) est la propriété
@@ -54,7 +51,7 @@ function MentionsLegales() {
               totale ou partielle, sans autorisation écrite préalable est interdite.
             </p>
           </section>
-          <section id="legal-4">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Responsabilité</h2>
             <p className="mt-3">
               Les informations techniques et réglementaires publiées sur ce site sont fournies à

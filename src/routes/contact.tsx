@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { Link } from "@tanstack/react-router";
 import { Reassurance } from "@/components/site/page-kit";
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
@@ -18,8 +16,6 @@ const DESCRIPTION =
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
       { title: "Contact — Prendre rendez-vous | CLM Industry" },
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: "Contact — Prendre rendez-vous | CLM Industry" },
@@ -76,18 +72,17 @@ function ContactPage() {
         intro="Décrivez-nous vos installations et vos obligations réglementaires. Nous revenons vers vous sous 48 heures avec une recommandation de campagne."
       />
 
-      <Container className="grid gap-6 py-12 lg:grid-cols-[1.5fr_1fr] lg:items-start">
+      <Container className="grid gap-12 py-16 md:py-24 lg:grid-cols-[1.5fr_1fr] lg:items-start">
         <div className="rounded-lg border border-border bg-card p-8">
-          <h2 className="mb-6 font-bold">Votre demande</h2>
           {sent ? (
             <div className="py-8 text-center">
               <div className="text-2xl font-bold text-accent">Demande envoyée</div>
               <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
                 Merci. Un expert CLM Industry revient vers vous sous 48 heures ouvrées.
               </p>
-              <Button type="button" className="cta-outline mt-8" onClick={() => setSent(false)}>
+              <button type="button" className="cta-outline mt-8" onClick={() => setSent(false)}>
                 Envoyer une autre demande
-              </Button>
+              </button>
             </div>
           ) : (
             <form onSubmit={onSubmit} noValidate className="grid gap-5 sm:grid-cols-2">
@@ -109,7 +104,16 @@ function ContactPage() {
                 error={errors.siteLocation}
               />
 
-               <fieldset className="sm:col-span-2"><legend className="mb-3 text-sm font-medium">Solution concernée *</legend><div className="grid gap-2 sm:grid-cols-3">{OFFER_OPTIONS.map((o)=><label className="offer-choice" key={o.value}><input type="radio" name="offer" value={o.value} defaultChecked={o.value === "indecis"}/><span>{o.label}</span></label>)}</div>{errors.offer && <p className="mt-2 text-xs text-destructive">{errors.offer}</p>}</fieldset>
+              <label className="sm:col-span-2 block text-sm font-medium text-foreground">
+                Solution concernée *
+                <select name="offer" defaultValue="indecis" className={fieldClass} required>
+                  {OFFER_OPTIONS.map((o) => (
+                    <option key={o.value} value={o.value}>
+                      {o.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
 
               <label className="sm:col-span-2 block text-sm font-medium text-foreground">
                 Votre besoin *
@@ -136,12 +140,12 @@ function ContactPage() {
               />
 
               <div className="sm:col-span-2">
-                <Button type="submit" className="cta-primary" disabled={pending}>
+                <button type="submit" className="cta-primary" disabled={pending}>
                   {pending ? "Envoi en cours…" : "Envoyer ma demande"}
-                </Button>
+                </button>
                 <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
                   Les informations transmises sont utilisées uniquement pour traiter votre demande.
-                  <Link to="/politique-de-confidentialite" className="underline hover:text-accent-light">Voir notre politique de confidentialité.</Link>
+                  Voir notre politique de confidentialité.
                 </p>
               </div>
             </form>
@@ -172,7 +176,7 @@ function ContactPage() {
         </aside>
       </Container>
 
-      <section id="creneau" className="border-t border-border/40 bg-[color:var(--footer)]">
+      <section className="border-t border-border/40 bg-[color:var(--footer)]">
         <Container className="py-16 md:py-24">
           <h2 className="text-2xl font-bold text-foreground md:text-3xl">
             Réserver directement un créneau

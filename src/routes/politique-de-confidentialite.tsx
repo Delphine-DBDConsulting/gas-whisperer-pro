@@ -1,4 +1,3 @@
-import { LegalTabs, LegalContents } from "@/components/site/design-v2";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { Container, PageHeader } from "@/components/site/container";
@@ -10,8 +9,6 @@ const DESCRIPTION =
 export const Route = createFileRoute("/politique-de-confidentialite")({
   head: () => ({
     meta: [
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
       { title: "Politique de confidentialité — CLM Industry" },
       { name: "description", content: DESCRIPTION },
       { name: "robots", content: "noindex" },
@@ -26,15 +23,15 @@ function Privacy() {
   return (
     <>
       <PageHeader title="Politique de confidentialité" />
-      <LegalTabs/><Container className="legal-layout py-12"><LegalContents titles={["Responsable de traitement", "Données collectées", "Finalités et base légale", "Destinataires et sous-traitants", "Durée de conservation", "Vos droits", "Cookies"]}/>
+      <Container className="max-w-3xl py-16 md:py-24">
         <div className="space-y-10 text-base leading-relaxed text-muted-foreground">
-          <section id="legal-0">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Responsable de traitement</h2>
             <p className="mt-3">
               {COMPANY.legalName}, {COMPANY.address}. Contact : {COMPANY.email}.
             </p>
           </section>
-          <section id="legal-1">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Données collectées</h2>
             <p className="mt-3">
               Via le formulaire de contact : nom, société, fonction, email professionnel, téléphone,
@@ -43,7 +40,7 @@ function Privacy() {
               l'envoi est conservée à des fins de lutte contre les envois automatisés.
             </p>
           </section>
-          <section id="legal-2">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Finalités et base légale</h2>
             <p className="mt-3">
               Ces données servent exclusivement à traiter votre demande, vous adresser la
@@ -52,7 +49,7 @@ function Privacy() {
               mesures précontractuelles prises à votre demande.
             </p>
           </section>
-          <section id="legal-3">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Destinataires et sous-traitants</h2>
             <p className="mt-3">
               Les données sont accessibles aux seules équipes commerciales et techniques de CLM
@@ -61,13 +58,13 @@ function Privacy() {
               des tiers.
             </p>
           </section>
-          <section id="legal-4">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Durée de conservation</h2>
             <p className="mt-3">
               Les demandes sont conservées trois ans à compter du dernier contact, puis supprimées.
             </p>
           </section>
-          <section id="legal-5">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Vos droits</h2>
             <p className="mt-3">
               Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et
@@ -75,7 +72,7 @@ function Privacy() {
               de la CNIL. Pour exercer ces droits, écrivez à {COMPANY.email}.
             </p>
           </section>
-          <section id="legal-6">
+          <section>
             <h2 className="text-xl font-bold text-foreground">Cookies</h2>
             <p className="mt-3">
               Ce site ne dépose aucun cookie de mesure d'audience ni de publicité. Seuls les
