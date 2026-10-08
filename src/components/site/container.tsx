@@ -36,7 +36,7 @@ export function PageHeader({
   intro?: string;
 }) {
   return (
-    <section className="border-b border-border/40 bg-[color:var(--footer)]">
+    <section className="v2-page-header border-b border-border/40">
       <Container className="py-16 md:py-24">
         {eyebrow ? (
           <div className="text-xs font-semibold uppercase tracking-widest text-accent">

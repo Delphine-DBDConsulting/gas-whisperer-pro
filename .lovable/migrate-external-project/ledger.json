@@ -1,0 +1,15 @@
+{
+  "source": "Claude Design — CLM_Industry_-_website_v2.zip",
+  "capabilities": [
+    {"capability":"Visual design and page layouts","source":"48 screenshots, handoff and content JSON","outcome":"Recreate in existing TanStack site","status":"in_progress","next_action":"Implement and inspect each page"},
+    {"capability":"Existing route URLs and SEO","source":"Current live site","outcome":"Preserve URLs; canonical technology page with legacy redirect","status":"in_progress","next_action":"Verify navigation and metadata"},
+    {"capability":"Database, records and identities","source":"Existing Lovable Cloud; archive contains no backend","outcome":"Retain unchanged","status":"preserved","next_action":"No data migration required for design-only replacement"},
+    {"capability":"Contact and brochure forms","source":"Existing Zod schemas and lead functions","outcome":"Retain existing submission and Brevo sync","status":"in_progress","next_action":"Verify form validation and unchanged submission wiring"},
+    {"capability":"Booking and brochure PDF","source":"Existing Brevo agenda and PDF asset","outcome":"Retain","status":"in_progress","next_action":"Verify embed and PDF URL"},
+    {"capability":"Uploaded visuals","source":"Six original visuals plus screenshot-derived logo","outcome":"Import originals as CDN pointers; retain original logo","status":"in_progress","next_action":"Inspect and import visuals"},
+    {"capability":"Licensed photography","source":"Watermarked stock photos visible only in mockups","outcome":"Do not reproduce unlicensed photos","status":"pending","next_action":"User supplies purchased photos"},
+    {"capability":"Testimonials and example satisfaction figures","source":"Existing provisional content and mockups","outcome":"Preserve provisional status; not independently validated","status":"pending","next_action":"Client validates real quotations and figures"},
+    {"capability":"External APIs, schedules, payments and authentication","source":"No new integration in archive","outcome":"Existing services unchanged","status":"preserved","next_action":"No provider replacement or new credential needed"},
+    {"capability":"Cutover","source":"Existing published site","outcome":"Preview only; no automatic publishing","status":"pending","next_action":"User reviews and explicitly requests publication"}
+  ]
+}

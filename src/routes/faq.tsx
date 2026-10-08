@@ -1,3 +1,4 @@
+import { BookingButton } from "@/components/site/booking";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { Container, PageHeader } from "@/components/site/container";
@@ -100,17 +101,18 @@ function FaqPage() {
         title="Questions fréquentes"
         intro="Les réponses aux questions que nous posent le plus souvent les responsables HSE, environnement et production."
       />
+      <Container className="py-6"><nav aria-label="Rubriques FAQ" className="grid max-w-xl gap-3 sm:grid-cols-2">{groups.map((g,i)=><a href={`#faq-${i}`} key={g.title} className="flex items-center justify-between rounded-md border border-border bg-card p-4 text-sm font-medium hover:border-accent">{g.title}<span aria-hidden="true">↓</span></a>)}</nav></Container>
       <Container className="py-12 md:py-20">
         <div className="space-y-16">
-          {groups.map((g) => (
-            <section key={g.title}>
-              <div className="flex flex-wrap items-baseline justify-between gap-4">
+          {groups.map((g,i) => (
+            <section id={`faq-${i}`} className="faq-group" key={g.title}>
+              <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-foreground">{g.title}</h2>
                 <Link to={g.to} className="text-sm font-semibold text-accent hover:underline">
                   Découvrir la solution →
                 </Link>
               </div>
-              <div className="mt-6 divide-y divide-border rounded-lg border border-border bg-card">
+              <div className="divide-y divide-border rounded-lg border border-border bg-card">
                 {g.items.map((i) => (
                   <details key={i.q} className="group p-6">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-foreground">
@@ -124,7 +126,7 @@ function FaqPage() {
             </section>
           ))}
         </div>
-      </Container>
+      </Container><section className="bg-surface"><Container className="py-12 text-center"><h2 className="font-bold">Vous ne trouvez pas votre réponse ?</h2><div className="mt-6 flex flex-wrap justify-center gap-4"><BookingButton/><Link to="/contact" className="cta-outline">Nous écrire</Link></div></Container></section>
     </>
   );
 }

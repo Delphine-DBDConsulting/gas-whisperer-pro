@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Breadcrumbs, RelatedSolution } from "@/components/site/page-kit";
+import { VisualSlot, RelatedSolution } from "@/components/site/page-kit";
 import { IconMail } from "@tabler/icons-react";
 
 import { BookingButton } from "@/components/site/booking";
@@ -20,7 +20,8 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ params, loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Article introuvable | CLM Industry" }, { name: "robots", content: "noindex" }],
+        meta: [
+      { name: "twitter:card", content: "summary" },{ title: "Article introuvable | CLM Industry" }, { name: "robots", content: "noindex" }],
       };
     }
     const { post } = loaderData;
@@ -123,23 +124,12 @@ function ArticlePage() {
 
   return (
     <>
-      <Breadcrumbs items={[{ label: "Blog", to: "/blog" }, { label: post.title }]} />
-      <Container className="grid gap-12 py-16 md:py-24 lg:grid-cols-[minmax(0,7fr)_minmax(0,3fr)]">
+      <section className="bg-surface"><Container className="grid items-center gap-8 py-12 lg:grid-cols-[1.1fr_1fr]"><div><span className="text-xs font-semibold uppercase text-accent-light">{post.category}</span><h1 className="mt-4 text-3xl font-extrabold leading-tight">{post.title}</h1><p className="mt-5 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p><p className="mt-4 text-xs text-muted-foreground">{post.date} · {post.readingTime}</p></div><VisualSlot label="Vignette à venir" className="h-64"/></Container></section>
+      <Container className="article-layout grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,7fr)_minmax(0,3fr)]">
         <article>
-          <span className="inline-block rounded-full bg-accent/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent">
-            {post.category}
-          </span>
-          <h1 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-foreground md:text-4xl">
-            {post.title}
-          </h1>
-          <p className="mt-4 text-sm text-muted-foreground">
-            {post.date} · {post.readingTime}
-          </p>
-          <div className="mt-8 border-t border-border/60" />
-
           <div className="mt-8 space-y-5">
             {post.body.map((block, i) => (
-              <Block key={i} block={block} renderText={renderText} />
+              <Block key={i} block={block} renderText={renderText} headingId={block.type === "h2" ? `article-${post.body.slice(0,i).filter(b=>b.type==="h2").length}` : undefined} />
             ))}
           </div>
 
@@ -163,7 +153,7 @@ function ArticlePage() {
           </Link>
         </article>
 
-        <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+        <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start"><nav aria-label="Sommaire de l’article" className="rounded-lg border border-border bg-card p-6"><h2 className="mb-4 text-sm font-semibold text-accent-light">Dans cet article</h2>{post.body.filter(b=>b.type==="h2").map((b,i)=><a key={i} href={`#article-${i}`} className="block border-l border-border py-2 pl-3 text-xs leading-relaxed text-muted-foreground hover:border-accent hover:text-accent-light">{"text" in b ? b.text : ""}</a>)}</nav>
           <div className="rounded-xl border border-border bg-card p-6">
             <h2 className="text-base font-bold text-foreground">
               {post.sidebarCta?.title ?? "Une question sur votre site ?"}
@@ -234,12 +224,14 @@ function ArticlePage() {
 function Block({
   block,
   renderText,
+  headingId,
 }: {
+  headingId?: string;
   block: BlogBlock;
   renderText: (text: string) => React.ReactNode;
 }) {
   if (block.type === "h2")
-    return <h2 className="pt-4 text-2xl font-bold text-foreground">{block.text}</h2>;
+    return <h2 id={headingId} className="pt-4 text-2xl font-bold text-foreground">{block.text}</h2>;
   if (block.type === "h3")
     return <h3 className="pt-2 text-lg font-bold text-foreground">{block.text}</h3>;
   if (block.type === "ul")
@@ -255,7 +247,7 @@ function Block({
       <div
         className={`rounded-lg border-l-4 p-5 ${
           block.tone === "warning"
-            ? "border-l-[color:var(--warning,#E0A24A)] bg-[color:var(--warning,#E0A24A)]/10"
+            ? "border-l-warning bg-warning/10"
             : "border-l-accent bg-accent/10"
         }`}
       >

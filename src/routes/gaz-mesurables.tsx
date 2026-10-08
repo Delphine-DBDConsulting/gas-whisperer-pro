@@ -1,3 +1,4 @@
+import { MolecularScanner } from "@/components/site/design-v2";
 import { NumberedCarousel, PageIntro } from "@/components/site/page-kit";
 import { GASES } from "@/lib/gases";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -70,8 +71,8 @@ function GazMesurables() {
   return (
     <>
       {/* HERO */}
-      <section className="border-b border-border/40 bg-[color:var(--footer)]">
-        <Container className="py-16 md:py-24">
+      <section className="v2-solution-hero">
+        <Container><div>
           <span className="inline-flex rounded-full border border-accent/50 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
             Capacités de mesure
           </span>
@@ -84,11 +85,11 @@ function GazMesurables() {
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
             <BookingButton />
-            <Link to="/notre-technologie" className="cta-outline">
+            <Link to="/technologie" className="cta-outline">
               Découvrir la technologie OPO Laser
             </Link>
           </div>
-        </Container>
+        </div><MolecularScanner/></Container>
       </section>
 
       <PageIntro crumbs={[{ label: "Gaz mesurables" }]} figures={[{ value: "500+", label: "espèces gazeuses" }, { value: "6", label: "familles de gaz couvertes" }, { value: "0,005 ppm", label: "limite de détection du cyclohexane" }]} proof="Des COV aux NOx en passant par les CMR et les réfrigérants : un seul analyseur, un seul passage, chaque molécule identifiée et quantifiée." />
@@ -104,7 +105,7 @@ function GazMesurables() {
           précise, contactez-nous.
         </p>
         <div className="mt-10">
-          <NumberedCarousel items={families.map((f) => ({ title: f.title, sub: f.examples, text: f.detail }))} />
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{families.map((f,i)=><article key={f.title} className="rounded-lg border border-border bg-card p-6"><span className="text-xs font-semibold text-accent-light">0{i+1}</span><h3 className="mt-3 text-lg font-bold">{f.title}</h3><p className="mt-4 text-xs font-medium text-accent-light">{f.examples}</p><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.detail}</p></article>)}</div>
         </div>
       </Container>
 

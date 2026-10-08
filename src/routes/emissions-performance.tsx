@@ -1,3 +1,5 @@
+import { designVisuals, SavingsBand } from "@/components/site/design-v2";
+import content from "@/content/solutions.json";
 import { PageIntro } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
@@ -439,35 +441,64 @@ function UpstreamDownstreamDiagram() {
 function EmissionsPerformancePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="border-b border-border/40 bg-[color:var(--footer)]">
+      <section className="v2-solution-hero"><Container><div><p className="text-xs font-semibold uppercase text-accent-light">Un investissement est à arbitrer</p><h1 className="mt-5 font-extrabold">Ce que votre abattage vous coûte réellement</h1><p className="mt-6 text-base leading-relaxed text-muted-foreground">CLM Industry met en place une solution de surveillance continue pour mesurer vos émissions de COV sur 1 à 2 mois. Le monitoring accessible à distance permet de mesurer l'efficacité de vos systèmes d'abattage et d'optimiser les cycles de production.</p><div className="mt-8 flex flex-wrap gap-4"><BookingButton/><a href="#processus" className="cta-outline">Voir le processus de mesure</a></div></div><div className="hero-media"><img src={designVisuals.factory} alt="Installations industrielles et cheminées d'usine" className="object-cover"/></div></Container></section>
+      <section className="bg-surface"><Container className="py-8"><SavingsBand/></Container></section>
+
+      {/* CAS D'USAGE */}
+      <section className="border-y border-border/40 bg-[color:var(--footer)]">
         <Container className="py-16 md:py-24">
-          <h1 className="max-w-4xl text-3xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-5xl">
-            Surveillez vos émissions de COV et optimisez l'efficacité de vos systèmes d'abattage
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            CLM Industry met en place une solution de surveillance continue pour mesurer vos
-            émissions de COV sur 1 à 2 mois. Le monitoring, couplé avec un système d'alertes et
-            accessible à distance, permet de mesurer l'efficacité de vos systèmes d'abattage en
-            temps réel, et d'optimiser les cycles de production.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <BookingButton />
-            <Link to="/sante-environnement" className="cta-outline">
-              Découvrir Santé &amp; Environnement
-            </Link>
+          <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+            Quand faire appel à CLM Industry ?
+          </h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {useCases.map((c) => (
+              <article
+                key={c.title}
+                className="card-hover rounded-xl border border-border bg-card p-7"
+              >
+                <c.icon className="h-6 w-6 text-accent" aria-hidden />
+                <h3 className="mt-4 text-base font-bold text-foreground">{c.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
+              </article>
+            ))}
+            <article className="card-hover rounded-xl border border-border bg-card p-7">
+              <Award className="h-6 w-6 text-accent" aria-hidden />
+              <h3 className="mt-4 text-base font-bold text-foreground">
+                Dossier de conformité environnementale
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Vous devez justifier de l'efficacité de votre système d'abattage auprès des
+                autorités (
+                <a
+                  href={DRIETS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-accent underline underline-offset-4"
+                >
+                  DRIETS
+                </a>
+                , DREETS,{" "}
+                <a
+                  href={COV_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-accent underline underline-offset-4"
+                >
+                  inspection des installations classées
+                </a>
+                ). Le rapport CLM Industry constitue une preuve documentée et opposable.
+              </p>
+            </article>
           </div>
         </Container>
       </section>
-
-      <PageIntro crumbs={[{ label: "Solutions", to: "/offres" }, { label: "Émissions & Performance" }]} figures={[{ value: "1–2 mois", label: "de monitoring continu" }, { value: "2", label: "analyseurs en amont et en aval" }, { value: "130 k€", label: "d'économie annuelle sur un cas client" }]} proof="Le rendement réel de vos systèmes d'abattage, molécule par molécule : ajustez la maintenance et vos consommations sur des données mesurées, pas estimées." />
 
       {/* PROBLÈME + SOLUTION + TECHNOLOGIE */}
       <Container className="py-16 md:py-24">
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">
           Vos systèmes d'abattage sont-ils réellement efficaces ?
         </h2>
-        <UpstreamDownstreamDiagram />
+        <figure id="processus" className="mt-8 overflow-hidden rounded-lg border border-border bg-footer p-5"><img src={designVisuals.process} alt="Mesure amont et aval du système d’abattage, surveillance à distance et rapport" className="w-full" loading="lazy"/></figure>
         <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
             Un système d'abattage des COV n'a de valeur que par son rendement réel, en conditions
@@ -531,9 +562,9 @@ function EmissionsPerformancePage() {
         <h2 className="text-2xl font-bold text-foreground md:text-3xl">
           Comment se déroule une campagne Émissions &amp; Performance ?
         </h2>
-        <ol className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="v2-step-grid mt-10">
           {steps.map((s, i) => (
-            <li key={s.title} className="card-hover rounded-lg border border-border bg-card p-6">
+            <li key={s.title} className="p-4">
               <div className="flex items-center gap-3">
                 <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-accent text-sm font-bold text-accent-foreground">
                   {i + 1}
@@ -546,55 +577,6 @@ function EmissionsPerformancePage() {
           ))}
         </ol>
       </Container>
-
-      {/* CAS D'USAGE */}
-      <section className="border-y border-border/40 bg-[color:var(--footer)]">
-        <Container className="py-16 md:py-24">
-          <h2 className="text-2xl font-bold text-foreground md:text-3xl">
-            Quand faire appel à CLM Industry ?
-          </h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {useCases.map((c) => (
-              <article
-                key={c.title}
-                className="card-hover rounded-xl border border-border bg-card p-7"
-              >
-                <c.icon className="h-6 w-6 text-accent" aria-hidden />
-                <h3 className="mt-4 text-base font-bold text-foreground">{c.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
-              </article>
-            ))}
-            <article className="card-hover rounded-xl border border-border bg-card p-7">
-              <Award className="h-6 w-6 text-accent" aria-hidden />
-              <h3 className="mt-4 text-base font-bold text-foreground">
-                Dossier de conformité environnementale
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Vous devez justifier de l'efficacité de votre système d'abattage auprès des
-                autorités (
-                <a
-                  href={DRIETS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-accent underline underline-offset-4"
-                >
-                  DRIETS
-                </a>
-                , DREETS,{" "}
-                <a
-                  href={COV_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-accent underline underline-offset-4"
-                >
-                  inspection des installations classées
-                </a>
-                ). Le rapport CLM Industry constitue une preuve documentée et opposable.
-              </p>
-            </article>
-          </div>
-        </Container>
-      </section>
 
       {/* LIVRABLES + FAQ */}
       <Container className="py-16 md:py-24">
@@ -640,61 +622,7 @@ function EmissionsPerformancePage() {
           </div>
         </div>
 
-        <div className="mt-16 rounded-lg border border-border bg-card p-6 md:p-8">
-          <h3 className="text-lg font-bold text-foreground">
-            Exemple de mesure simultanée multi-espèces
-          </h3>
-          <div className="mt-4 flex flex-wrap gap-5 text-xs text-muted-foreground">
-            {SERIES.map((s) => (
-              <span key={s.name} className="flex items-center gap-2">
-                <span
-                  className="inline-block h-2.5 w-2.5"
-                  style={{ backgroundColor: s.color }}
-                  aria-hidden
-                />
-                {s.name} (VLEP {s.vlep.toString().replace(".", ",")} ppm)
-              </span>
-            ))}
-            <span className="flex items-center gap-2">
-              <span
-                className="h-0.5 w-6"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(90deg,#9aa4b2 0 6px,transparent 6px 10px)",
-                }}
-                aria-hidden
-              />
-              VLEP respective
-            </span>
-          </div>
-          <div className="mt-4 overflow-x-auto">
-            <MultiSpeciesChart />
-          </div>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              ["Benzène", "⚠ Dépassement pts 3-4", true],
-              ["Formaldéhyde", "⚠ Dépassement pts 3-5", true],
-              ["Toluène", "✓ Conforme", false],
-              ["Acétone", "✓ Conforme", false],
-            ].map(([name, label, danger]) => (
-              <div
-                key={name as string}
-                className={`rounded-md border px-5 py-4 text-sm ${
-                  danger
-                    ? "border-[#d03b3b]/40 bg-[#d03b3b]/10"
-                    : "border-accent/40 bg-accent/10"
-                }`}
-              >
-                <div className="font-semibold text-foreground">{name}</div>
-                <div className="mt-1 text-muted-foreground">{label}</div>
-              </div>
-            ))}
-          </div>
-          <p className="mt-5 text-center text-[11px] text-muted-foreground">
-            Exemple illustratif — Mesure simultanée de 4 espèces gazeuses — 8 points de
-            prélèvement — Site industriel anonymisé
-          </p>
-        </div>
+        <figure className="mt-10 rounded-lg border border-border bg-footer p-5"><h3 className="mb-5 text-lg font-bold">Exemple de mesure simultanée multi-espèces</h3><img src={designVisuals.multi} alt="Mesure simultanée de quatre espèces gazeuses et comparaison aux VLEP" className="w-full" loading="lazy"/><figcaption className="mt-4 text-xs text-muted-foreground">Exemple illustratif — 8 points de prélèvement — Site industriel anonymisé.</figcaption></figure>
       </Container>
 
       {/* CAS CLIENTS */}

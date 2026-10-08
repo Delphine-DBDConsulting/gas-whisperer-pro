@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { VisualSlot } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
@@ -14,6 +15,7 @@ const DOMAIN = "https://gas-whisperer-pro.lovable.app";
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary" },
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
@@ -39,11 +41,12 @@ function BlogIndex() {
       />
 
       <Container className="py-16 md:py-24">
-        <div className="flex flex-wrap justify-center gap-3">
+        {active === "Tous" && posts[0] && <article className="mb-12 grid overflow-hidden rounded-lg border border-border bg-card lg:grid-cols-[1.2fr_1fr]"><VisualSlot label="Vignette à venir" className="min-h-64 rounded-none border-0"/><div className="p-8"><span className="text-xs font-semibold uppercase text-accent-light">À la une · {posts[0].category}</span><h2 className="mt-4 font-bold">{posts[0].title}</h2><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{posts[0].excerpt}</p><p className="mt-4 text-xs text-muted-foreground">{posts[0].date} · {posts[0].readingTime}</p><Button asChild variant="discover" className="mt-6"><Link to="/blog/$slug" params={{slug:posts[0].slug}}>Lire l'article →</Link></Button></div></article>}
+        <div className="flex flex-wrap items-center gap-3"><h2 className="mr-auto font-bold">Tous les articles</h2>
           {(["Tous", ...BLOG_CATEGORIES] as const).map((c) => {
             const isActive = active === c;
             return (
-              <button
+              <Button
                 key={c}
                 type="button"
                 onClick={() => setActive(c)}
@@ -55,7 +58,7 @@ function BlogIndex() {
                 }`}
               >
                 {c === "Cas clients & ROI" ? "Cas clients & ROI" : c}
-              </button>
+              </Button>
             );
           })}
         </div>
@@ -87,7 +90,7 @@ function BlogIndex() {
 
 function ArticleCard({ post }: { post: (typeof posts)[number] }) {
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent hover:shadow-xl">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent ">
       <span className="absolute inset-x-0 top-0 h-[2px] bg-accent opacity-0 transition-opacity group-hover:opacity-100" />
       <VisualSlot label="Vignette à venir" className="-mx-6 -mt-6 mb-5 h-36 rounded-none border-x-0 border-t-0" />
       <span className="w-fit rounded-full bg-accent/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent">

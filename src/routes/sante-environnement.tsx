@@ -1,3 +1,5 @@
+import { designVisuals } from "@/components/site/design-v2";
+import content from "@/content/solutions.json";
 import { PageIntro, Parallax, ProgressStats } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
@@ -29,7 +31,7 @@ const comparison: [string, string, string][] = [
   ["Consommables", "Gaz vecteurs, tubes, filtres", "Zéro consommable"],
 ];
 
-const steps = [
+const legacySteps = [
   {
     icon: ClipboardList,
     title: "Prise de contact et cadrage",
@@ -51,6 +53,8 @@ const steps = [
     text: "Document de conformité complet, exploitable lors d'un audit interne ou présentable en cas de contrôle par la DRIETS, la DREETS, le médecin du travail, le COFRAC ou encore le CSE.",
   },
 ];
+
+const steps = content.seSteps.map((step, i) => ({...step, icon: [ClipboardList,Wrench,LineChart,FileCheck2][i] ?? ClipboardList}));
 
 const useCases = [
   {
@@ -251,30 +255,8 @@ function MeasurementChart() {
 function SanteEnvironnementPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="border-b border-border/40 bg-[color:var(--footer)]">
-        <Container className="py-16 md:py-24">
-          <span className="inline-flex rounded-full border border-accent/50 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
-            Solution 1
-          </span>
-          <h1 className="mt-5 max-w-4xl text-3xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-5xl">
-            Conformité VLEP sur site industriel : identifiez les gaz que vous ne voyez pas
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Les Composés Organiques Volatils s'évaporent dans l'air de vos ateliers sans signal
-            d'alarme. CLM Industry réalise une campagne de mesure exhaustive sur votre site et vous
-            remet un rapport de conformité VLEP complet, traçable et signé.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <BookingButton />
-            <Link to="/offres/emissions-performance" className="cta-outline">
-              Découvrir Émissions &amp; Performance
-            </Link>
-          </div>
-        </Container>
-      </section>
-
-      <PageIntro crumbs={[{ label: "Solutions", to: "/offres" }, { label: "Santé & Environnement" }]} figures={[{ value: "500+", label: "espèces gazeuses identifiables" }, { value: "10", label: "gaz mesurés simultanément" }, { value: "< 1 h", label: "d'installation, sans arrêt de production" }]} proof="Une campagne de 1 à 5 jours suffit pour savoir quelles molécules respirent vos équipes et documenter votre conformité VLEP et CMR, poste par poste." />
+      <section className="v2-solution-hero"><Container><div><p className="text-xs font-semibold uppercase text-accent-light">Un contrôle est annoncé</p><h1 className="mt-5 font-extrabold">Savoir précisément ce que respirent vos équipes</h1><p className="mt-6 text-base leading-relaxed text-muted-foreground">Une campagne ponctuelle qui identifie les molécules réellement présentes dans l'air de vos ateliers, et documente votre conformité VLEP et CMR.</p><div className="mt-8 flex flex-wrap gap-4"><BookingButton/><a href="#rapport" className="cta-outline">Voir un exemple de rapport</a></div></div><div className="hero-media"><img src={designVisuals.analyzer} alt="Analyseur XFLR-9® pour les campagnes de mesure sur site"/></div></Container></section>
+      <PageIntro crumbs={[]} figures={[{value:"500+",label:"espèces gazeuses identifiables"},{value:"10",label:"gaz mesurés simultanément"},{value:"1 à 5 jours",label:"campagne ponctuelle sur site"}]} proof="Une mesure précise, molécule par molécule, pour documenter votre conformité VLEP et CMR." />
 
       {/* CAS D'USAGE */}
       <section className="border-y border-border/40 bg-[color:var(--footer)]">
@@ -380,7 +362,7 @@ function SanteEnvironnementPage() {
           <div className="mt-10 overflow-x-auto rounded-lg border border-border">
             <table className="w-full min-w-[640px] border-collapse text-left text-sm">
               <thead>
-                <tr className="bg-[#1A2E44] text-white">
+                <tr className="bg-footer text-foreground">
                   <th className="px-5 py-4 font-bold">Critère</th>
                   <th className="px-5 py-4 font-bold">Capteurs classiques FID/PID</th>
                   <th className="px-5 py-4 font-bold">XFLR-9 — CLM Industry</th>
@@ -393,7 +375,7 @@ function SanteEnvironnementPage() {
                     <td className="px-5 py-4 text-muted-foreground">
                       {row[1].startsWith("✗") ? (
                         <>
-                          <span className="font-bold text-[#d03b3b]">✗</span>
+                          <span className="font-bold text-destructive">✗</span>
                           {row[1].slice(1)}
                         </>
                       ) : (
@@ -428,7 +410,7 @@ function SanteEnvironnementPage() {
             CLM Industry déploie son analyseur propriétaire XFLR-9 directement sur votre site
             industriel. En s'appuyant sur la{" "}
             <Link
-              to="/notre-technologie"
+              to="/technologie"
               className="font-medium text-accent underline underline-offset-4"
             >
               technologie OPO Laser
@@ -447,9 +429,9 @@ function SanteEnvironnementPage() {
         <h3 className="mt-14 text-xl font-bold text-foreground">
           Comment se déroule une campagne ?
         </h3>
-        <ol className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="v2-step-grid mt-8">
           {steps.map((s, i) => (
-            <li key={s.title} className="card-hover rounded-lg border border-border bg-card p-6">
+            <li key={s.title} className="p-4">
               <div className="flex items-center gap-3">
                 <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-accent text-sm font-bold text-accent-foreground">
                   {i + 1}
@@ -501,41 +483,8 @@ function SanteEnvironnementPage() {
           </div>
         </div>
 
-        <div className="mt-16 rounded-lg border border-border bg-card p-6 md:p-8">
-          <h3 className="text-lg font-bold text-foreground">Exemple de rapport de mesure</h3>
-          <div className="mt-4 flex flex-wrap gap-6 text-xs text-muted-foreground">
-            <span className="flex items-center gap-2">
-              <span className="h-0.5 w-6 bg-[#2a78d6]" aria-hidden />
-              Concentration mesurée (ppm)
-            </span>
-            <span className="flex items-center gap-2">
-              <span
-                className="h-0.5 w-6"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(90deg,#d03b3b 0 6px,transparent 6px 10px)",
-                }}
-                aria-hidden
-              />
-              VLEP contraignante — 0,2 ppm
-            </span>
-          </div>
-          <div className="mt-4">
-            <MeasurementChart />
-          </div>
-          <div className="mt-6 flex flex-col gap-4 sm:flex-row">
-            <div className="flex-1 rounded-md border border-[#d03b3b]/40 bg-[#d03b3b]/10 px-5 py-4 text-sm font-semibold text-foreground">
-              Zone de dépassement — Points 3 et 4
-            </div>
-            <div className="flex-1 rounded-md border border-accent/40 bg-accent/10 px-5 py-4 text-sm font-semibold text-foreground">
-              Zone de conformité — Points 1, 2, 5, 6, 7, 8
-            </div>
-          </div>
-          <p className="mt-5 text-center text-[11px] text-muted-foreground">
-            Exemple illustratif — Campagne de mesure benzène (C₆H₆) — 8 points de prélèvement — Site
-            industriel anonymisé
-          </p>
-        </div>
+        <div id="rapport" className="mt-12 grid items-start gap-8 lg:grid-cols-2"><div><h3 className="text-xl font-bold">Le rapport que vous recevez</h3><p className="mt-4 text-sm leading-relaxed text-muted-foreground">Chaque rapport est horodaté, tracé et signé. Les concentrations mesurées sont documentées molécule par molécule et comparées aux VLEP en vigueur.</p><ul className="mt-6 space-y-4">{deliverables.map(d=><li key={d} className="flex gap-3 text-sm leading-relaxed text-muted-foreground"><Check className="h-4 w-4 shrink-0 text-accent"/>{d}</li>)}</ul></div><figure className="overflow-hidden rounded-lg border border-border bg-footer p-5"><img src={designVisuals.report} alt="Exemple illustratif de rapport de mesure benzène sur huit points de prélèvement" loading="lazy" className="w-full"/><figcaption className="mt-4 text-xs text-muted-foreground">Exemple illustratif — concentrations mesurées comparées à la VLEP.</figcaption></figure></div>
+        <figure className="mt-12 overflow-hidden rounded-lg border border-border bg-footer p-5"><img src={designVisuals.plan} alt="Plan d'atelier avec points de prélèvement et cartographie des expositions" className="w-full" loading="lazy"/></figure>
       </Container>
 
       {/* CAS CLIENTS */}

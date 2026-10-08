@@ -4,6 +4,7 @@ import { ShieldAlert, TrendingUp } from "lucide-react";
 import usineFiligrane from "@/assets/usine-filigrane.jpg.asset.json";
 import xflr9 from "@/assets/xflr9-analyzer.png.asset.json";
 import { BookingButton } from "@/components/site/booking";
+import { SolutionCards } from "@/components/site/design-v2";
 import { Container } from "@/components/site/container";
 
 const DESCRIPTION =
@@ -59,40 +60,8 @@ function OffresIndex() {
             ou parce qu'une installation coûte trop cher. Votre point de départ décide de la campagne.
           </p>
         </header>
-        <div className="mt-12 grid gap-6 lg:grid-cols-2 md:mt-14">
-          {offers.map((o) => (
-            <article
-              key={o.title}
-              className="card-hover flex min-w-0 flex-col overflow-hidden border border-border bg-card"
-            >
-              <div className="h-48 overflow-hidden border-b border-border bg-footer md:h-56">
-                <img src={o.image} alt={o.imageAlt} className={`h-full w-full ${o.Icon === ShieldAlert ? "object-contain p-5" : "object-cover"}`} loading="lazy" />
-              </div>
-              <div className="flex flex-1 flex-col p-6 md:p-8">
-                <div className="flex items-center gap-3 text-xs font-semibold uppercase text-accent">
-                  <o.Icon className="h-5 w-5 shrink-0" aria-hidden="true" />
-                  <span>{o.situation}</span>
-                </div>
-                <h2 className="mt-4 text-2xl font-bold text-foreground md:text-3xl">{o.title}</h2>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground">{o.text}</p>
-                <div className="mt-auto flex flex-wrap items-end justify-between gap-5 pt-10">
-                  <div>
-                    <p className="text-xs font-semibold uppercase text-muted-foreground">Durée · Résultat</p>
-                    <p className="mt-1 text-2xl font-extrabold text-foreground">{o.duration}</p>
-                  </div>
-                  <Link
-                    to={o.to}
-                    aria-label={`Découvrir ${o.title}`}
-                    className="inline-flex h-11 items-center gap-3 border border-accent px-5 text-sm font-semibold text-accent transition-colors hover:border-cta-hover hover:bg-cta-hover hover:text-accent-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-                  >
-                    Découvrir <span aria-hidden="true">→</span>
-                  </Link>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-        <div className="mt-14 rounded-lg border border-border bg-card p-8 text-center">
+        <div className="mt-10"><SolutionCards /></div>
+        <div className="mt-12 flex flex-col items-center justify-between gap-6 border-l-2 border-accent bg-footer p-7 text-center md:flex-row md:text-left">
           <h2 className="text-xl font-bold text-foreground">
             Vous vous interrogez sur la solution qui correspond à votre besoin ?
           </h2>

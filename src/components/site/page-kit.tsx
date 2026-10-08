@@ -21,8 +21,8 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
     })),
   };
   return (
-    <nav aria-label="Fil d'Ariane" className="border-b border-border/40 bg-background">
-      <Container className="py-3">
+    <nav aria-label="Fil d'Ariane" className="border-b border-border/40 bg-footer">
+      <Container className="flex min-h-12 items-center py-3">
         <ol className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
           {all.map((c, i) => (
             <li key={i} className="flex items-center gap-1.5">
@@ -105,38 +105,9 @@ export function PageIntro({
   image?: string;
   imageAlt?: string;
 }) {
-  return (
-    <>
-      <Breadcrumbs items={crumbs} />
-      <section className="border-b border-border/40 bg-card">
-        <Container className="grid items-center gap-8 py-10 lg:grid-cols-[1.4fr_1fr]">
-          <div>
-            {figures && figures.length > 0 && (
-              <div className="grid gap-6 sm:grid-cols-3">
-                {figures.map((f) => (
-                  <div key={f.label} className="border-l-2 border-accent pl-4">
-                    <div className="text-3xl font-extrabold leading-none text-foreground">{f.value}</div>
-                    <p className="mt-2 text-xs leading-snug text-muted-foreground">{f.label}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-            <p className={`max-w-2xl text-sm leading-relaxed text-muted-foreground ${figures && figures.length > 0 ? "mt-6" : ""}`}>{proof}</p>
-          </div>
-          <div className="relative h-44 overflow-hidden rounded-lg border border-border bg-[color:var(--footer)] md:h-52">
-            <Parallax strength={24} className="absolute -inset-y-8 inset-x-0">
-              <img
-                src={image ?? skyline.url}
-                alt={imageAlt}
-                loading="lazy"
-                className="h-full w-full object-cover opacity-80"
-              />
-            </Parallax>
-          </div>
-        </Container>
-      </section>
-    </>
-  );
+  return figures && figures.length > 0 ? (
+    <section className="v2-figures"><Container><div className="key-figures">{figures.map(f=><div key={f.label}><strong>{f.value}</strong><p>{f.label}</p></div>)}</div><p className="mt-5 max-w-3xl text-sm leading-relaxed text-muted-foreground">{proof}</p></Container></section>
+  ) : null;
 }
 
 /* ---------- Carrousel de témoignages anonymisés ---------- */

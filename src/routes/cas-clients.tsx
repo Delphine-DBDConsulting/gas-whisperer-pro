@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { SavingsBand } from "@/components/site/design-v2";
 import { PageIntro } from "@/components/site/page-kit";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
@@ -25,6 +27,7 @@ const DOMAIN = "https://gas-whisperer-pro.lovable.app";
 export const Route = createFileRoute("/cas-clients")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary" },
       { title: "Cas clients — Mesure de gaz industriels sur site | CLM Industry" },
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: "Cas clients — Mesure de gaz industriels sur site | CLM Industry" },
@@ -183,7 +186,7 @@ function CasClients() {
           {filters.map((f) => {
             const isActive = activeFilter === f.value;
             return (
-              <button
+              <Button
                 key={f.value}
                 type="button"
                 onClick={() => setActiveFilter(f.value)}
@@ -195,7 +198,7 @@ function CasClients() {
                 aria-pressed={isActive}
               >
                 {f.label}
-              </button>
+              </Button>
             );
           })}
         </div>
@@ -206,11 +209,11 @@ function CasClients() {
               key={c.title}
               className="card-hover flex flex-col rounded-lg border border-border bg-card p-8"
             >
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="text-xs font-semibold uppercase tracking-widest text-accent">
                   {c.sector}
                 </div>
-                <span className="shrink-0 rounded-full border border-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                <span className="rounded-full border border-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
                   {c.solution}
                 </span>
               </div>
@@ -234,7 +237,8 @@ function CasClients() {
       </Container>
 
       <section className="border-y border-border/40 bg-[color:var(--footer)]">
-        <Container className="py-16 md:py-24">
+        <section className="bg-surface"><Container className="space-y-6 py-12"><h2 className="font-bold">La preuve en chiffres</h2><SavingsBand/><SavingsBand kind="rto"/></Container></section>
+       <Container className="py-16 md:py-24">
           <h2 className="text-center text-2xl font-bold text-foreground md:text-3xl">
             Ils nous font confiance
           </h2>
@@ -262,27 +266,27 @@ function CasClients() {
               </div>
             </div>
 
-            <button
+            <Button
               type="button"
               onClick={prev}
               aria-label="Témoignage précédent"
               className="absolute left-0 top-1/2 hidden -translate-y-1/2 rounded-full border border-border bg-card p-2 text-foreground transition-colors hover:border-accent hover:text-accent md:inline-flex"
             >
               <IconChevronLeft className="h-5 w-5" />
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
               onClick={next}
               aria-label="Témoignage suivant"
               className="absolute right-0 top-1/2 hidden -translate-y-1/2 rounded-full border border-border bg-card p-2 text-foreground transition-colors hover:border-accent hover:text-accent md:inline-flex"
             >
               <IconChevronRight className="h-5 w-5" />
-            </button>
+            </Button>
           </div>
 
           <div className="mt-6 flex justify-center gap-2">
             {testimonials.map((_, i) => (
-              <button
+              <Button
                 key={i}
                 type="button"
                 onClick={() => goTo(i)}
@@ -299,7 +303,7 @@ function CasClients() {
 
       <section className="border-y border-border/40 bg-[color:var(--footer)]">
         <Container className="py-16 md:py-24">
-          <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+          <h2 id="secteurs" className="text-2xl font-bold text-foreground md:text-3xl">
             Les secteurs où nous intervenons
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
