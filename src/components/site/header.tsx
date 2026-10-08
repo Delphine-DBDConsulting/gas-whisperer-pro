@@ -1,14 +1,15 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import { Container } from "./container";
+import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/clm-logo.svg.asset.json";
 
 
 const navLinks = [
   { to: "/offres", label: "Solutions" },
-  { to: "/notre-technologie", label: "Notre technologie" },
+  { to: "/technologie", label: "Technologie" },
   { to: "/cas-clients", label: "Cas clients" },
   { to: "/blog", label: "Blog" },
   { to: "/contact", label: "Contact" },
@@ -24,7 +25,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 px-3 pt-3">
-      <div className="mx-auto max-w-[1200px] rounded-2xl border border-border/60 bg-background/85 shadow-lg backdrop-blur">
+      <div className="mx-auto max-w-[1256px] rounded-2xl border border-border/60 bg-footer">
       <div className="flex h-16 items-center justify-between gap-6 px-5">
         <Link to="/" className="flex items-center gap-2">
           <img
@@ -40,16 +41,16 @@ export function SiteHeader() {
         </Link>
 
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {navLinks.map((l) =>
             l.label === "Solutions" ? (
               <div key={l.to} className="group relative">
                 <Link
                   to={l.to}
                   className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
-                  activeProps={{ className: "text-accent" }}
+                  activeProps={{ className: "text-foreground" }}
                 >
-                  {l.label}
+                  {l.label} <ChevronDown className="ml-1 inline h-3 w-3" />
                 </Link>
                 <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <div className="rounded-lg border border-border bg-card p-2 shadow-xl">
@@ -58,7 +59,7 @@ export function SiteHeader() {
                         key={s.to}
                         to={s.to}
                         className="block rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/10 hover:text-accent"
-                        activeProps={{ className: "text-accent" }}
+                        activeProps={{ className: "text-foreground" }}
                       >
                         {s.label}
                       </Link>
@@ -71,7 +72,7 @@ export function SiteHeader() {
               key={l.to}
               to={l.to}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
-              activeProps={{ className: "text-accent" }}
+              activeProps={{ className: "text-foreground" }}
             >
               {l.label}
             </Link>
@@ -88,18 +89,18 @@ export function SiteHeader() {
           >
             EN
           </Link>
-          <Link to="/contact" className="cta-primary hidden sm:inline-flex">
+          <Link to="/contact" hash="creneau" className="cta-primary hidden sm:inline-flex">
             Prendre rendez-vous
           </Link>
-          <button
+          <Button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={open}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-foreground lg:hidden"
+            variant="ghost" className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-foreground lg:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -112,7 +113,7 @@ export function SiteHeader() {
                 to={l.to}
                 onClick={() => setOpen(false)}
                 className="rounded-md px-2 py-3 text-base font-medium text-muted-foreground transition-colors hover:text-accent"
-                activeProps={{ className: "text-accent" }}
+                activeProps={{ className: "text-foreground" }}
               >
                 {l.label}
               </Link>
@@ -123,7 +124,7 @@ export function SiteHeader() {
                       to={s.to}
                       onClick={() => setOpen(false)}
                       className="block rounded-md px-5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
-                      activeProps={{ className: "text-accent" }}
+                      activeProps={{ className: "text-foreground" }}
                     >
                       {s.label}
                     </Link>

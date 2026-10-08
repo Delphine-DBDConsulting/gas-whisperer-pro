@@ -1,9 +1,11 @@
+import { getPost } from "@/lib/blog";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -14,6 +16,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
+import { Breadcrumbs, type Crumb } from "@/components/site/page-kit";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -88,8 +91,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "CLM Industry — Mesure de gaz industriels par laser OPO" },
       { name: "twitter:description", content: "CLM Industry identifie, mesure et surveille les émissions de gaz industriels sur votre site pour assurer la conformité VLEP/CMR et optimiser vos installations." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/480a78b3-0c80-4dae-b83d-0a908adf312c/id-preview-cfd74050--d34eef95-f5c0-461a-9753-586a54d67735.lovable.app-1782132140362.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/480a78b3-0c80-4dae-b83d-0a908adf312c/id-preview-cfd74050--d34eef95-f5c0-461a-9753-586a54d67735.lovable.app-1782132140362.png" },
     ],
     links: [
       {
@@ -128,11 +129,18 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: state => state.location.pathname });
+  const labels: Record<string,string> = { "/offres":"Nos solutions", "/sante-environnement":"Santé & Environnement", "/emissions-performance":"Émissions & Performance", "/technologie":"Technologie", "/notre-technologie":"Technologie", "/cas-clients":"Cas clients", "/gaz-mesurables":"Gaz mesurables", "/blog":"Blog", "/contact":"Contact", "/faq":"FAQ", "/en/brochure":"English brochure", "/mentions-legales":"Mentions légales", "/politique-de-confidentialite":"Politique de confidentialité" };
+  const path = pathname.replace(/\/$/, "") || "/";
+  const crumbs: Crumb[] = path.includes("en/brochure") ? [{label:"English brochure"}] : [{label:labels[path] ?? getPost(path.split("/").at(-1) ?? "")?.title ?? "Article"}];
+  if (path === "/sante-environnement" || path === "/emissions-performance") crumbs.unshift({label:"Nos solutions",to:"/offres"});
+  if (path.startsWith("/blog/")) crumbs.unshift({label:"Blog",to:"/blog"});
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col bg-background font-sans text-foreground antialiased">
+      <div className="site-v2 flex min-h-screen flex-col bg-background font-sans text-foreground antialiased">
         <SiteHeader />
+        {path !== "/" && <Breadcrumbs items={crumbs} />}
         <main className="flex-1">
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />

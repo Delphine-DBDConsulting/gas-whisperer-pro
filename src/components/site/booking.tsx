@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { BOOKING_URL } from "@/lib/company";
 
 /**
@@ -15,14 +16,13 @@ export function BookingButton({
   className?: string;
 }) {
   return (
-    <a
+    <Button asChild variant={variant === "primary" ? "default" : "outline"} className={`${variant === "primary" ? "cta-primary" : "cta-outline"} ${className}`}><a
       href={BOOKING_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${variant === "primary" ? "cta-primary" : "cta-outline"} ${className}`}
     >
       {children}
-    </a>
+    </a></Button>
   );
 }
 
@@ -33,8 +33,7 @@ export function BookingEmbed({ title = "Réserver un créneau avec un expert CLM
       title={title}
       src={BOOKING_URL}
       loading="lazy"
-      className="w-full rounded-lg border border-border bg-card"
-      style={{ height: 720 }}
+      className="h-[720px] w-full rounded-lg border border-border bg-card"
     />
   );
 }

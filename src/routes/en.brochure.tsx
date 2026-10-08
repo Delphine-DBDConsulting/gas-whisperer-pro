@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { designVisuals } from "@/components/site/design-v2";
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
@@ -17,6 +19,10 @@ const DESCRIPTION =
 export const Route = createFileRoute("/en/brochure")({
   head: () => ({
     meta: [
+      { property: "og:image", content: designVisuals.analyzer },
+      { name: "twitter:image", content: designVisuals.analyzer },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { title: "Industrial gas measurement — English brochure | CLM Industry" },
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: "Industrial gas measurement — English brochure" },
@@ -104,12 +110,12 @@ function BrochurePage() {
           <BookingButton className="mt-3">Book a call</BookingButton>
         </div>
         <img
-          src={xflr9.url}
+          src={designVisuals.analyzer}
           alt="XFLR-9 analyser — OPO laser industrial gas measurement"
           width={1148}
           height={794}
           loading="lazy"
-          className="mt-10 w-full rounded-lg border border-border/60"
+          className="mt-10 h-72 w-full rounded-lg bg-footer object-contain p-5"
         />
       </div>
 
@@ -188,9 +194,9 @@ function BrochurePage() {
               className="hidden"
             />
 
-            <button type="submit" className="cta-primary" disabled={pending}>
+            <Button type="submit" className="cta-primary" disabled={pending}>
               {pending ? "Sending…" : "Download the brochure"}
-            </button>
+            </Button>
             <p className="text-xs leading-relaxed text-muted-foreground">
               We only use your details to send you the brochure and follow up on your request.
               Questions? {COMPANY.email}
